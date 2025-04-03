@@ -1,5 +1,7 @@
+import { alice } from "../ui/fonts";
+
 export default function Page() {
-    return <p>Dashboard Page</p>;
+    return <p className={`${alice.className}`}>Dashboard Page</p>;
 }
 
-//kembangkan navbar
+
