@@ -1,5 +1,16 @@
-## Next.js App Router Course - Starter
+To do list
 
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
+Navbar
+- UI (Done)
+- tautan navbar
 
-For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
+Font
+- Font family done
+- font kedua belum diterapkan ke semua page dan perlu di masukkan secara manual
+
+(Perlu pengembangan lagi dibawah list ini)
+About Page - Owner
+About Page - Store
+Catalogue product
+Testimonies
+Admins
