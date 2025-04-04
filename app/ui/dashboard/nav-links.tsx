@@ -12,9 +12,9 @@ import clsx from 'clsx';
 
 const links = [
   { name: 'Home', href: '/homepage' },
-  {name: 'About Us', href: '/homepage/aboutus'},
-  { name: 'About Us Store', href: '/homepage/aboutus/store' },
-  { name: 'Product Catalogue', href: '/homepage/catalogue' },
+  {name: 'Products', href: '/homepage/products'},
+  { name: 'Team', href: '/homepage/team' },
+  { name: 'Store Profile', href: '/homepage/store' },
   { name: 'Testimonies', href: '/homepage/testimonies' },
 ];  
 
