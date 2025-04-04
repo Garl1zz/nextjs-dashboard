@@ -16,9 +16,6 @@ const links = [
   { name: 'Team', href: '/homepage/team' },
   { name: 'Store Profile', href: '/homepage/store' },
   { name: 'Testimonies', href: '/homepage/testimonies' },
-  { name: 'Admin', href: '/adminpage' },
-  { name: 'Item Catalogue', href: '/adminpage/itemcatalogue' },
-  { name: 'Testimonies Admin', href: '/adminpage/testimonies' },
 ];  
 
 export default function NavLinks() {
