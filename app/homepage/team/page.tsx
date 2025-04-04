@@ -1,3 +1,5 @@
+import { alice } from "@/app/ui/fonts";
+
 export default function Page() {
-    return <p>About us - Team</p>;
+    return <p className={`${alice.className}`}>About us - Team</p>;
 }

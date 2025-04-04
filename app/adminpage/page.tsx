@@ -1,5 +1,5 @@
 import { alice } from "../ui/fonts";
 
 export default function Page() {
-    return <p className={`${alice.className}`}>Home Page</p>;
+    return <p className={`${alice.className}`}>Admin Page</p>;
 }
