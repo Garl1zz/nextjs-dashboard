@@ -1,7 +1,7 @@
 import AcmeLogo from '@/app/ui/acme-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import { alice,bungee_inline } from '@/app/ui/fonts';
+import { alice, bungee_inline } from '@/app/ui/fonts';
 import styles from '@/app/ui/styles/home.module.css';
 import Image from 'next/image';
 

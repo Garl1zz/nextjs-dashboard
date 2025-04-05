@@ -1,4 +1,3 @@
-
 .showcase {
   height: 200px; 
   width: 100%; 
@@ -26,7 +25,34 @@
   padding-top: 20px; 
 }
 
-/* Tablet  */
+.showcaseHome {
+  height: 700px;
+  width: 1708px;
+  background: #fff url("/vecteezy_colored-circus-background.jpg") no-repeat center / cover;
+  color: #fff;
+  position: flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 2px solid #fff;
+}
+
+.showcaseHome * {
+  z-index: 5;
+}
+
+.showcaseHome h1 {
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+.showcaseHome p {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
 @media (min-width: 768px) {
   .showcase {
     height: 250px; 
@@ -39,9 +65,22 @@
     padding: 15px;
     padding-top: 20px;
   }
+
+  .showcaseHome {
+    height: 550px;
+    width: 855px;
+    max-width: 1200px;
+  }
+
+  .showcaseHome h1 {
+    font-size: 40px;
+  }
+  
+  .showcaseHome p {
+    font-size: 18px;
+  }
 }
 
-/* Laptop */
 @media (min-width: 1024px) {
   .showcase {
     height: 300px;
@@ -54,19 +93,46 @@
     padding: 20px;
     padding-top: 60px;
   }
+
+  .showcaseHome {
+    height: 300px;
+    width: 1500px;
+    max-width: 1550px;
+  }
+
+  .showcaseHome h1 {
+    font-size: 50px;
+  }
+
+  .showcaseHome p {
+    font-size: 24px;
+  }
 }
 
-/* Desktop */
 @media (min-width: 1280px) {
   .showcase {
     height: 350px;
-    width: 1706px;
-    max-width: 1550px;
+    width: 1707px;
+    max-width: 1800px;
   }
 
   .showcase h1 {
     font-size: 60px;
     padding: 20px;
     padding-top: 80px;
+  }
+
+  .showcaseHome {
+    height: 700px;
+    width: 1707px;
+    max-width: 1800px;
+  }
+
+  .showcaseHome h1 {
+    font-size: 50px;
+  }
+
+  .showcaseHome p {
+    font-size: 22px;
   }
 }

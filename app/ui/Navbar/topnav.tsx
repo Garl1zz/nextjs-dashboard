@@ -6,7 +6,7 @@ export default function TopNav() {
   return (
     <div className="">
       
-        <div className="flex flex-row justify-between space-x-2 -mt-2 md:flex-auto md:space-x-0 md:space-y-2 ">
+        <div className="flex flex-row justify-between space-x-2 -mt-2 md:flex-auto md:space-x-0 md:space-y-2 text-white">
           <Link href="/homepage">
            
           </Link>

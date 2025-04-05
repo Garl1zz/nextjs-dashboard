@@ -13,8 +13,6 @@ const linksCustomer = [
   { name: 'Team', href: '/homepage/team' },
   { name: 'Store Profile', href: '/homepage/store' },
   { name: 'Testimonies', href: '/homepage/testimonies' },
-  
-  
 ];  
 
 export default function NavLinks() {
@@ -44,7 +42,7 @@ export default function NavLinks() {
         <img 
               src='/customers/amy-burns.png'
               alt='Profile picture'
-              className='absolute top-2 right-5 w-16 h-18 rounded-full'
+              className='absolute top-2 right-5 w-16 h-18 rounded-full border-black border-2'
             />
          
       </nav>
