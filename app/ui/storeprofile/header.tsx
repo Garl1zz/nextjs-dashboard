@@ -1,13 +1,15 @@
-import React from 'react'
-import "./hero.css"
+import { alice } from "@/app/ui/fonts";
+import styles from "@/app/ui/styles/hero.module.css"
 
 
-function header() {
+export default function Header() {
   return (
-    <div>
-      
+    <main className= {styles.showcase}>
+    <div className="flex min-w-full flex-col p-6 max-w-full">
+        <h1>About Wonder Seeker</h1>
     </div>
-  )
+      <div></div>
+    </main>
+  );
 }
 
-export default header

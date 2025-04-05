@@ -1,11 +1,12 @@
-import { alice } from "@/app/ui/fonts";
-import styles from "@/app/ui/styles/hero.module.css"
+import React from 'react'
+import Header from "@/app/ui/storeprofile/header"
 
-
-export default function Page() {
+export default function page() {
   return (
-    <main className= {styles.showcase}>
-      <h1>Store Profile</h1>
-    </main>
-  );
+    <header>
+      <Header/>
+    </header>
+  )
 }
+
+
