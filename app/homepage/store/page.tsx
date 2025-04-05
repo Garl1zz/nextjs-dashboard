@@ -1,12 +1,11 @@
 import { alice } from "@/app/ui/fonts";
+import styles from "@/app/ui/styles/hero.module.css"
+
 
 export default function Page() {
-<<<<<<< HEAD
-    return <p className={`${alice.className}`}>About us - Store</p>;
-=======
-    return (
-        
-        <div>Store Profile</div>
-    );
->>>>>>> 82fd8ff (fixed navbar 1)
+  return (
+    <main className= {styles.showcase}>
+      <h1>Store Profile</h1>
+    </main>
+  );
 }

@@ -1,5 +1,11 @@
 import { alice } from "@/app/ui/fonts";
+import styles from "@/app/ui/styles/hero.module.css"
+
 
 export default function Page() {
-    return <p className={`${alice.className}`}>Product Catalogue</p>;
+  return (
+    <main className= {styles.showcase}>
+      <h1>Product Catalogue</h1>
+    </main>
+  );
 }
