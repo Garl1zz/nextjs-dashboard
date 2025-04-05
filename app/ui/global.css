@@ -17,12 +17,14 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 0;
 }
 
-div::-webkit-scrollbar {
+/* div::-webkit-scrollbar {
   display: none; 
-}
+} */
 
 
-/* 
+
+
+
 @layer utilities {
   .padding {
     @apply sm:px-16 px-8 sm:py-24 py-12;
@@ -52,4 +54,9 @@ div::-webkit-scrollbar {
     @apply sm:pb-24 pb-12;
   }
 
-} */
+  .mx-30{
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+
+}
