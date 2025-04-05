@@ -1,5 +1,10 @@
-import { alice } from "../ui/fonts";
+import React from 'react'
+import Header from "@/app/ui/home/header"
 
-export default function Page() {
-    return <p className={`${alice.className}`}>Home Page</p>;
+export default function page() {
+  return (
+    <header>
+      <Header/>
+    </header>
+  )
 }
