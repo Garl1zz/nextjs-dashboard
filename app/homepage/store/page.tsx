@@ -4,7 +4,7 @@ import Footer from "@/app/ui/storeprofile/footer"
 import Middlesection from "@/app/ui/storeprofile/Middlesection"
 import styles from "@/app/ui/styles/hero.module.css"
 import Header from "@/app/ui/storeprofile/header";
-import { fetchpicturetextData } from '@/app/lib/datastore';
+
 
 export default function page() {
   return (
@@ -14,7 +14,7 @@ export default function page() {
       <h2 className={`flex justify-center text-[32px] mt-6 text-white ${alice.className}`}>STEP RIGHT UP</h2>
       <h3 className={`flex justify-center text-[24px] text-white ${alice.className}`}>AND</h3>
       <h4 className={`flex justify-center text-[64px] text-white underline ${alice.className}`}>LET THE SHOW BEGIN</h4>
-      <p className={`inline-block text-center text-[24px] mx-30 text-white ${alice.className}`}>
+      <p className={`inline-block text-center text-[20px] mx-30 text-white ${alice.className}`}>
         We specialize in high-quality circus-themed items and props, perfect for enthusiasts, performers, hobbyists, 
         and collectors alike. Whether you're a professional entertainer, a passionate hobbyist, or simply love the whimsical 
         world of the circus, we've got something special just for you! Step right up and explore our dazzling collection of 
