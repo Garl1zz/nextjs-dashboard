@@ -1,6 +1,4 @@
-import { alice } from "@/app/ui/fonts";
 import styles from "@/app/ui/styles/hero.module.css"
-
 
 export default function Header() {
   return (
