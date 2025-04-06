@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import NavLinksAdmin from '@/app/ui/Navbar/nav-links-admin';
-import { PowerIcon } from '@heroicons/react/24/outline';
 import { alice } from "@/app/ui/fonts";
 
 export default function SideNav() {

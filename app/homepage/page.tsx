@@ -3,6 +3,7 @@ import Header from "@/app/ui/home/header";
 import Image from "next/image";
 import { fetchProductsData, fetchTeamData } from "../lib/datahome";
 import { alice, rye } from "../ui/fonts";
+import Link from "next/link";
 
 export default async function Page() {
   const products = await fetchProductsData();
@@ -53,9 +54,12 @@ export default async function Page() {
           ))}
         </div>
         <div className={`mt-10 ${alice.className}`}>
-          <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded transition border-black border-2">
-            Learn More About Us
-          </button>
+          <Link href={"/homepage/team"}>
+            <button 
+            className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded transition border-black border-2">
+              Learn More About Us
+            </button>
+          </Link>
         </div>
       </section>
     </div>
