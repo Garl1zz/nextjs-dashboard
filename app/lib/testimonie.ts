@@ -1,10 +1,28 @@
 export async function fetchTestimoniesData() {
-    return [
-      { id: 1, 
-        name: "Ivan Situmorang", 
-        image: "/smile.png", 
-        text: `"Aplikasi ini memiliki antarmuka yang ramah pengguna, pilihan produk yang lengkap, serta mendukung berbagai metode pembayaran seperti kartu kredit dan e-wallet. Selain itu, fitur ulasan dan rating membantu pengguna dalam memilih produk yang sesuai."`},
-      
-    ];
+  return [
+    { id: 1, 
+      name: "Ivan Situmorang", 
+      image: "/smile.png", 
+      text: `"Aplikasi ini memiliki antarmuka yang ramah pengguna, pilihan produk yang lengkap, serta mendukung berbagai metode pembayaran seperti kartu kredit dan e-wallet. Selain itu, fitur ulasan dan rating membantu pengguna dalam memilih produk yang sesuai."`},
+    { id: 2, 
+      name: "Aprillian Josua marbun", 
+      image: "/smile.png", 
+      text: `"Pengalaman berbelanja di sini sangat menyenangkan! Produk yang ditawarkan berkualitas tinggi dan pengirimannya cepat."`},
+    { id: 3, 
+      name: "Rizky Pratama kurniawan", 
+      image: "/smile.png", 
+      text: `"Saya sangat puas dengan layanan pelanggan yang diberikan. Mereka sangat membantu dan responsif."`},
+    { id: 4, 
+      name: "Arif Ramadinata kurniawan", 
+      image: "/flat.png", 
+      text: `"Kualitas produk yang ditawarkan menurut saya kurang baik dan ada beberapa yang tidak sesuai dengan deskripsi. Saya pasti akan kembali untuk mengecek apakah barang barangnya sudah sesuai atau belum."`},
+    { id: 5, 
+      name: "Steven Christantio Sihombing", 
+      image: "/smile.png", 
+      text: `"Layanan pengiriman sangat cepat dan produk tiba dalam kondisi baik. Sangat merekomendasikan!"`},
+    { id: 6, 
+      name: "Natasha rara kusniadi", 
+      image: "/flat.png", 
+      text: `"Saya sangat terkesan dengan variasi produk yang ditawarkan. Tetapi ada yang kurang karena barang yg saya cari tidak ada, tolong di tingkatkan !"`},
+  ];
 }
-
