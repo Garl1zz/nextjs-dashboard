@@ -63,19 +63,19 @@ export default function Page() {
           {team.map((member) => (
             <div
               key={member.name}
-              className="bg-[#811320] rounded-lg px-6 py-4 w-56 shadow-md border-black border-2"
+              className="bg-[#811320] px-6 py-4 w-auto h-auto shadow-md border-black border-2"
             >
-              <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4">
+              <div className="w-auto h-64 mx-auto overflow-hidden mb-4">
                 <Image
                   src={member.image}
                   alt={member.name}
-                  width={250}
-                  height={200}
+                  width={400}
+                  height={400}
                   className="object-cover w-full h-full"
                 />
               </div>
-              <p className={`${rye.className}`}>{member.name}</p>
-              <p className={`${rye.className}`}>{member.role}</p>
+              <p className={`mt-8 ${rye.className}`}>{member.name}</p>
+              <p className={`mb-8 ${rye.className}`}>{member.role}</p>
             </div>
           ))}
         </div>
