@@ -1,10 +1,45 @@
 import { alice } from "@/app/ui/fonts";
-import { fetchProductsData } from "app/lib/datacatalogue";
 import Image from "next/image";
 
-export default async function ProductsPage() {
-  const items = await fetchProductsData();
+const items = [
+  { id: 1, 
+    title: "Square Juggling Balls", 
+    image: "/products/square-juggling-balls.png", 
+    price: "Rp 35.000",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales." },
+  
+    { id: 2,
+    title: "BeanBags Juggling Balls",
+    image: "/products/beanbags-juggling-balls.png", 
+    price: "Rp 20.000",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales." },
+  
+    { id: 3,
+    title: "Stage Juggling Balls", 
+    image: "/products/stage-juggling-balls.png", 
+    price: "Rp 50.000",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales." },
+  
+    { id: 4,
+    title: "Russian Juggling Balls", 
+    image: "/products/russian-juggling-balls.png", 
+    price: "Rp 45.000",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales." },
+  
+    { id: 5,
+    title: "Contact Juggling Balls", 
+    image: "/products/contact-juggling-balls.png", 
+    price: "Rp 70.000",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales." },
 
+  { id: 6,
+    title: "MMX Juggling Balls", 
+    image: "/products/MMX-juggling-balls.png", 
+    price: "Rp 150.000",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales." },
+];
+
+export default function ProductsPage() {
   return (
     <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 flex-wrap justify-center gap-6 py-10 bg-white">
           {items.map((item) => (

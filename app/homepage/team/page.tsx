@@ -1,14 +1,44 @@
 import { alice, bungee_inline } from "@/app/ui/fonts";
-import styles from "@/app/ui/styles/hero.module.css"
 import React from "react";
 import Header from "@/app/ui/storeprofile/header";
 import Image from "next/image";
-import { fetchTeamData } from "app/lib/datastore";
-import Link from "next/link";
 
-export default async function Page() {
-  const team = await fetchTeamData();
+const team = [
+  {
+    name: "Steven Christantio",
+    role: "Chief Executive Officer",
+    desc : "We strive to equip every performer, enthusiast, and future ringmaster with the finest tools to dazzle, inspire, and keep the magic of the circus alive for generations to come!", 
+    call : "Contacts",
+    email : "231712215@students.uajy.ac.id",
+    image: "/profile/stevenori.jpg",
+  },
+  {
+    name: "Aprillian Josua Marcelino",
+    role: "Chief Content Officer",
+    desc : "We strive to equip every performer, enthusiast, and future ringmaster with the finest tools to dazzle, inspire, and keep the magic of the circus alive for generations to come!",
+    call : "Contacts",
+    email : "231712227@students.uajy.ac.id",
+    image: "/profile/josuaori.jpg",
+  },
+  {
+    name: "Ivan Haryanto",
+    role: "Chief Information Officer",
+    desc : "We strive to equip every performer, enthusiast, and future ringmaster with the finest tools to dazzle, inspire, and keep the magic of the circus alive for generations to come!",
+    call : "Contacts",
+    email : "231712230@students.uajy.ac.id",
+    image: "/profile/ivanori.jpg",
+  },
+  {
+    name: "Arif Ramadinata",
+    role: "Chief Operation Officer",
+    desc : "We strive to equip every performer, enthusiast, and future ringmaster with the finest tools to dazzle, inspire, and keep the magic of the circus alive for generations to come!",
+    call : "Contacts",
+    email : "231712682@students.uajy.ac.id",
+    image: "/profile/arifori.jpg",
+  },
+];
 
+export default function Page() {
   return(
     <div className="flex flex-col">
       <header>

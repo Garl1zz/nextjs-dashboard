@@ -1,14 +1,40 @@
 import React from "react";
 import Header from "@/app/ui/home/header";
 import Image from "next/image";
-import { fetchProductsData, fetchTeamData } from "../lib/datahome";
 import { alice, rye } from "../ui/fonts";
 import Link from "next/link";
 
-export default async function Page() {
-  const products = await fetchProductsData();
-  const team = await fetchTeamData();
+const products = [
+  { name: "Juggling balls", image: "/juggling-balls.png" },
+  { name: "Shiny Top Hats", image: "/top-hats.png" },
+  { name: "Circus Lv 10 Cannon", image: "/cannon.png" },
+  { name: "The Holy Unicycle", image: "/unicycle.png" },
+];
 
+const team = [
+    {
+      name: "Steven Christantio",
+      role: "CEO",
+      image: "/profile/steven.png",
+    },
+    {
+      name: "Aprillian Josua Marcelino",
+      role: "CCO",
+      image: "/profile/josua.png",
+    },
+    {
+      name: "Ivan Haryanto",
+      role: "COO",
+      image: "/profile/ivan.png",
+    },
+    {
+      name: "Arif Ramadinata",
+      role: "CIO",
+      image: "/profile/arif.png",
+    },
+]
+
+export default function Page() {
   return (
     <div>
       <Header />
@@ -65,5 +91,3 @@ export default async function Page() {
     </div>
   );
 }
-
-//bagian image terutama untuk ukuran height atau width masih error ngga jelas mohon bantuannya JOSUA!!! :)
