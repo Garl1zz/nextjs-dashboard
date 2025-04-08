@@ -69,11 +69,16 @@ export default async function TestimoniesPage() {
       </main>
 
       {/* */}
-      <div className="flex justify-center mt-10">
-        <div className="border border-white bg-[#9B1928] p-4 rounded-lg">
+      <div className="flex justify-center mt-10 p-10 ">
+      <div className='flex mt-10 bg-white border-[10px] border-[#9B1928] w-1/3 mx-auto'></div>
+      
+        <button className="border border-white bg-[#9B1928] p-4 rounded-lg  ">
           <p className="text-white text-lg">+ Share</p>
-        </div>
+          
+        </button>
+        <div className='flex mt-10 bg-white border-[10px] border-[#9B1928] w-1/3 mx-auto'></div> 
       </div>
+      
     </div>
   );
 }

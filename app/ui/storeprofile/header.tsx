@@ -6,7 +6,6 @@ export default function Header() {
     <div className="flex min-w-full flex-col p-6 max-w-full">
         <h1>About Wonder Seeker</h1>
     </div>
-      <div></div>
     </main>
   );
 }
