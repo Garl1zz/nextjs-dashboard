@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function ProductsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col bg-white">
+    <div className="flex-col bg-white">
       <Header />
       <div className="flex flex-1">
         <div className="w-64 text-white">
