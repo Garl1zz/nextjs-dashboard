@@ -1,5 +1,4 @@
 import { Alice, Bungee_Inline, Rye } from 'next/font/google';
- 
 
 export const alice = Alice({
   weight:['400','400'],
