@@ -3,6 +3,7 @@ import Header from "@/app/ui/home/header";
 import Image from "next/image";
 import { alice, rye } from "../ui/fonts";
 import Link from "next/link";
+import Footer from "../ui/home/footer";
 
 const products = [
   { name: "Juggling balls", image: "/juggling-balls.png" },
@@ -88,6 +89,7 @@ export default function Page() {
           </Link>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
