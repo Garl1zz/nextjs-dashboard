@@ -42,7 +42,7 @@ export default function NavLinks() {
         <img 
               src='/profile/josua.png'
               alt='Profile picture'
-              className='absolute top-2 right-5 w-16 h-18 rounded-full '
+              className='absolute top-2 right-5 w-16 h-18 rounded-full'
             />
          
       </nav>

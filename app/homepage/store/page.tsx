@@ -8,7 +8,7 @@ import Header from "@/app/ui/storeprofile/header";
 
 export default function page() {
   return (
-    <main className= 'flex flex-col '>
+    <main className= 'flex flex-col'>
       <header>
         <Header/>
       <h2 className={`flex justify-center text-[32px] mt-6 text-white ${alice.className}`}>STEP RIGHT UP</h2>
@@ -42,7 +42,9 @@ export default function page() {
           </div>
           
         </footer>
+
         <div className='py-12'></div>
+    
     </main>
     
   )
