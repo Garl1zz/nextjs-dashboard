@@ -1,70 +1,52 @@
 "use client";
 
-import { useState, ChangeEvent, FormEvent } from "react";
-import Image from "next/image";
-
-interface FormData {
-  nama: string;
-  nomorHP: string;
-  email: string;
-  pesan: string;
-}
+import { useState } from "react";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState({
     nama: "",
     nomorHP: "",
     email: "",
     pesan: "",
   });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Data terkirim:", formData);
-    alert("Pesan berhasil dikirim!");
-    // Reset form
-    setFormData({
-      nama: "",
-      nomorHP: "",
-      email: "",
-      pesan: "",
-    });
-  };
-
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-100 p-8">
+    <main className="w-full h-screen flex items-center justify-center bg-[#981827]">
       <form
-        onSubmit={handleSubmit}
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log("Data terkirim:", formData);
+          alert("Pesan berhasil dikirim!");
+          setFormData({
+            nama: "",
+            nomorHP: "",
+            email: "",
+            pesan: "",
+          });
+        }}
         className="bg-white rounded-lg shadow-lg p-8 w-full max-w-lg space-y-4"
       >
-        <h1 className="text-2xl font-bold text-center text-[#981827]">Hubungi Kami</h1>
+        <h1 className="text-2xl font-bold text-center text-[#981827]">Contact Us</h1>
 
         <div>
-          <label className="block">Nama</label>
+          <label className="block">Name</label>
           <input
             type="text"
             name="nama"
             value={formData.nama}
-            onChange={handleChange}
+            onChange={(e) => setFormData({ ...formData, nama: e.target.value })}
             className="w-full p-2 border rounded"
             required
           />
         </div>
 
         <div>
-          <label className="block">Nomor HP</label>
+          <label className="block">Phone Number</label>
           <input
             type="tel"
             name="nomorHP"
             value={formData.nomorHP}
-            onChange={handleChange}
+            onChange={(e) => setFormData({ ...formData, nomorHP: e.target.value })}
             className="w-full p-2 border rounded"
             required
           />
@@ -76,18 +58,18 @@ export default function ContactPage() {
             type="email"
             name="email"
             value={formData.email}
-            onChange={handleChange}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             className="w-full p-2 border rounded"
             required
           />
         </div>
 
         <div>
-          <label className="block">Deskripsi Pesan</label>
+          <label className="block">Message</label>
           <textarea
             name="pesan"
             value={formData.pesan}
-            onChange={handleChange}
+            onChange={(e) => setFormData({ ...formData, pesan: e.target.value })}
             className="w-full p-2 border rounded"
             rows={4}
             required
@@ -98,7 +80,7 @@ export default function ContactPage() {
           type="submit"
           className="w-full bg-[#981827] text-white py-2 rounded hover:bg-[#7c1320]"
         >
-          Kirim
+          Submit
         </button>
       </form>
     </main>
