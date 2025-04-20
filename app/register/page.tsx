@@ -12,7 +12,7 @@ export default function RegisterPage() {
 
   return (
     <div className="flex min-h-screen bg-[#67151f] text-white font-serif items-center justify-center">
-      <div className="wrap bg-[#981827] rounded-lg flex flex-col md:flex-row overflow-hidden m-6">
+      <div className="bg-[#981827] rounded-lg flex flex-col md:flex-row overflow-hidden m-6">
         <div className={` ${styles.shape}`}>
           <div className={` ${styles.logpicture}`}></div>
         </div>

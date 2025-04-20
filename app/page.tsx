@@ -12,7 +12,7 @@ export default function Page() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   return (
-    <main className="flex flex-min-screen p-6 bg-[#67151F]">
+    <main className="flex min-h-screen bg-[#67151f] text-white font-serif items-center justify-center">
       <div className={` ${styles.shape}`}>
         {/* Inside frame */}
         <div className={` ${styles.logpicture}`}></div>
