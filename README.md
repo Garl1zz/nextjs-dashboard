@@ -4,12 +4,12 @@ To do list
 - Halaman beranda (home) - sudah
 - Halaman tentang toko (about) - sudah
 - Halaman daftar produk (shop) - sudah ? catalouge bisa dibilang daftar produk ?
-- Halaman hubungi toko (Contact) - sedang dibuat steven (masih bersifat sementara)
+- Halaman hubungi toko (Contact) - sudah
 - halaman detail produk - belum
-- Footer - perlu diperbaiki untuk penempatan sama background
+- Footer - sudah
 
 - Halaman Login - belum
-- Halaman registrasi - sudah (tapi nanti bakal diubah lagi, sekarang masih sementara)
+- Halaman registrasi - sudah
 - Halaman lupa password - belum
 
 - Halaman Dashboard Admin - kurang isinya saja
