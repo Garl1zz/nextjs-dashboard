@@ -3,12 +3,12 @@ To do list
 - Navbar (home dan admin) - sudah
 - Halaman beranda (home) - sudah
 - Halaman tentang toko (about) - sudah
-- Halaman daftar produk (shop) - sudah ? catalouge bisa dibilang daftar produk ?
+- Halaman daftar produk (shop) - sudah
 - Halaman hubungi toko (Contact) - sudah
-- halaman detail produk - belum
-- Footer - sudah
+- halaman detail produk - belum (sedang dikerjakan arif)
+- Footer - sudah (nambah dikit lagi la, sama dipercantik ye)
 
-- Halaman Login - belum
+- Halaman Login - kurang condition (IF ELSE)
 - Halaman registrasi - sudah
 - Halaman lupa password - belum
 
