@@ -1,15 +1,17 @@
 .shape {
-    height: 0;
-    width: 0;
-    border-bottom: 30px solid black;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
+    height : 730px;
+    width : 1650px;
+    background-color : #981827;
+    border-radius : 0.5rem;
+    display : flex;
   }
 
-  .rectangle {
-    height: 0;
-    width: 0;
-    border-bottom: 30px solid black;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-  }
+
+.logpicture {
+  background :#fff url("/vecteezy_colored-circus-background.jpg") no-repeat center / cover;
+  display :flex;
+  height: 680px;
+  width: 800px;
+  border-radius : 0.5rem;
+  margin : 20px;  
+}
