@@ -1,6 +1,6 @@
 .shape {
-    height : 730px;
-    width : 1650px;
+    height : 648px;
+    width : 1480px;
     background-color : #981827;
     border-radius : 0.5rem;
     display : flex;
@@ -10,8 +10,8 @@
 .logpicture {
   background :#fff url("/vecteezy_colored-circus-background.jpg") no-repeat center / cover;
   display :flex;
-  height: 680px;
-  width: 800px;
+  height: 610px;
+  width: 700px;
   border-radius : 0.5rem;
   margin : 20px;  
 }
