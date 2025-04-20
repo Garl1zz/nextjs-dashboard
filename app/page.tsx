@@ -48,14 +48,14 @@ export default function Page() {
                 </button>
                 </div>
                 
-            <a href="register" className={`${alice.className} underline text-white`}>
+            <a href="/lupapassword" className={`${alice.className} underline text-white`}>
               Forgot Password?
             </a>
             <p className={`text-white text-sm mb-6`}>
               Don't have an account?{" "}
             </p>
-            <a href="/" className={`${alice.className} underline text-white justify-between`}>
-              Login
+            <a href="/register" className={`${alice.className} underline text-white justify-between`}>
+              Register
             </a>
             <div className="w-full flex justify-end">
               <Link href="/">

@@ -19,7 +19,7 @@ export default function RegisterPage() {
 
         <div className="w-full md:w-1/2 p-8 flex flex-col justify-center mr-24 mb-12">
           <h2 className={`text-4xl font-bold text-white text-left mb-6 tracking-wide ${rye.className}`}>
-            Create an account
+            Forgot Password?
           </h2>
           <p className={`text-left text-sm mb-6 tracking-wide ${alice.className}`}>
             Already have an account?{" "}
