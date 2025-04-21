@@ -21,35 +21,6 @@ export default function Page() {
               LOGIN
             </h2>
           </div>
-<<<<<<< Updated upstream
-          <form className='justify-center space-y-4'>
-          <div className="relative space-y-4">
-            <input
-              type="text"
-              placeholder="Username"
-              className="w-full px-4 py-2  bg-[#d5a153] text-black placeholder-black font-serif rounded outline-none border border-black"
-            />
-             
-                <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Password"
-                  className="w-full px-4 py-2 bg-[#d5a153] font-serif text-black placeholder-black rounded outline-none border border-black"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 bottom-[10px] text-black"
-                >
-                  {showPassword ? (
-                    <FaEyeSlash className="w-5 h-5" />
-                  ) : (
-                    <FaEye className="w-5 h-5" />
-                  )}
-                </button>
-                </div>
-                
-            <a href="/forgot-password" className={`${alice.className} underline text-white`}>
-=======
           
             <form className='justify-center space-y-4'>
             <div className="relative space-y-4">
@@ -78,7 +49,6 @@ export default function Page() {
             </div>
 
             <a href="/lupapassword" className={`${alice.className} underline text-white`}>
->>>>>>> Stashed changes
               Forgot Password?
             </a>
             <p className={`text-white text-sm mb-6`}>
