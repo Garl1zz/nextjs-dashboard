@@ -30,6 +30,24 @@ export async function fetchRevenue() {
   }
 }
 
+// export async function fetchRevenuee() {
+//   return [
+//     { month: "Jan", revenue: 2000 },
+//     { month: "Feb", revenue: 1800 },
+//     { month: "Mar", revenue: 2200 },
+//     { month: "Apr", revenue: 2500 },
+//     { month: "May", revenue: 2700 },
+//     { month: "Jun", revenue: 3000 },
+//     { month: "Jul", revenue: 2800 },
+//     { month: "Aug", revenue: 3200 },
+//     { month: "Sep", revenue: 2900 },
+//     { month: "Oct", revenue: 3100 },
+//     { month: "Nov", revenue: 3300 },
+//     { month: "Dec", revenue: 3600 },
+//   ];
+// }
+
+
 export async function fetchLatestInvoices() {
   try {
     const data = await sql<LatestInvoiceRaw[]>`

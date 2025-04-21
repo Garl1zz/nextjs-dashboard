@@ -1,9 +1,9 @@
-import { alice } from "@/app/ui/fonts";
-
+import Image from "next/image";
+import { alice } from "../ui/fonts";
+import { FaBoxOpen, FaComments, FaUsers, FaShoppingCart } from "react-icons/fa";
+// import { fetchRevenue } from '@/app/lib/data';
+// import RevenueChart from "../ui/chartui/revenue_chart";
 
 export default function Page() {
-    return (
-        <div className="flex flex-col text-3xl sm:text-xl xl:text-4xl">HOME</div>
-
-    );
+    return <p className={`${alice.className}`}>Admin Page</p>;
 }
