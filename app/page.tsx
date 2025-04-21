@@ -68,7 +68,6 @@ export default function Page() {
                 )}
               </button>
             </div>
-
             <a href="/lupapassword" className={`${alice.className} underline text-white`}>
               Forgot Password?
             </a>

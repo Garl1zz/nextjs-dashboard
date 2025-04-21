@@ -1,5 +1,9 @@
-import { alice } from "../ui/fonts";
+import { alice } from "@/app/ui/fonts";
+
 
 export default function Page() {
-    return <p className={`${alice.className}`}>Admin Page</p>;
+    return (
+        <div className="flex flex-col text-3xl sm:text-xl xl:text-4xl">HOME</div>
+
+    );
 }

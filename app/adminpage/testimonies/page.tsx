@@ -1,5 +1,7 @@
 import { alice } from "@/app/ui/fonts";
 
 export default function Page() {
-    return <p className={`${alice.className}`}>Testimonies Admin</p>;
+    return (
+        <div className="flex flex-col text-3xl sm:text-xl xl:text-4xl">ITEM CATALOGUE</div>
+    );
 }
