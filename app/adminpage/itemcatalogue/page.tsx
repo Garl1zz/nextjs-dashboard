@@ -1,10 +1,10 @@
-'use client'
+
 
 import { alice } from "@/app/ui/fonts";
-import Search from "@/app/ui/search"
-import { useState } from "react";
+import Search from "@/app/ui/Admin-IC/search"
+import Table from "@/app/ui/Admin-IC/table";
 
-export default function Page() {
+export default async function Page() {
     return (
         <div className="flex flex-col text-3xl sm:text-xl xl:text-4xl  ">
             ITEM CATALOGUE
@@ -13,10 +13,9 @@ export default function Page() {
             <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
                 <Search placeholder="Search Product..." />
             </div>
-
-            {/*  <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
-        <Table query={query} currentPage={currentPage} />
-      </Suspense> */}
+            <div>
+                <Table/>
+            </div>
             <div className="mt-5 flex w-full justify-center">
                 {/* <Pagination totalPages={totalPages} /> */}
             </div>
