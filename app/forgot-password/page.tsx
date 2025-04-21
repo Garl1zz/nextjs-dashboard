@@ -5,12 +5,21 @@ import styles from "@/app/ui/styles/home.module.css";
 import { alice, rye } from "../ui/fonts";
 import { FaArrowLeft } from "react-icons/fa";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function RegisterPage() {
   return (
     <main className="flex min-h-screen bg-[#67151f] text-white font-serif items-center justify-center">
       <div className={` ${styles.shape}`}>
-        <div className={` ${styles.logpicture}`}></div>
+        <div className={` ${styles.logpicture}`}>
+          <Image
+            src="/logo.png"
+            alt="logo"
+            width={500}
+            height={500}
+            className="flex flex-col w-full min-w-[400px] max-w-[590px] ">
+          </Image>
+        </div>
 
         <div className="w-full md:w-1/2 p-8 flex flex-col items-center justify-center mb-12">
           <h2
