@@ -1,7 +1,7 @@
 export async function fetchTranscations() {
     return [
       {
-        name: "Steven Christantio",
+        name: "Steven Christianto",
         number : "0812-4234-9871",
         product: "MMX Juggling Balls",
         amount: "7",
@@ -23,6 +23,48 @@ export async function fetchTranscations() {
       },
       {
         name: "Arif Ramadinata",
+        number : "0856-3249-1279",
+        product: "BeanBags Juggling Balls",
+        amount: "8",
+        total: "Rp 160.000",
+      },
+      {
+        name: "Benedictus Paskalius Mario",
+        number : "0856-3249-1279",
+        product: "BeanBags Juggling Balls",
+        amount: "8",
+        total: "Rp 160.000",
+      },
+      {
+        name: "Nicholas Prakoswa Chandra",
+        number : "0856-3249-1279",
+        product: "BeanBags Juggling Balls",
+        amount: "8",
+        total: "Rp 160.000",
+      },
+      {
+        name: "Kalvin Ardian Chi",
+        number : "0856-3249-1279",
+        product: "BeanBags Juggling Balls",
+        amount: "8",
+        total: "Rp 160.000",
+      },
+      {
+        name: "Daniel Christantio",
+        number : "0856-3249-1279",
+        product: "BeanBags Juggling Balls",
+        amount: "8",
+        total: "Rp 160.000",
+      },
+      {
+        name: "Giovanni Wahyu Pratama",
+        number : "0856-3249-1279",
+        product: "BeanBags Juggling Balls",
+        amount: "8",
+        total: "Rp 160.000",
+      },
+      {
+        name: "Chardo Fidelis Silalahi",
         number : "0856-3249-1279",
         product: "BeanBags Juggling Balls",
         amount: "8",
