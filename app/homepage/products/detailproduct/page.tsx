@@ -68,10 +68,10 @@ export default function DetailProductPage() {
 
   return (
   
-    <div className="bg-white rounded-lg shadow-lg p-6 max-w- mx-auto" style={{ backgroundColor: '#981827' }}>
+    <div className="bg-white rounded-lg shadow-lg p-20 max-h- mx-auto" style={{ backgroundColor: '#981827' }}>
       <h1 className={`${alice.className} text-4xl text-center mb-6 text-white -500`}>Detail Produk</h1>
       {product ? (
-        <div className="bg-white rounded-lg shadow-lg p-6 max-w- mx-auto" style={{ backgroundColor: 'lightgray' }}>
+        <div className="bg-white rounded-lg shadow-lg p-16 max-h- mx-auto" style={{ backgroundColor: 'lightgray' }}>
           <h2 className={`${alice.className} text-3xl text-center mb-4 text-black-500`}>{product.title}</h2>
           <Image src={product.image} alt={product.title} width={300} height={300} className="mx-auto my-4 rounded-lg shadow-md" />
           <p className={`${alice.className} text-xl font-semibold text-center text-black-500`}>{product.price}</p>
