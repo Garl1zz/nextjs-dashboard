@@ -1,4 +1,7 @@
+'use client'
+
 import { useState } from 'react';
+import Link from 'next/link';
 
 
 export default function AddItemForm() {
@@ -92,6 +95,7 @@ export default function AddItemForm() {
         </div>
 
         <div className="flex gap-4 mt-6">
+          <Link href={"/adminpage/itemcatalogue"}>
           <button
             type="button"
             onClick={handleCancel}
@@ -99,6 +103,8 @@ export default function AddItemForm() {
           >
             CANCEL
           </button>
+          </Link>
+          
           <button
             type="submit"
             className="bg-indigo-400 hover:bg-indigo-500 text-white font-bold py-2 px-6 rounded"
