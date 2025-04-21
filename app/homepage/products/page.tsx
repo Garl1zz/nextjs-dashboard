@@ -11,7 +11,6 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales.",
   },
-
   {
     id: 2,
     title: "BeanBags Juggling Balls",
@@ -20,7 +19,6 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales.",
   },
-
   {
     id: 3,
     title: "Stage Juggling Balls",
@@ -29,7 +27,6 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales.",
   },
-
   {
     id: 4,
     title: "Russian Juggling Balls",
@@ -38,7 +35,6 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales.",
   },
-
   {
     id: 5,
     title: "Contact Juggling Balls",
@@ -47,7 +43,6 @@ const items = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales.",
   },
-
   {
     id: 6,
     title: "MMX Juggling Balls",
@@ -66,7 +61,7 @@ export default function ProductsPage() {
           key={item.title}
           className="bg-white text-black rounded-xl p-4 text-center shadow-lg border-gray-200 border-2"
         >
-          <Link href={"/homepage/products/detailproduct"}>
+          <Link href={`/homepage/products/detailproduct?id=${item.id}`}>
             <Image
               src={item.image}
               alt={item.title}
