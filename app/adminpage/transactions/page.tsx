@@ -1,5 +1,5 @@
 import { alice, rye } from "@/app/ui/fonts";
-import Search from "@/app/ui/search"
+import Search from "@/app/ui/Admin-IC/search"
 import { fetchTranscations } from "@/app/lib/datatransactions";
 
 export default async function Page() {
