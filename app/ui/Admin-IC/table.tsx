@@ -1,18 +1,21 @@
-import AddItemForm from "@/app/adminpage/itemcatalogue/addproduct/page";
 import { fetchProductsData } from "@/app/lib/datacatalogue";
 import { alice } from "@/app/ui/fonts";
 import Link from "next/link";
-
 
 export default async function Table() {
   let productsData;
   try {
     productsData = await fetchProductsData();
-  } catch (error) {
-    console.error('Error in Table component:', error);
+  } catch (error: any) {
+    console.error('Error in Table component:', {
+      message: error.message,
+      stack: error.stack,
+      code: error.code,
+      details: error.detail,
+    });
     return (
       <div className="text-red-500 text-center">
-        Failed to load products. Please try again later.
+        Failed to load products: {error.message || 'Please try again later.'}
       </div>
     );
   }
@@ -30,27 +33,34 @@ export default async function Table() {
           </tr>
         </thead>
         <tbody>
-          {productsData.map((product, index) => (
-            <tr key={index} className="border-t">
-              <td className={`text-xl py-3 px-4 ${alice.className}`}>
-                {product.title}
-              </td>
-              <td className={`text-xl py-3 px-4 justify-center ${alice.className}`}>
-                {product.category}
-              </td>
-              <td className={`text-xl py-3 px-4 ${alice.className}`}>
-                Rp {product.price}
-              </td>
-              <td className={`text-xl py-3 px-4 ${alice.className}`}>
-                {product.stock}
-              </td>
-              <td className={`text-xl py-3 px-4 text-center ${alice.className}`}>
-                <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-3 rounded-sm">
-                  EDIT
-                </button>
-              </td>
-            </tr>
-          ))}
+          {productsData.map((product, index) => {
+            // Encode the product name for the URL
+            const encodedProductName = encodeURIComponent(product.title);
+
+            return (
+              <tr key={index} className="border-t">
+                <td className={`text-xl py-3 px-4 ${alice.className}`}>
+                  {product.title}
+                </td>
+                <td className={`text-xl py-3 px-4 justify-center ${alice.className}`}>
+                  {product.category}
+                </td>
+                <td className={`text-xl py-3 px-4 ${alice.className}`}>
+                  Rp {product.price.toLocaleString('id-ID', { minimumFractionDigits: 2 })}
+                </td>
+                <td className={`text-xl py-3 px-4 ${alice.className}`}>
+                  {product.stock}
+                </td>
+                <td className={`text-xl py-3 px-4 text-center ${alice.className}`}>
+                  <Link href={`/adminpage/itemcatalogue/editproduct?${encodedProductName}`}>
+                    <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-3 rounded-sm">
+                      EDIT
+                    </button>
+                  </Link>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
