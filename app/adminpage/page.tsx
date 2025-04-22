@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { alice } from "../ui/fonts";
-import { FaBoxOpen, FaComments, FaUsers, FaShoppingCart } from "react-icons/fa";
+import { FaBoxOpen, FaComments, FaUsers, FaShoppingCart, FaArrowRight } from "react-icons/fa";
 // import { fetchRevenue } from '@/app/lib/data';
 // import RevenueChart from "../ui/chartui/revenue_chart";
 
@@ -19,7 +19,7 @@ export default function Dashboard() {
                 >
                     <div>
                         <h3 className="text-lg font-semibold">Total Product</h3>
-                        <p className="text-sm">check here &gt;</p>
+                        <button className="text-sm hover:underline">check here -&gt; </button>
                         <h2 className="text-3xl font-bold">24</h2>
                     </div>
                     <div className="absolute bottom-4 right-4 text-6xl opacity-90">
@@ -34,7 +34,7 @@ export default function Dashboard() {
                 >
                     <div>
                         <h3 className="text-lg font-semibold">Testimonies</h3>
-                        <p className="text-sm">check here &gt;</p>
+                        <button className="text-sm hover:underline">check here -&gt;</button>
                         <h2 className="text-3xl font-bold">50</h2>
                     </div>
                     <div className="absolute bottom-4 right-4 text-6xl opacity-90">
@@ -49,7 +49,7 @@ export default function Dashboard() {
                 >
                     <div>
                         <h3 className="text-lg font-semibold">User Accounts</h3>
-                        <p className="text-sm">check here &gt;</p>
+                        <button className="text-sm hover:underline">check here -&gt;</button>
                         <h2 className="text-3xl font-bold">12</h2>
                     </div>
                     <div className="absolute bottom-4 right-4 text-6xl opacity-90">
@@ -64,7 +64,7 @@ export default function Dashboard() {
                 >
                     <div>
                         <h3 className="text-lg font-semibold">Order per Day</h3>
-                        <p className="text-sm">check here &gt;</p>
+                        <button className="text-sm hover:underline">check here -&gt;</button>
                         <h2 className="text-3xl font-bold">14</h2>
                     </div>
                     <div className="absolute bottom-4 right-4 text-6xl opacity-85">
