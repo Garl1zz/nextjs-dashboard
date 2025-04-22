@@ -1,58 +1,39 @@
-export async function fetchProductsData() {
-    return [
-      { id: 1, 
-        title: "Square Juggling Balls", 
-        image: "/products/square-juggling-balls.png", 
-        catagory : "Ball",
-        price: "Rp 35.000",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales.",
-        stock:1
-       },
-      
-        { id: 2,
-        title: "BeanBags Juggling Balls",
-        image: "/products/beanbags-juggling-balls.png", 
-        catagory : "Ball",
-        price: "Rp 20.000",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales.", 
-        stock:14
-      },
-      
-        { id: 3,
-        title: "Stage Juggling Balls", 
-        image: "/products/stage-juggling-balls.png", 
-        catagory : "Ball",
-        price: "Rp 50.000",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales.",
-        stock:24
-      },
-      
-        { id: 4,
-        title: "Russian Juggling Balls", 
-        image: "/products/russian-juggling-balls.png", 
-        catagory : "Ball",
-        price: "Rp 45.000",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales.", 
-        stock:7
-      },
-      
-        { id: 5,
-        title: "Contact Juggling Balls", 
-        image: "/products/contact-juggling-balls.png", 
-        catagory : "Ball",
-        price: "Rp 70.000",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales.",
-        stock:10 
-      },
+import { Client } from '@neondatabase/serverless';
 
-      { id: 6,
-        title: "MMX Juggling Balls", 
-        image: "/products/MMX-juggling-balls.png", 
-        catagory : "Ball",
-        price: "Rp 150.000",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelrisque a metus at sodales.",
-        stock:5
-      },
-    ];
+export interface Product {
+  title: string;
+  category: string;
+  price: number;
+  stock: number;
 }
 
+export async function fetchProductsData(): Promise<Product[]> {
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+  });
+
+  try {
+    await client.connect();
+
+    const query = `
+      SELECT name, category, pricing, stock
+      FROM item_catalogue
+    `;
+    
+    const { rows } = await client.query(query);
+    
+    const products: Product[] = rows.map((row: any) => ({
+      title: row.name,        
+      category: row.category, 
+      price: row.pricing,     
+      stock: row.stock,       
+    }));
+
+    return products;
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    throw new Error('Failed to fetch products data');
+  } finally {
+    await client.end();
+  }
+}   

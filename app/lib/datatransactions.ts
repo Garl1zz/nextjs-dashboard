@@ -1,84 +1,42 @@
-export async function fetchTranscations() {
-    return [
-      {
-        id: 1,
-        name: "Steven Christianto",
-        number : "0812-4234-9871",
-        product: "MMX Juggling Balls",
-        amount: "7",
-        total: "Rp 1.050.000",
-      },
-      {
-        id: 2,
-        name: "Ivan Haryanto",
-        number : "0821-2349-0183",
-        product: "Russian Juggling Balls",
-        amount: "12",
-        total: "Rp 540.000",
-      },
-      {
-        id: 3,
-        name: "Aprillian Josua Marcelino",
-        number : "0878-1394-3498",
-        product: "Contact Juggling Balls",
-        amount: "14",
-        total: "Rp 980.000",
-      },
-      {
-        id: 4,
-        name: "Arif Ramadinata",
-        number : "0856-3249-1279",
-        product: "BeanBags Juggling Balls",
-        amount: "8",
-        total: "Rp 160.000",
-      },
-      {
-        id: 5,
-        name: "Benedictus Paskalius Mario",
-        number : "0856-3249-1279",
-        product: "BeanBags Juggling Balls",
-        amount: "8",
-        total: "Rp 160.000",
-      },
-      {
-        id: 6,
-        name: "Nicholas Prakoswa Chandra",
-        number : "0856-3249-1279",
-        product: "BeanBags Juggling Balls",
-        amount: "8",
-        total: "Rp 160.000",
-      },
-      {
-        id: 7,
-        name: "Kalvin Ardian Chi",
-        number : "0856-3249-1279",
-        product: "BeanBags Juggling Balls",
-        amount: "8",
-        total: "Rp 160.000",
-      },
-      {
-        id: 8,
-        name: "Daniel Christantio",
-        number : "0856-3249-1279",
-        product: "BeanBags Juggling Balls",
-        amount: "8",
-        total: "Rp 160.000",
-      },
-      {
-        id: 9,
-        name: "Giovanni Wahyu Pratama",
-        number : "0856-3249-1279",
-        product: "BeanBags Juggling Balls",
-        amount: "8",
-        total: "Rp 160.000",
-      },
-      {
-        id: 10,
-        name: "Chardo Fidelis Silalahi",
-        number : "0856-3249-1279",
-        product: "BeanBags Juggling Balls",
-        amount: "8",
-        total: "Rp 160.000",
-      },
-    ];
+import { Client } from '@neondatabase/serverless';
+
+export interface ProductTransaction {
+  customer_number: string;
+  name: string;
+  category: string;
+  price: number;
+  sales: number;
+}
+
+export async function fetchTransactions(): Promise<ProductTransaction[]> {
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+  });
+
+  try {
+    await client.connect();
+
+    const query = `
+      SELECT customer_name, phone_number, category, pricing, sales_amount
+      FROM transactions
+    `;
+    
+    const { rows } = await client.query(query);
+    
+   
+    const transactions: ProductTransaction[] = rows.map((row: any) => ({
+      customer_number: row.phone_number,
+      name: row.customer_name,
+      category: row.category,
+      price: row.pricing,
+      sales: row.sales_amount,  
+    }));
+
+    return transactions;
+  } catch (error) {
+    console.error('Error fetching transactions:', error);
+    throw new Error('Failed to fetch transactions data');
+  } finally {
+    await client.end();
+  }
 }

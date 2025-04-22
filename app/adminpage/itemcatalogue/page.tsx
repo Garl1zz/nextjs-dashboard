@@ -6,7 +6,6 @@ import Table from "@/app/ui/Admin-IC/table";
 export default function Page() {
   return (
     <div className="p-4">
-      {/* <div className="flex flex-col text-3xl sm:text-xl xl:text-4xl"> */}
         <div className="flex justify-between items-center">
           <h1 className="text-3xl sm:text-xl xl:text-4xl mb-4">ITEM CATALOGUE</h1>
           <div className="flex gap-2">
@@ -20,7 +19,7 @@ export default function Page() {
             </button>
           </div>
         </div>
-        {/* </div> */}
+
 
         <div className="mb-4">
           <Suspense fallback={<div>Loading search...</div>}>

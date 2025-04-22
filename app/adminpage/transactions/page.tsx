@@ -1,11 +1,11 @@
 import { alice, rye } from "@/app/ui/fonts";
 import Search from "@/app/ui/Admin-IC/search";
-import { fetchTranscations } from "@/app/lib/datatransactions";
+import { fetchTransactions } from "@/app/lib/datatransactions";
 import Link from "next/link";
 import { Suspense } from "react";
 
 export default async function Page() {
-  const transactions = await fetchTranscations();
+  const transactions = await fetchTransactions();
 
   return (
     <div className="p-4">
@@ -49,18 +49,18 @@ export default async function Page() {
                     {transaction.name}
                   </td>
                   <td className={`py-3 px-4 text-md ${alice.className}`}>
-                    {transaction.number}
+                    {transaction.customer_number}
                   </td>
                   <td className={`py-3 px-4 text-md ${alice.className}`}>
-                    {transaction.product}
+                    {transaction.category}
                   </td>
                   <td className={`py-3 px-4 text-md ${alice.className}`}>
-                    {transaction.total}
+                    Rp {transaction.price}
                   </td>
                   <td
                     className={`py-3 px-4 text-lg text-center ${alice.className}`}
                   >
-                    {transaction.amount}
+                    {transaction.sales}
                   </td>
                   <td className={`py-3 px-4 text-center ${alice.className}`}>
                     <Link href="/adminpage/transactions/edittransaction">
