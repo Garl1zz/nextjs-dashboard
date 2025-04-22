@@ -6,7 +6,8 @@ import { FaFacebook, FaInstagram, FaTwitter, FaEnvelope } from "react-icons/fa";
 export default function Footer() {
   return (
     <main className="bg-[#18243b] border-t border-red-800 shadow-inner mt-12">
-      <div className="max-w-7xl mx-auto py-10 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14 text-white">
+      <div className="min-h-[200px] flex items-center justify-center">
+      <div className="max-w-7xl mx-auto py-10 px-4 grid grid-cols-1 md:grid-cols-3 gap-14 text-white">
         <div className={`text-white ${alice.className}`}>
           <h2 className={`text-xl mb-4`}>Wonder Seeker's</h2>
           <div className="space-y-1">
@@ -15,7 +16,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className={`text-white ${alice.className}`}>
+        <div className={`text-white ${alice.className} text-center flex flex-col justify-center`}>
           <h3 className="text-lg mb-4">Informasi</h3>
           <ul className="space-y-1 text-sm">
             <li>
@@ -73,6 +74,7 @@ export default function Footer() {
             </Link>
           </div>
         </div>
+      </div>
       </div>
 
       <div className="bg-[#18243b] border-t border-white py-4">

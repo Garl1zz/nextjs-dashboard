@@ -1,7 +1,6 @@
 import { alice } from "@/app/ui/fonts";
 import Image from "next/image";
 import Link from "next/link";
-import Footer from "@/app/ui/footer";
 
 const items = [
   {
@@ -67,7 +66,6 @@ export default function ProductsPage() {
           </div>
         ))}
       </main>
-      <Footer />
     </div>
   );
 }
