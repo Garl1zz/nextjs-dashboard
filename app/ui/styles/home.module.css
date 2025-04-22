@@ -1,7 +1,24 @@
 .shape {
-    height: 0;
-    width: 0;
-    border-bottom: 30px solid black;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
+    height : 648px;
+    width : 100%;
+    min-width: 100px;
+    max-width : 1480px;
+    background-color : #981827;
+    border-radius : 0.5rem;
+    display : flex;
+    margin : 20px; 
   }
+
+
+.logpicture {
+  background :#fff url("/vecteezy_colored-circus-background.jpg") no-repeat center / cover;
+  display :flex;
+  height : auto;
+  width : 100%;
+  min-width : 100px;
+  max-width: 700px;
+  border-radius : 0.5rem;
+  margin : 20px;
+  max-height: 100vh;
+  aspect-ratio: 7 / 6;
+}

@@ -10,7 +10,7 @@ import clsx from 'clsx';
 const links = [
   { name: 'Home', href: '/adminpage' },
   { name: 'Item Catalogue', href: '/adminpage/itemcatalogue' },
-  { name: 'Testimonies', href: '/adminpage/testimonies' },
+  { name: 'Transactions', href: '/adminpage/transactions' },
 ];  
 
 export default function NavLinksAdmin() {

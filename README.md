@@ -1,16 +1,19 @@
 To do list
 
-Navbar
-- UI (Done)
-- tautan navbar
+- Navbar (home dan admin) - sudah
+- Halaman beranda (home) - sudah
+- Halaman tentang toko (about) - sudah
+- Halaman daftar produk (shop) - sudah
+- Halaman hubungi toko (Contact) - sudah
+- halaman detail produk - belum (sedang dikerjakan arif)
+- Footer - sudah (nambah dikit lagi la, sama dipercantik ye)
 
-Font
-- Font family done
-- font kedua belum diterapkan ke semua page dan perlu di masukkan secara manual
+- Halaman Login - kurang condition (IF ELSE)
+- Halaman registrasi - sudah
+- Halaman lupa password - belum
 
-(Perlu pengembangan lagi dibawah list ini)
-About Page - Owner
-About Page - Store
-Catalogue product
-Testimonies
-Admins
+- Halaman Dashboard Admin - kurang isinya saja
+- Halaman Daftar Produk Admin - belum
+- Formulir Tambah / Edit Produk - kurang isinya saja
+- Halaman Daftar Transaksi - belum
+- Formulir Tambah/Edit Transaksi - belum ?
