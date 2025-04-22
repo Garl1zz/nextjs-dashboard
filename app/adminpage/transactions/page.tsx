@@ -13,7 +13,7 @@ export default async function Page() {
         <h1 className="text-3xl font-bold">Transactions</h1>
         <div className="flex gap-2">
           <Link href="/adminpage/transactions/addtransaction">
-            <button className="text-xl rounded-sm px-4 py-2 bg-[#6A70CC] hover:bg-[#4e57d1] text-white">
+            <button className="text-xl rounded-sm px-4 py-2 bg-[#6A70CC] hover:bg-[#4e57d1] text-white ">
               ADD
             </button>
           </Link>
