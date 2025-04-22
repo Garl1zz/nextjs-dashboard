@@ -26,7 +26,7 @@ export default async function Table() {
                     <td className={`text-xl py-3 px-4 ${alice.className}`}>{transaction.price}</td>
                     <td className={`text-xl py-3 px-4  ${alice.className}`}>{transaction.stock}</td>
                     <td className={`text-xl py-3 px-4 text-center ${alice.className}`}>
-                      <Link href={`/adminpage/itemcatalogue/editproduct?id=${transaction.id}`}>
+                      <Link href={`/adminpage/itemcatalogue/editproduct/${transaction.id}`}>
                       <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-3 rounded-sm">
                         EDIT
                       </button>

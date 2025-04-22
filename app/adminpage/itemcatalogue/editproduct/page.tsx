@@ -1,82 +1,29 @@
+
+
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
-const items = [
-    {
-        id: 1,
-        name: "Square Juggling Balls",
-        category: "Balls",
-        price: "Rp. 35.000",
-        stock: 1,
-        imageUrl: "/juggling-balls.png",
-    },
-    {
-        id: 2,
-        name: "BeanBags Juggling Balls",
-        category: "Balls",
-        price: "Rp. 20.000",
-        stock: 14,
-        imageUrl: "/products/beanbags-juggling-balls.png",
-    },
-    {
-        id: 3,
-        name: "Stage Juggling Balls",
-        category: "Balls",
-        price: "Rp. 50.000",
-        stock: 24,
-        imageUrl: "/products/stage-juggling-balls.png",
-    },
-    {
-        id: 4,
-        name: "Russian Juggling Balls",
-        category: "Balls",
-        price: "Rp. 45.000",
-        stock: 7,
-        imageUrl: "/products/russian-juggling-balls.png",
-    },
-    {
-        id: 5,
-        name: "Contact Juggling Balls",
-        category: "Balls",
-        price: "Rp. 70.000",
-        stock: 10,
-        imageUrl: "/products/contact-juggling-balls.png",
-    },
-    {
-        id: 6,
-        name: "MMX Juggling Balls",
-        category: "Balls",
-        price: "Rp. 150.000",
-        stock: 5,
-        imageUrl: "/products/MMX-juggling-balls.png",
-    },
-];
 
-export default function EditItem() {
-    const [product, setProduct] = useState({
-        name: "Square Juggling Balls",
-        category: "Juggling Balls",
-        price: "Rp. 35.000",
-        stock: 10,
-        imageUrl: "/juggling-balls.png", // Pastikan file ada di /public
-    });
+
+export default function EditItemClient({ initialProduct }: { initialProduct: any }) {
+    const router = useRouter();
+    const [product, setProduct] = useState(initialProduct);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        setProduct((prev) => ({ ...prev, [name]: value }));
+        setProduct((prev: any) => ({ ...prev, [name]: value }));
     };
 
     const handleEdit = () => {
-        alert("Item edited successfully!");
-        // Logic simpan ke backend atau state global
+        alert(`Item ${product.id} edited successfully!`);
     };
 
     const handleCancel = () => {
-        // Logic cancel
         alert("Cancelled");
+        router.push("/adminpage/itemcatalogue");
     };
 
     return (
@@ -92,7 +39,7 @@ export default function EditItem() {
                             name="name"
                             value={product.name}
                             onChange={handleChange}
-                            className="input"
+                            className="input w-full p-3 border border-gray-400 rounded"
                         />
                     </Field>
                     <Field label="Category">
@@ -101,7 +48,7 @@ export default function EditItem() {
                             name="category"
                             value={product.category}
                             readOnly
-                            className="input bg-gray-300 cursor-not-allowed"
+                            className="input w-full p-3 bg-gray-300 cursor-not-allowed border border-gray-400 rounded"
                         />
                     </Field>
                     <Field label="Pricing">
@@ -110,7 +57,7 @@ export default function EditItem() {
                             name="price"
                             value={product.price}
                             onChange={handleChange}
-                            className="input"
+                            className="input w-full p-3 border border-gray-400 rounded"
                         />
                     </Field>
                     <Field label="Stock">
@@ -119,7 +66,7 @@ export default function EditItem() {
                             name="stock"
                             value={product.stock}
                             onChange={handleChange}
-                            className="input"
+                            className="input w-full p-3 border border-gray-400 rounded"
                         />
                     </Field>
                     <Field label="Foto Menu">
@@ -134,14 +81,12 @@ export default function EditItem() {
                     </Field>
                 </div>
                 <div className="flex justify-end mt-6 space-x-4">
-                    <Link href={"/adminpage/itemcatalogue"}>
-                        <button
-                            onClick={handleCancel}
-                            className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 font-bold"
-                        >
-                            CANCEL
-                        </button>
-                    </Link>
+                    <button
+                        onClick={handleCancel}
+                        className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 font-bold"
+                    >
+                        CANCEL
+                    </button>
 
                     <button
                         onClick={handleEdit}
@@ -162,7 +107,7 @@ const Field = ({
     label: string;
     children: React.ReactNode;
 }) => (
-    <div className="flex items-center">
+    <div className="flex items-center mb-2">
         <div className="w-40 text-right pr-4 text-sm font-semibold text-gray-700">
             {label}
         </div>
