@@ -1,6 +1,7 @@
 export async function fetchTranscations() {
     return [
       {
+        id: 1,
         name: "Steven Christianto",
         number : "0812-4234-9871",
         product: "MMX Juggling Balls",
@@ -8,6 +9,7 @@ export async function fetchTranscations() {
         total: "Rp 1.050.000",
       },
       {
+        id: 2,
         name: "Ivan Haryanto",
         number : "0821-2349-0183",
         product: "Russian Juggling Balls",
@@ -15,6 +17,7 @@ export async function fetchTranscations() {
         total: "Rp 540.000",
       },
       {
+        id: 3,
         name: "Aprillian Josua Marcelino",
         number : "0878-1394-3498",
         product: "Contact Juggling Balls",
@@ -22,6 +25,7 @@ export async function fetchTranscations() {
         total: "Rp 980.000",
       },
       {
+        id: 4,
         name: "Arif Ramadinata",
         number : "0856-3249-1279",
         product: "BeanBags Juggling Balls",
@@ -29,6 +33,7 @@ export async function fetchTranscations() {
         total: "Rp 160.000",
       },
       {
+        id: 5,
         name: "Benedictus Paskalius Mario",
         number : "0856-3249-1279",
         product: "BeanBags Juggling Balls",
@@ -36,6 +41,7 @@ export async function fetchTranscations() {
         total: "Rp 160.000",
       },
       {
+        id: 6,
         name: "Nicholas Prakoswa Chandra",
         number : "0856-3249-1279",
         product: "BeanBags Juggling Balls",
@@ -43,6 +49,7 @@ export async function fetchTranscations() {
         total: "Rp 160.000",
       },
       {
+        id: 7,
         name: "Kalvin Ardian Chi",
         number : "0856-3249-1279",
         product: "BeanBags Juggling Balls",
@@ -50,6 +57,7 @@ export async function fetchTranscations() {
         total: "Rp 160.000",
       },
       {
+        id: 8,
         name: "Daniel Christantio",
         number : "0856-3249-1279",
         product: "BeanBags Juggling Balls",
@@ -57,6 +65,7 @@ export async function fetchTranscations() {
         total: "Rp 160.000",
       },
       {
+        id: 9,
         name: "Giovanni Wahyu Pratama",
         number : "0856-3249-1279",
         product: "BeanBags Juggling Balls",
@@ -64,6 +73,7 @@ export async function fetchTranscations() {
         total: "Rp 160.000",
       },
       {
+        id: 10,
         name: "Chardo Fidelis Silalahi",
         number : "0856-3249-1279",
         product: "BeanBags Juggling Balls",

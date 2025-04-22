@@ -4,7 +4,7 @@ import Footer from "@/app/ui/storeprofile/footer"
 import Middlesection from "@/app/ui/storeprofile/Middlesection"
 import styles from "@/app/ui/styles/hero.module.css"
 import Header from "@/app/ui/storeprofile/header";
-
+import Footer2 from "@/app/ui/footer";
 
 export default function page() {
   return (
@@ -44,7 +44,7 @@ export default function page() {
         </footer>
 
         <div className='py-12'></div>
-    
+    <Footer2 />
     </main>
     
   )

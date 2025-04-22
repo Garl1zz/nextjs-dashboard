@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <main className="bg-white">
+    <main className="bg-gray-100 border-t border-red-800">
       <div className="flex flex-col items-center text-black border-3-red-800">
         <p className={`text-[20px] mt-4 ${alice.className}`}>Wonder Seeker's</p>
         <p className={`text-[18px] mt-2 ${alice.className}`}>
@@ -28,7 +28,7 @@ export default function Footer() {
 
       <section className="flex bg-gray-200 justify-center mt-4">
         <div className="flex flex-col items-left mt-2 mb-2 text-black">
-          <p className={`text-[16] ${alice.className}`}>© 2025 Wonder Seeker</p>
+          <p className={`text-[16] ${alice.className}`}>&copy; 2025 Wonder Seeker</p>
         </div>
       </section>
     </main>

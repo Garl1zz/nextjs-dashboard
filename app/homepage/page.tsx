@@ -3,7 +3,7 @@ import Header from "@/app/ui/home/header";
 import Image from "next/image";
 import { alice, rye } from "../ui/fonts";
 import Link from "next/link";
-import Footer from "../ui/home/footer";
+import Footer from "../ui/footer";
 
 const products = [
   { name: "Juggling balls", image: "/juggling-balls.png" },

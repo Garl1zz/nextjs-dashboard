@@ -12,6 +12,7 @@ const linksCustomer = [
   {name: 'Products', href: '/homepage/products'},
   { name: 'Team', href: '/homepage/team' },
   { name: 'Store Profile', href: '/homepage/store' },
+  { name: 'Contact', href: '/homepage/contact'},
   { name: 'Testimonies', href: '/homepage/testimonies' },
 ];  
 

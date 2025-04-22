@@ -1,6 +1,7 @@
 import { alice } from "@/app/ui/fonts";
 import Image from "next/image";
 import Header from "@/app/ui/testimonies/header";
+import Footer from "@/app/ui/footer";
 
 const testimonies = [
   { id: 1, 
@@ -64,7 +65,7 @@ export default function TestimoniesPage() {
         </button>
         <div className='flex mt-10 bg-white border-[10px] border-[#9B1928] w-1/3 mx-auto'></div> 
       </div>
-      
-    </div>
+     <Footer />
+    </div>    
   );
 }

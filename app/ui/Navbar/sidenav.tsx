@@ -10,9 +10,9 @@ export default function SideNav() {
           </div>
 
           <div className="px-6 py-5 text-2xl font-semibold border-b-4 border-t-4 border-[#1c2b3a]">
-            <div className={`${alice.className}`}>Steven</div>
+            <div className={`${alice.className}`}>Admin</div>
           </div>
-          <div className='px-8 text-2xl mt-2 mb-2'>
+          <div className='px-6 text-2xl mt-2 mb-2'>
             <div className={`${alice.className}`}>Dashboard</div>            
           </div>
           <div className="flex flex-col">

@@ -10,7 +10,7 @@ export default async function Page() {
   return (
     <div className="p-4">
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-3xl font-bold">Transactions</h1>
+        <h1 className="text-3xl">Transactions</h1>
         <div className="flex gap-2">
           <Link href="/adminpage/transactions/addtransaction">
             <button className="text-xl rounded-sm px-4 py-2 bg-[#6A70CC] hover:bg-[#4e57d1] text-white ">
@@ -23,7 +23,7 @@ export default async function Page() {
         </div>
       </div>
 
-      <div className="mb-4">
+      <div className={`mb-4 ${alice.className}`}>
         <Suspense fallback={<div>Loading search...</div>}>
           <Search placeholder="Search Transactions..." />
         </Suspense>
@@ -43,8 +43,8 @@ export default async function Page() {
               </tr>
             </thead>
             <tbody>
-              {transactions.map((transaction, index) => (
-                <tr key={index} className="border-t">
+              {transactions.map((transaction, id) => (
+                <tr key={id} className="border-t">
                   <td className={`py-3 px-4 text-md ${alice.className}`}>
                     {transaction.name}
                   </td>

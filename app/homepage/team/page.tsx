@@ -2,6 +2,7 @@ import { alice, bungee_inline } from "@/app/ui/fonts";
 import React from "react";
 import Header from "@/app/ui/storeprofile/header";
 import Image from "next/image";
+import Footer from "@/app/ui/footer";
 
 const team = [
   {
@@ -76,6 +77,7 @@ export default function Page() {
             ))}
           </div>
       </section>
+      <Footer />
     </div>
   )
 
