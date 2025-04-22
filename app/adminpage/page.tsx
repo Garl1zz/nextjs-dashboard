@@ -91,7 +91,7 @@ export default function Dashboard() {
                 <div>
                 <h2 className="text-2xl font-bold mb-4">ENGAGEMENT</h2>
                 <Image
-                    src="/grafik2.png"
+                    src="/grafik02.png"
                     alt="Engagement Statistics"
                     width={660}
                     height={330}
