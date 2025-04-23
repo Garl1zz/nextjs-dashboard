@@ -11,22 +11,30 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { getProductById } from "@/app/lib/datacatalogue";
+import { alice } from "@/app/ui/fonts";
 
 
 // Define the Product interface to match datacatalogue.ts
-interface Product {
-  title: string;
-  category: string;
-  price: number;
-  stock: number;
-}
+interface Transaction {
+    name: string;
+    customer_number: number;
+    category: string;
+    price: number;
+    sales: number;
+  }
 
 
 
 export default function EditItemClient({ initialProduct }: any) {
   const router = useRouter();
-  const [product, setProduct] = useState<Product>(initialProduct);
-
+  const [product, setProduct] = useState<Transaction>({
+    name: initialProduct?.name || "",
+    category: initialProduct?.category || "",
+    customer_number: initialProduct?.number ?? 0,
+    price: initialProduct?.price ?? 0,
+    sales: initialProduct?.sales ?? 0,
+  });
+  
   const originalProduct = initialProduct;
  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +43,7 @@ export default function EditItemClient({ initialProduct }: any) {
   };
 
   const handleEdit = async () => {
-    alert(`Item ${product.title} edited successfully!`);
+    alert(`Item ${product.name} edited successfully!`);
   };
 
   const handleCancel = () => {
@@ -54,50 +62,49 @@ export default function EditItemClient({ initialProduct }: any) {
         <div className="space-y-4">
           <Field label="Name">
             <input
-              name="title"
-              value={product?.title}
+              name="name"
+              value={product.name ?? ""}
               onChange={handleChange}
-              className="input w-full p-3 border border-gray-400 rounded"
+              className={`input w-full p-3 border border-gray-400 rounded ${alice.className}`}
             />
           </Field>
           <Field label="Number">
             <input
-              name="category"
-              value={product?.category}
+              type="number"
+              name="customer_number"
+              value={product.customer_number ?? ""}
               onChange={handleChange}
-            
-              className="input w-full p-3 border border-gray-400 rounded"
+              className={`input w-full p-3 border border-gray-400 rounded ${alice.className}`}
             />
           </Field>
           <Field label="Category">
             <input
-              type="number"
-              name="price"
-              value={product?.price}
+              name="category"
+              value={product.category ?? ""}
               onChange={handleChange}
               step="0.01"
               min="0"
-              className="input w-full p-3 border border-gray-400 rounded"
+              className={`input w-full p-3 border border-gray-400 rounded ${alice.className}`}
             />
           </Field>
-          <Field label="Praicing">
+          <Field label="Pricing">
             <input
               type="number"
-              name="stock"
-              value={product?.stock}
+              name="price"
+              value={product.price ?? ""}
               onChange={handleChange}
               min="0"
-              className="input w-full p-3 border border-gray-400 rounded"
+              className={`input w-full p-3 border border-gray-400 rounded ${alice.className}`}
             />
           </Field>
           <Field label="Amount">
             <input
               type="number"
-              name="stock"
-              value={product?.stock}
+              name="sales"
+              value={product.sales ?? ""}
               onChange={handleChange}
               min="0"
-              className="input w-full p-3 border border-gray-400 rounded"
+              className={`input w-full p-3 border border-gray-400 rounded ${alice.className}`}
             />
           </Field>
         </div>

@@ -13,27 +13,27 @@ const products = [
 ];
 
 const team = [
-    {
-      name: "Steven Christantio",
-      role: "CEO",
-      image: "/profile/steven.png",
-    },
-    {
-      name: "Aprillian Josua Marcelino",
-      role: "CCO",
-      image: "/profile/josua.png",
-    },
-    {
-      name: "Ivan Haryanto",
-      role: "COO",
-      image: "/profile/ivan.png",
-    },
-    {
-      name: "Arif Ramadinata",
-      role: "CIO",
-      image: "/profile/arif.png",
-    },
-]
+  {
+    name: "Steven Christantio",
+    role: "CEO",
+    image: "/profile/steven.png",
+  },
+  {
+    name: "Aprillian Josua Marcelino",
+    role: "CCO",
+    image: "/profile/josua.png",
+  },
+  {
+    name: "Ivan Haryanto",
+    role: "COO",
+    image: "/profile/ivan.png",
+  },
+  {
+    name: "Arif Ramadinata",
+    role: "CIO",
+    image: "/profile/arif.png",
+  },
+];
 
 export default function Page() {
   return (
@@ -58,7 +58,9 @@ export default function Page() {
         ))}
       </main>
       <section className="bg-[#9b1928] py-16 text-center text-white">
-        <h2 className={`text-2xl font-bold mb-10 ${rye.className}`}>About Us</h2>
+        <h2 className={`text-2xl font-bold mb-10 ${rye.className}`}>
+          About Us
+        </h2>
 
         <div className="flex flex-wrap justify-center gap-8 px-4">
           {team.map((member) => (
@@ -82,8 +84,7 @@ export default function Page() {
         </div>
         <div className={`mt-10 ${alice.className}`}>
           <Link href={"/homepage/team"}>
-            <button 
-            className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded transition border-black border-2">
+            <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded transition border-black border-2">
               Learn More About Us
             </button>
           </Link>

@@ -3,9 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { getProductById } from "@/app/lib/datacatalogue";
+import { alice } from "@/app/ui/fonts";
 
-
-// Define the Product interface to match datacatalogue.ts
 interface Product {
   title: string;
   category: string;
@@ -13,18 +12,17 @@ interface Product {
   stock: number;
 }
 
-
-
 export default function EditItemClient({ initialProduct }: any) {
   const router = useRouter();
-  const [product, setProduct] = useState<Product>(initialProduct || {title: "", category: "", price: 0, stock: 0});
+  const [product, setProduct] = useState<Product>(
+    initialProduct || { title: "", category: "", price: 0, stock: 0 }
+  );
 
   const originalProduct = initialProduct;
- 
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setProduct((prev: Product) => {
-      // Convert price and stock to numbers, leave other fields as strings
       if (name === "price" || name === "stock") {
         return { ...prev, [name]: Number(value) };
       }
@@ -33,9 +31,11 @@ export default function EditItemClient({ initialProduct }: any) {
   };
 
   const handleClearOnClick = (field: keyof Product) => {
-    // Only clear if the field is not category (since it's read-only)
     if (field !== "category") {
-      setProduct((prev: Product) => ({ ...prev, [field]: field === "title" ? "" : 0 }));
+      setProduct((prev: Product) => ({
+        ...prev,
+        [field]: field === "title" ? "" : 0,
+      }));
     }
   };
 
@@ -45,7 +45,7 @@ export default function EditItemClient({ initialProduct }: any) {
 
   const handleCancel = () => {
     alert("Cancelled");
-         router.push("/adminpage/itemcatalogue");
+    router.push("/adminpage/itemcatalogue");
   };
 
   return (
@@ -55,22 +55,21 @@ export default function EditItemClient({ initialProduct }: any) {
           EDIT ITEMS
         </h1>
 
-        
         <div className="space-y-4">
           <Field label="Product Name">
             <input
               name="title"
-              value={`Stage Juggling balls`} //placeholder data
+              value={`Stage Juggling balls`}
               onChange={handleChange}
-              className="input w-full p-3 border border-gray-400 rounded"
+              className={`input w-full p-3 border border-gray-400 rounded ${alice.className}`}
             />
           </Field>
           <Field label="Category">
             <input
               name="category"
-              value={`Balls`} // placeholder data
+              value={`Balls`}
               readOnly
-              className="input w-full p-3 bg-gray-300 cursor-not-allowed border border-gray-400 rounded"
+              className={`input w-full p-3 bg-gray-300 cursor-not-allowed border border-gray-400 rounded ${alice.className}`}
             />
           </Field>
           <Field label="Pricing (Rp)">
@@ -81,7 +80,7 @@ export default function EditItemClient({ initialProduct }: any) {
               onChange={handleChange}
               step="0.01"
               min="0"
-              className="input w-full p-3 border border-gray-400 rounded"
+              className={`input w-full p-3 border border-gray-400 rounded ${alice.className}`}
             />
           </Field>
           <Field label="Stock">
@@ -91,7 +90,7 @@ export default function EditItemClient({ initialProduct }: any) {
               value={46}
               onChange={handleChange}
               min="0"
-              className="input w-full p-3 border border-gray-400 rounded"
+              className={`input w-full p-3 border border-gray-400 rounded ${alice.className}`}
             />
           </Field>
         </div>

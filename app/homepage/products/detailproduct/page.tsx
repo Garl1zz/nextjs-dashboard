@@ -7,7 +7,11 @@ import { alice } from "@/app/ui/fonts";
 
 export default function DetailProductPage() {
   return (
-    <Suspense fallback={<div className="text-center text-white">Loading product details...</div>}>
+    <Suspense
+      fallback={
+        <div className="text-center text-white">Loading product details...</div>
+      }
+    >
       <ProductDetails />
     </Suspense>
   );
@@ -15,9 +19,8 @@ export default function DetailProductPage() {
 
 function ProductDetails() {
   const searchParams = useSearchParams();
-  const productId = searchParams.get("id"); // Ambil ID produk dari URL
+  const productId = searchParams.get("id");
 
-  // Data produk (contoh)
   const products = [
     {
       id: 1,
@@ -75,15 +78,29 @@ function ProductDetails() {
     },
   ];
 
-  // Mencari produk berdasarkan ID
-  const product = useMemo(() => products.find((p) => p.id === Number(productId)), [productId]);
+  const product = useMemo(
+    () => products.find((p) => p.id === Number(productId)),
+    [productId]
+  );
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-20 max-h- mx-auto" style={{ backgroundColor: "#981827" }}>
-      <h1 className={`${alice.className} text-4xl text-center mb-6 text-white`}>Detail Produk</h1>
+    <div
+      className="bg-white rounded-lg shadow-lg p-20 max-h- mx-auto"
+      style={{ backgroundColor: "#981827" }}
+    >
+      <h1 className={`${alice.className} text-4xl text-center mb-6 text-white`}>
+        Detail Produk
+      </h1>
       {product ? (
-        <div className="bg-white rounded-lg shadow-lg p-16 max-h- mx-auto" style={{ backgroundColor: "lightgray" }}>
-          <h2 className={`${alice.className} text-3xl text-center mb-4 text-black`}>{product.title}</h2>
+        <div
+          className="bg-white rounded-lg shadow-lg p-16 max-h- mx-auto"
+          style={{ backgroundColor: "lightgray" }}
+        >
+          <h2
+            className={`${alice.className} text-3xl text-center mb-4 text-black`}
+          >
+            {product.title}
+          </h2>
           <Image
             src={product.image}
             alt={product.title}
@@ -91,12 +108,22 @@ function ProductDetails() {
             height={300}
             className="mx-auto my-4 rounded-lg shadow-md"
           />
-          <p className={`${alice.className} text-xl font-semibold text-center text-black`}>{product.price}</p>
-          <p className={`${alice.className} text-lg text-center text-black`}>Stok: {product.stok}</p>
-          <p className={`${alice.className} mt-4 text-black text-3xl`}>{product.description}</p>
+          <p
+            className={`${alice.className} text-xl font-semibold text-center text-black`}
+          >
+            {product.price}
+          </p>
+          <p className={`${alice.className} text-lg text-center text-black`}>
+            Stok: {product.stok}
+          </p>
+          <p className={`${alice.className} mt-4 text-black text-3xl`}>
+            {product.description}
+          </p>
         </div>
       ) : (
-        <p className="text-center text-red-500 text-lg">Produk tidak ditemukan.</p>
+        <p className="text-center text-red-500 text-lg">
+          Produk tidak ditemukan.
+        </p>
       )}
     </div>
   );

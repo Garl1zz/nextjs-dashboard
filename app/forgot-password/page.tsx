@@ -17,8 +17,8 @@ export default function RegisterPage() {
             alt="logo"
             width={500}
             height={500}
-            className="flex flex-col w-full min-w-[400px] max-w-[590px] ">
-          </Image>
+            className="flex flex-col w-full min-w-[400px] max-w-[590px] "
+          ></Image>
         </div>
 
         <div className="w-full md:w-1/2 p-8 flex flex-col items-center justify-center mb-12">
@@ -27,9 +27,7 @@ export default function RegisterPage() {
           >
             Forgot Password?
           </h2>
-          <p
-            className={`w-full text-center text-sm mb-8 ${alice.className}`}
-          >
+          <p className={`w-full text-center text-sm mb-8 ${alice.className}`}>
             No worries, we'll send you the reset instructions.
           </p>
 
@@ -39,14 +37,14 @@ export default function RegisterPage() {
               placeholder="Enter your email"
               className={`w-full px-4 py-2 bg-[#d5a153] text-black placeholder-black rounded-md border-2 border-black ${alice.className}`}
             />
-            {/* <Link href={"/"}> */}
-            <button
-              type="button"
-              className={`w-full py-1 mt-4 bg-white text-black text-lg rounded-md border-2 border-black ${alice.className}`}
-            >
-              Reset Password
-            </button>
-            {/* </Link> */}
+            <Link href={"/"}>
+              <button
+                type="button"
+                className={`w-full py-1 mt-4 bg-white text-black text-lg rounded-md border-2 border-black ${alice.className}`}
+              >
+                Reset Password
+              </button>
+            </Link>
             <Link
               href={"/"}
               className="flex justify-center items-center gap-2 text-white text-lg py-2 hover:underline"

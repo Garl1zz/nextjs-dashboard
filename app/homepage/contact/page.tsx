@@ -26,7 +26,9 @@ export default function ContactPage() {
         }}
         className="bg-white rounded-lg shadow-lg p-8 w-full max-w-lg space-y-4"
       >
-        <h1 className="text-2xl font-bold text-center text-[#981827]">Contact Us</h1>
+        <h1 className="text-2xl font-bold text-center text-[#981827]">
+          Contact Us
+        </h1>
 
         <div>
           <label className="block">Name</label>
@@ -46,7 +48,9 @@ export default function ContactPage() {
             type="tel"
             name="nomorHP"
             value={formData.nomorHP}
-            onChange={(e) => setFormData({ ...formData, nomorHP: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, nomorHP: e.target.value })
+            }
             className="w-full p-2 border rounded"
             required
           />
@@ -58,7 +62,9 @@ export default function ContactPage() {
             type="email"
             name="email"
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
             className="w-full p-2 border rounded"
             required
           />
@@ -69,7 +75,9 @@ export default function ContactPage() {
           <textarea
             name="pesan"
             value={formData.pesan}
-            onChange={(e) => setFormData({ ...formData, pesan: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, pesan: e.target.value })
+            }
             className="w-full p-2 border rounded"
             rows={4}
             required
