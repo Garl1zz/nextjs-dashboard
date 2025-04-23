@@ -37,14 +37,12 @@ export default function RegisterPage() {
               placeholder="Enter your email"
               className={`w-full px-4 py-2 bg-[#d5a153] text-black placeholder-black rounded-md border-2 border-black ${alice.className}`}
             />
-            <Link href={"/"}>
-              <button
-                type="button"
-                className={`w-full py-1 mt-4 bg-white text-black text-lg rounded-md border-2 border-black ${alice.className}`}
-              >
-                Reset Password
-              </button>
-            </Link>
+            <button
+              type="button"
+              className={`w-full py-1 mt-4 bg-white text-black text-lg rounded-md border-2 border-black ${alice.className}`}
+            >
+              Reset Password
+            </button>
             <Link
               href={"/"}
               className="flex justify-center items-center gap-2 text-white text-lg py-2 hover:underline"

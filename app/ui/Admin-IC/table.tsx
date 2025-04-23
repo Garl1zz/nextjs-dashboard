@@ -20,6 +20,7 @@ export default async function Table() {
     );
   }
 
+  
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full bg-white border border-gray-200">
@@ -34,7 +35,6 @@ export default async function Table() {
         </thead>
         <tbody>
           {productsData.map((product, index) => {
-            // Encode the product name for the URL
             const encodedProductName = encodeURIComponent(product.title);
 
             return (

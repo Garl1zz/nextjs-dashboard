@@ -47,13 +47,9 @@ export default function Page() {
         <h2 className={`flex justify-center text-[64px] text-white mt-20`}>
           Team and People
         </h2>
-        <p
-          className={`flex text-center justify-center text-[20px] mt-6 w-1/2 mx-auto text-white ${alice.className}`}
-        >
-          We strive to equip every performer, enthusiast, and future ringmaster
-          with the finest tools to dazzle, inspire, and keep the magic of the
-          circus alive for generations to come!"
-        </p>
+        <p className={`flex text-center justify-center text-[20px] mt-6 w-1/2 mx-auto text-white ${alice.className}`}>
+          We strive to equip every performer, enthusiast, and future ringmaster with the finest tools to
+          dazzle, inspire, and keep the magic of the circus alive for generations to come!"</p>
       </header>
 
       <section className="bg-[#9b1928] py-20 text-center text-black">
@@ -75,9 +71,7 @@ export default function Page() {
               <p className={`text-[32px] ${alice.className}`}>{member.name}</p>
               <p className={`${bungee_inline.className}`}>{member.role}</p>
               <p className={`mt-8 ${alice.className}`}>{member.desc}</p>
-              <p className={`mt-8 text-[#FF6203] ${alice.className}`}>
-                {member.call}
-              </p>
+              <p className={`mt-8 text-[#FF6203] ${alice.className}`}>{member.call}</p>
               <p className={`mb-16 ${alice.className}`}>{member.email}</p>
             </div>
           ))}

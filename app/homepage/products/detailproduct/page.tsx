@@ -78,10 +78,7 @@ function ProductDetails() {
     },
   ];
 
-  const product = useMemo(
-    () => products.find((p) => p.id === Number(productId)),
-    [productId]
-  );
+  const product = useMemo(() => products.find((p) => p.id === Number(productId)), [productId]);
 
   return (
     <div

@@ -8,6 +8,10 @@ export interface Product {
 }
 
 export async function fetchProductsData(): Promise<Product[]> {
+  if (!process.env.DATABASE_URL) {
+    throw new Error('DATABASE_URL environment variable is not set');
+  }
+
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
   });
@@ -27,7 +31,6 @@ export async function fetchProductsData(): Promise<Product[]> {
       category: row.category,
       price: row.pricing,
       stock: row.stock,
-
     }));
 
     return products;
@@ -45,20 +48,21 @@ export async function fetchProductsData(): Promise<Product[]> {
 }
 
 export async function getProductById(name: string): Promise<Product | null> {
+  if (!process.env.DATABASE_URL) {
+    throw new Error('DATABASE_URL environment variable is not set');
+  }
+
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
   });
 
   try {
-    if (!process.env.DATABASE_URL) {
-      throw new Error('DATABASE_URL environment variable is not set');
-    }
-
     await client.connect();
 
     const query = `
-      SELECT name, category, pricing, stock,
+      SELECT name, category, pricing, stock
       FROM item_catalogue
+      WHERE LOWER(name) = LOWER($1)
     `;
     const { rows } = await client.query(query, [name]);
 
@@ -88,6 +92,10 @@ export async function getProductById(name: string): Promise<Product | null> {
 }
 
 export async function updateProduct(originalName: string, updatedProduct: Product): Promise<void> {
+  if (!process.env.DATABASE_URL) {
+    throw new Error('DATABASE_URL environment variable is not set');
+  }
+
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
   });
@@ -97,8 +105,8 @@ export async function updateProduct(originalName: string, updatedProduct: Produc
 
     const query = `
       UPDATE item_catalogue
-      SET name = $1, category = $2, pricing = $3, stock = $4, = $5
-      WHERE LOWER(name) = LOWER($6)
+      SET name = $1, category = $2, pricing = $3, stock = $4
+      WHERE LOWER(name) = LOWER($5)
     `;
     await client.query(query, [
       updatedProduct.title,
