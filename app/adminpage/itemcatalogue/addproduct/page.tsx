@@ -1,14 +1,13 @@
-'use client'
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-
+import { useState } from "react";
+import Link from "next/link";
 
 export default function AddItemForm() {
-  const [productName, setProductName] = useState('');
-  const [category, setCategory] = useState('');
-  const [pricing, setPricing] = useState('');
-  const [stock, setStock] = useState('');
+  const [productName, setProductName] = useState("");
+  const [category, setCategory] = useState("");
+  const [pricing, setPricing] = useState("");
+  const [stock, setStock] = useState("");
   const [image, setImage] = useState<File | null>(null);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,15 +18,14 @@ export default function AddItemForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Proses submit form di sini (API call atau lainnya)
     console.log({ productName, category, pricing, stock, image });
   };
 
   const handleCancel = () => {
-    setProductName('');
-    setCategory('');
-    setPricing('');
-    setStock('');
+    setProductName("");
+    setCategory("");
+    setPricing("");
+    setStock("");
     setImage(null);
   };
 
@@ -37,15 +35,38 @@ export default function AddItemForm() {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block font-semibold text-lg mb-2">Upload Image</label>
+          <label className="block font-semibold text-lg mb-2">
+            Upload Image
+          </label>
           <div className="w-32 h-32 bg-gray-300 flex items-center justify-center">
             <label className="cursor-pointer">
-              <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
-              <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" strokeWidth="2"
-                viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round"
-                  d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4-4m0 0l-4 4m4-4v12" />
+              <input
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={handleImageUpload}
+              />
+              {image ? (
+                <img
+                src={URL.createObjectURL(image)}
+                alt="Preview gambar"
+                className="w-full h-full object-cover"
+              />
+              ) : (
+                <svg
+                className="w-8 h-8 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4-4m0 0l-4 4m4-4v12"
+                />
               </svg>
+              )}
             </label>
           </div>
         </div>
@@ -96,15 +117,15 @@ export default function AddItemForm() {
 
         <div className="flex gap-4 mt-6">
           <Link href={"/adminpage/itemcatalogue"}>
-          <button
-            type="button"
-            onClick={handleCancel}
-            className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded"
-          >
-            CANCEL
-          </button>
+            <button
+              type="button"
+              onClick={handleCancel}
+              className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded"
+            >
+              CANCEL
+            </button>
           </Link>
-          
+
           <button
             type="submit"
             className="bg-indigo-400 hover:bg-indigo-500 text-white font-bold py-2 px-6 rounded"
