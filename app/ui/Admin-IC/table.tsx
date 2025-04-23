@@ -46,7 +46,7 @@ export default async function Table() {
                   {product.category}
                 </td>
                 <td className={`text-xl py-3 px-4 ${alice.className}`}>
-                  Rp {product.price.toLocaleString('id-ID', { minimumFractionDigits: 2 })}
+                  Rp {product.price}
                 </td>
                 <td className={`text-xl py-3 px-4 ${alice.className}`}>
                   {product.stock}

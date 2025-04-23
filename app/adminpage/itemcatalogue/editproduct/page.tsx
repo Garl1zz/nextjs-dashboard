@@ -17,13 +17,26 @@ interface Product {
 
 export default function EditItemClient({ initialProduct }: any) {
   const router = useRouter();
-  const [product, setProduct] = useState<Product>(initialProduct);
+  const [product, setProduct] = useState<Product>(initialProduct || {title: "", category: "", price: 0, stock: 0});
 
   const originalProduct = initialProduct;
  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setProduct((prev : any) => ({...prev,[name]: value,}));
+    setProduct((prev: Product) => {
+      // Convert price and stock to numbers, leave other fields as strings
+      if (name === "price" || name === "stock") {
+        return { ...prev, [name]: Number(value) };
+      }
+      return { ...prev, [name]: value };
+    });
+  };
+
+  const handleClearOnClick = (field: keyof Product) => {
+    // Only clear if the field is not category (since it's read-only)
+    if (field !== "category") {
+      setProduct((prev: Product) => ({ ...prev, [field]: field === "title" ? "" : 0 }));
+    }
   };
 
   const handleEdit = async () => {
@@ -47,7 +60,7 @@ export default function EditItemClient({ initialProduct }: any) {
           <Field label="Product Name">
             <input
               name="title"
-              value={product?.title}
+              value={`Stage Juggling balls`} //placeholder data
               onChange={handleChange}
               className="input w-full p-3 border border-gray-400 rounded"
             />
@@ -55,7 +68,7 @@ export default function EditItemClient({ initialProduct }: any) {
           <Field label="Category">
             <input
               name="category"
-              value={product?.category}
+              value={`Balls`} // placeholder data
               readOnly
               className="input w-full p-3 bg-gray-300 cursor-not-allowed border border-gray-400 rounded"
             />
@@ -64,7 +77,7 @@ export default function EditItemClient({ initialProduct }: any) {
             <input
               type="number"
               name="price"
-              value={product?.price}
+              value={50000}
               onChange={handleChange}
               step="0.01"
               min="0"
@@ -75,7 +88,7 @@ export default function EditItemClient({ initialProduct }: any) {
             <input
               type="number"
               name="stock"
-              value={product?.stock}
+              value={46}
               onChange={handleChange}
               min="0"
               className="input w-full p-3 border border-gray-400 rounded"
