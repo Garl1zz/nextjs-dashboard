@@ -3,7 +3,7 @@ import Link from "next/link";
 import Search from "@/app/ui/Admin-IC/search";
 import Table from "@/app/ui/Admin-IC/table";
 
-export default function Page() {
+export default async function Page() {
   return (
     <div className="p-4">
       <div className="flex justify-between items-center">
