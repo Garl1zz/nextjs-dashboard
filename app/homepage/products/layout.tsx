@@ -4,13 +4,13 @@ import React from 'react';
 
 export default function ProductsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex-col bg-white">
+    <div className="flex-col w-full bg-white">
       <Header />
       <div className="flex flex-1">
-        <div className="w-64 text-white">
+        <div className="w-64 bg-[#9b1a28]">
           <SideNavProducts />
         </div>
-        <main className="flex-1 p-6 overflow-y-auto bg-white">
+        <main className="w-full flex-1 p-6 overflow-y-auto bg-white">
           {children}
         </main>
       </div>

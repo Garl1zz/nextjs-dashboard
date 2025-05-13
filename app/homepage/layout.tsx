@@ -3,11 +3,11 @@ import React from 'react';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <div className='flex h-screen flex-col bg-[#981827]'>
-            <div className='w-full flex-none'>
+        <div className='flex flex-col w-full bg-[#981827]'>
+            <div className='w-full flex'>
                 <TopNav />
             </div>
-            <div className='flex overflow-y-auto'>{children}</div>
+            <div className='flex '>{children}</div>
         </div>
     );
 }

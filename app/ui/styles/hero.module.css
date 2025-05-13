@@ -1,10 +1,10 @@
 .showcase {
   height: 200px; 
-  width: 100%; 
-  max-width: 2550px; 
+  width: 100s%; 
+  max-width: 1708px; 
   background: #981827 url("/circus hamlin.jpg") no-repeat center / cover;
   color: #fff;
-  position: relative; 
+  position: flex; 
   display: flex; 
   flex-direction: column;
   align-items: flex-start; 
@@ -21,18 +21,16 @@
 .showcase h1 {
   font-size: 30px; 
   margin-bottom: 0;
-  padding: 10px; 
-  padding-top: 20px; 
+  padding-top : 30px 
 }
 
 .showcaseHome {
-  height: 700px;
-  width: 1708px;
   background: #fff url("/vecteezy_colored-circus-background.jpg") no-repeat center / cover;
+  height: 700px;
+  width: 100%;
+  max-width: 1708px;
   color: #fff;
-  position: flex;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -87,7 +85,7 @@
 
 .showcaseAboutStore2{
   height: 400px;
-  width: 800px;
+  width: 600px;
   background: #fff url("/family-customes.jpg") no-repeat center / cover;
   color: #fff;
   position: flex;
@@ -105,92 +103,10 @@
   justify-content: top  ; 
   align-items: flex-start; 
   background-color: #fff;
-  width: 800px; 
+  width: 100%; 
+  max-width:600px;
   height: 400px;
   padding: 2rem; 
   gap: 1.5rem; 
 }
 
-@media (min-width: 768px) {
-  .showcase {
-    height: 250px; 
-    width: 1100px;
-    max-width: 1200px;
-  }
-
-  .showcase h1 {
-    font-size: 40px;
-    padding: 15px;
-    padding-top: 20px;
-  }
-
-  .showcaseHome {
-    height: 550px;
-    width: 855px;
-    max-width: 1200px;
-  }
-
-  .showcaseHome h1 {
-    font-size: 40px;
-  }
-  
-  .showcaseHome p {
-    font-size: 18px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .showcase {
-    height: 300px;
-    width: 1500px;
-    max-width: 1550px;
-  }
-
-  .showcase h1 {
-    font-size: 50px;
-    padding: 20px;
-    padding-top: 60px;
-  }
-
-  .showcaseHome {
-    height: 300px;
-    width: 1500px;
-    max-width: 1550px;
-  }
-
-  .showcaseHome h1 {
-    font-size: 50px;
-  }
-
-  .showcaseHome p {
-    font-size: 24px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .showcase {
-    height: 350px;
-    width: 1707px;
-    max-width: 1800px;
-  }
-
-  .showcase h1 {
-    font-size: 60px;
-    padding: 20px;
-    padding-top: 80px;
-  }
-
-  .showcaseHome {
-    height: 700px;
-    width: 1707px;
-    max-width: 1800px;
-  }
-
-  .showcaseHome h1 {
-    font-size: 50px;
-  }
-
-  .showcaseHome p {
-    font-size: 22px;
-  }
-}

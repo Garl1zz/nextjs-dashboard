@@ -43,7 +43,7 @@ const items = [
 
 export default function ProductsPage() {
   return (
-    <div>
+    <div className="w-full">
       <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 flex-wrap justify-center gap-6 py-10 bg-white">
         {items.map((item) => (
           <div

@@ -32,7 +32,7 @@ export default function page() {
           <Footer/>
           <div className={`${styles.whiteBox2}`}>
             <h1 className={`flex justify-center text-[49px] text-[#981827] ${alice.className}`}>WELCOME TO WONDER SEEKER</h1>
-            <p className={`flex justify-center text-center text-[20px] text-[#981827] ${alice.className}`}>
+            <p className={`flex justify-center text-center text-[15px] text-[#981827] ${alice.className}`}>
               From vibrant costumes and classic clown accessories to juggling gear, unicycles, vintage circus décor, and more, 
               our store is dedicated to keeping the spirit of the circus alive. We believe that the magic of the big top should 
               be accessible to everyone, and that’s why we carefully curate our collection to cater to circus lovers of all 

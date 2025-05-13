@@ -37,14 +37,13 @@ const team = [
 
 export default function Page() {
   return (
-    <div>
+    <div className="w-full">
       <Header />
-
-      <main className="flex flex-wrap justify-center gap-6 py-10 bg-[#9b1928]">
+      <main className="flex flex-wrap justify-center gap-6 py-10 w-full bg-[#9b1a28]">
         {products.map((product) => (
           <div
             key={product.name}
-            className="bg-white text-black rounded-xl p-4 w-42 text-center shadow-lg mr-4"
+            className="bg-white text-black rounded-xl p-4 text-center shadow-lg mr-4"
           >
             <Image
               src={product.image}
