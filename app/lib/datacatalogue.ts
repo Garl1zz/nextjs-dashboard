@@ -5,6 +5,8 @@ export interface Product {
   category: string;
   price: number;
   stock: number;
+  id_product: string;
+  img_src: string
 }
 
 export async function fetchProductsData(): Promise<Product[]> {
@@ -20,7 +22,7 @@ export async function fetchProductsData(): Promise<Product[]> {
     await client.connect();
 
     const query = `
-      SELECT name, category, pricing, stock
+      SELECT name, category, pricing, stock, id_produk, img_url
       FROM item_catalogue
     `;
     
@@ -31,6 +33,8 @@ export async function fetchProductsData(): Promise<Product[]> {
       category: row.category,
       price: row.pricing,
       stock: row.stock,
+      id_product:row.id_produk,
+      img_src:row.img_url
     }));
 
     return products;
@@ -76,6 +80,9 @@ export async function getProductById(name: string): Promise<Product | null> {
       category: rows[0].category,
       price: rows[0].pricing,
       stock: rows[0].stock,
+      id_product:rows[0].id_produk,
+      img_src:rows[0].img_url
+
     };
   } catch (error: any) {
     console.error('Error fetching product by name:', {

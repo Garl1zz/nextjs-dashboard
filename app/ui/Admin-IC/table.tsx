@@ -26,6 +26,7 @@ export default async function Table() {
       <table className="min-w-full bg-white border border-gray-200">
         <thead className="bg-gray-100">
           <tr className="text-left text-2xl">
+            <th className="py-3 px-4 border-b">ID Product</th>
             <th className="py-3 px-4 border-b">Name</th>
             <th className="py-3 px-4 border-b">Category</th>
             <th className="py-3 px-4 border-b">Pricing</th>
@@ -39,10 +40,13 @@ export default async function Table() {
 
             return (
               <tr key={index} className="border-t">
+                <td className={`text-xl py-3 px-4 text-center ${alice.className}`}>
+                  {product.id_product}
+                </td>
                 <td className={`text-xl py-3 px-4 ${alice.className}`}>
                   {product.title}
                 </td>
-                <td className={`text-xl py-3 px-4 justify-center ${alice.className}`}>
+                <td className={`text-xl py-3 px-4 text-center ${alice.className}`}>
                   {product.category}
                 </td>
                 <td className={`text-xl py-3 px-4 ${alice.className}`}>
