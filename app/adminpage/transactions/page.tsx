@@ -34,33 +34,37 @@ export default async function Page() {
           <table className="min-w-full bg-white border border-gray-300">
             <thead className="bg-gray-100">
               <tr className="text-left">
+                <th className="py-3 px-4 border-b">ID transactions</th>
                 <th className="py-3 px-4 border-b">Name</th>
-                <th className="py-3 px-4 border-b">Number</th>
-                <th className="py-3 px-4 border-b">Category</th>
-                <th className="py-3 px-4 border-b">Pricing</th>
-                <th className="py-3 px-4 border-b text-center">Amount</th>
+                <th className="py-3 px-4 border-b">ID Product</th>
+                <th className="py-3 px-4 border-b">Date</th>
+                <th className="py-3 px-4 border-b">Amount</th>
+                <th className="py-3 px-4 border-b text-center">Total</th>
                 <th className="py-3 px-4 border-b"></th>
               </tr>
             </thead>
             <tbody>
-              {transactions.map((transaction, id) => (
-                <tr key={id} className="border-t">
+              {transactions.map((transaction, transaction_id) => (
+                <tr key={transaction_id} className="border-t">
+                  <td className={`py-3 px-4 text-md ${alice.className}`}>
+                    {transaction.transaction_id}
+                  </td>
                   <td className={`py-3 px-4 text-md ${alice.className}`}>
                     {transaction.name}
                   </td>
                   <td className={`py-3 px-4 text-md ${alice.className}`}>
-                    {transaction.customer_number}
+                    {transaction.id_product}
                   </td>
                   <td className={`py-3 px-4 text-md ${alice.className}`}>
-                    {transaction.category}
-                  </td>
-                  <td className={`py-3 px-4 text-md ${alice.className}`}>
-                    Rp {transaction.price}
+                    {transaction.date_bought}
                   </td>
                   <td
                     className={`py-3 px-4 text-lg text-center ${alice.className}`}
                   >
                     {transaction.sales}
+                  </td>
+                  <td className={`py-3 px-4 text-md ${alice.className}`}>
+                    {transaction.total_price}
                   </td>
                   <td className={`py-3 px-4 text-center ${alice.className}`}>
                     <Link href="/adminpage/transactions/edittransaction">
