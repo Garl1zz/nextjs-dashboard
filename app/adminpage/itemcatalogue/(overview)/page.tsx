@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import Search from "@/app/ui/Admin-IC/search";
 import Table from "@/app/ui/Admin-IC/table";
+import { RevenueChartSkeleton } from '@/app/ui/skeletons';
 
 export default async function Page() {
   return (
@@ -27,7 +28,7 @@ export default async function Page() {
       </div>
 
       <div>
-        <Suspense fallback={<div>Loading table...</div>}>
+        <Suspense fallback={<RevenueChartSkeleton />}>
           <Table />
         </Suspense>
       </div>
