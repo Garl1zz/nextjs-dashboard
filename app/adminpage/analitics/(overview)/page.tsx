@@ -90,16 +90,6 @@ export default async function Dashboard() {
               className="rounded-md shadow"
             />
           </div>
-          <div>
-            <h2 className="text-2xl font-bold mb-4">ENGAGEMENT</h2>
-            <Image
-              src="/grafik02.png"
-              alt="Engagement Statistics"
-              width={660}
-              height={330}
-              className="rounded-md shadow"
-            />
-          </div>
         </div>
       </section>
     </main>
