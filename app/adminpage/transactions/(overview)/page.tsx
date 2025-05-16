@@ -3,6 +3,11 @@ import Search from "@/app/ui/Admin-IC/search";
 import { fetchTransactions } from "@/app/lib/datatransactions";
 import Link from "next/link";
 import { Suspense } from "react";
+// import { RevenueChartSkeleton } from '@/app/ui/skeletons';
+// import Table from "@/app/ui/Admin-IC/table";
+// import { TransactionsTableSkeleton } from "@/app/ui/skeletons";
+
+
 
 export default async function Page() {
   const transactions = await fetchTransactions();
@@ -78,6 +83,9 @@ export default async function Page() {
             </tbody>
           </table>
         </Suspense>
+
+
+
       </div>
     </div>
   );
