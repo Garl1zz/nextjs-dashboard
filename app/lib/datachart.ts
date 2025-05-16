@@ -23,7 +23,7 @@ export function TransactionChart(transactions: ProductTransaction[]): MonthlyDat
     });
   
     // Return in calendar order (Sep to Aug as per your image)
-    const monthOrder = ['Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'];
+    const monthOrder = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   
     return monthOrder
       .filter((month) => monthlyMap.has(month))

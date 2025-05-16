@@ -20,10 +20,10 @@ interface ChartData {
 export default function RevenueSalesChart({ data }: { data: ChartData[] }) {
   return (
     <div className="w-full flex justify-center">
-      <div className="w-full max-w-4xl h-96 p-4 bg-white rounded-lg shadow">
+      <div className="w-full h-96 p-4 bg-white rounded-lg shadow">
         <h2 className="text-lg font-semibold mb-4">Total Revenue & Sales</h2>
         <div className="h-[calc(100%-56px)]">
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer>
           <AreaChart
             data={data}
             margin={{ top: 20, right: 30, left: 0, bottom: 20 }}
@@ -39,7 +39,7 @@ export default function RevenueSalesChart({ data }: { data: ChartData[] }) {
               </linearGradient>
             </defs>
             <XAxis dataKey="name" />
-            <YAxis tickFormatter={(value) => `${value}`} />
+            <YAxis tickFormatter={(value) => `${value/ 10}`} />
             <CartesianGrid strokeDasharray="3 3" />
             <Tooltip />
             <Legend verticalAlign="bottom" height={36} />

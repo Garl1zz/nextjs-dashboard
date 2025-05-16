@@ -84,13 +84,13 @@ export default async function Dashboard() {
           </div>
         </div>
       </div>
-      <section className="mt-10 text-left">
+      {/* <section className="mt-10 text-left">
         <div className="flex flex-col md:flex-row gap-6">
           <div className="w-full p-8">
           <RevenueSalesChart data={ChartData} />
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }
