@@ -4,7 +4,7 @@ import { alice } from "@/app/ui/fonts";
 
 export default function SideNav() {
     return (
-        <div className="h-full w-64 bg-[#981827] text-white flex flex-col">
+          <div className="h-full w-64 bg-gradient-to-b from-red-800 via-red-600 to-yellow-300 text-white flex flex-col">
           <div className="p-6 flex items-center space-x-3">
             <h1 className="text-xl font-bold">Wonder Seekers</h1>
           </div>
