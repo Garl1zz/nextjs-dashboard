@@ -7,8 +7,14 @@ import {
   FaShoppingCart,
   FaArrowRight,
 } from "react-icons/fa";
+import { fetchTransactions } from "../lib/datatransactions";
+import { TransactionChart } from "../lib/datachart";
+import RevenueSalesChart from "../ui/chartui/revenuesales";
 
-export default function Dashboard() {
+export default async function Dashboard() {
+  const transaction = await fetchTransactions();
+  const ChartData = TransactionChart(transaction);
+
   return (
     <main className={`${alice.className} min-h-screen bg-gradient-to-b from-white to-gray-100 p-1`}>
       <h1 className="text-3xl font-bold mb-6">DASHBOARD</h1>
@@ -80,25 +86,8 @@ export default function Dashboard() {
       </div>
       <section className="mt-10 text-left">
         <div className="flex flex-col md:flex-row gap-6">
-          <div>
-            <h2 className="text-2xl font-bold mb-4">STATISTIC SALES</h2>
-            <Image
-              src="/grafik.png"
-              alt="Sales Statistics"
-              width={660}
-              height={330}
-              className="rounded-md shadow"
-            />
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold mb-4">ENGAGEMENT</h2>
-            <Image
-              src="/grafik02.png"
-              alt="Engagement Statistics"
-              width={660}
-              height={330}
-              className="rounded-md shadow"
-            />
+          <div className="w-full p-8">
+          <RevenueSalesChart data={ChartData} />
           </div>
         </div>
       </section>

@@ -29,16 +29,16 @@ export function CardsSkeleton() {
   );
 }
 
-// export function RevenueChartSkeleton() {
-//   return (
-//     <div className={`${shimmer} relative w-full overflow-hidden md:col-span-4`}>
-//       <div className="mb-4 h-8 w-36 rounded-md bg-gray-100" />
-//       <div className="rounded-xl bg-gray-100 p-4">
-//         <div className="sm:grid-cols-13 mt-0 grid h-[410px] grid-cols-12 items-end gap-2 rounded-md bg-white p-4 md:gap-4" />
-//       </div>
-//     </div>
-//   );
-// }
+export function RevenueChartSkeleton() {
+  return (
+    <div className={`${shimmer} relative w-full overflow-hidden md:col-span-4`}>
+      <div className="mb-4 h-8 w-36 rounded-md bg-gray-100" />
+      <div className="rounded-xl bg-gray-100 p-4">
+        <div className="sm:grid-cols-13 mt-0 grid h-[410px] grid-cols-12 items-end gap-2 rounded-md bg-white p-4 md:gap-4" />
+      </div>
+    </div>
+  );
+}
 
 // export function RevenueChartSkeleton() {
 //   const fakeRows = Array.from({ length: 5 });
@@ -84,72 +84,6 @@ export function CardsSkeleton() {
 //     </div>
 //   );
 // }
-export function RevenueChartSkeleton() {
-  return (
-    <div className="w-full px-6 space-y-4 animate-pulse"> {/* tambahkan px-6 */}
-      {/* Judul dan Search Bar */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div className="h-8 w-64 bg-gray-200 rounded-md" /> {/* ITEM CATALOGUE */}
-        <div className="h-10 w-72 bg-gray-200 rounded-md" /> {/* Search product */}
-      </div>
-
-      {/* Skeleton Rows */}
-      {Array.from({ length: 6 }).map((_, index) => (
-        <div
-          key={index}
-          className="grid grid-cols-6 items-center px-4 py-3 bg-white border-b border-gray-200 rounded-md"
-        >
-          <div className="h-4 w-10 bg-gray-200 rounded-md ml-auto" />
-          <div className="h-4 w-48 bg-gray-200 rounded-md ml-auto" />
-          <div className="h-4 w-20 bg-gray-200 rounded-md ml-auto" />
-          <div className="h-4 w-24 bg-gray-200 rounded-md ml-auto" />
-          <div className="h-4 w-12 bg-gray-200 rounded-md ml-auto" />
-          <div className="h-8 w-16 bg-yellow-300 rounded-md ml-auto" />
-
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// ui/skeletons/TransactionsTableSkeleton.tsx
-// export function TransactionsTableSkeleton() {
-//   return (
-//     <div className="animate-pulse space-y-4">
-//       {/* Skeleton untuk Search Bar */}
-//       <div className="h-10 w-72 bg-gray-200 rounded-md mb-2" />
-
-//       {/* Header tabel */}
-//       <div className="grid grid-cols-7 gap-2 bg-gray-100 px-4 py-3 rounded-md">
-//         <div className="h-4 bg-gray-300 w-24 rounded" />
-//         <div className="h-4 bg-gray-300 w-32 rounded" />
-//         <div className="h-4 bg-gray-300 w-24 rounded" />
-//         <div className="h-4 bg-gray-300 w-24 rounded" />
-//         <div className="h-4 bg-gray-300 w-20 rounded" />
-//         <div className="h-4 bg-gray-300 w-28 rounded" />
-//         <div className="h-4 bg-gray-300 w-16 rounded" />
-//       </div>
-
-//       {/* Skeleton baris transaksi */}
-//       {Array.from({ length: 6 }).map((_, i) => (
-//         <div
-//           key={i}
-//           className="grid grid-cols-7 items-center gap-2 px-4 py-4 bg-white border border-b-gray-200 rounded-md"
-//         >
-//           <div className="h-4 bg-gray-200 w-24 rounded" />
-//           <div className="h-4 bg-gray-200 w-32 rounded" />
-//           <div className="h-4 bg-gray-200 w-24 rounded" />
-//           <div className="h-4 bg-gray-200 w-24 rounded" />
-//           <div className="h-4 bg-gray-200 w-20 rounded" />
-//           <div className="h-4 bg-gray-200 w-28 rounded" />
-//           <div className="h-8 bg-yellow-300 w-16 rounded-md" /> {/* Tombol edit */}
-//         </div>
-//       ))}
-//     </div>
-//   );
-// }
-
-
 
 export function InvoiceSkeleton() {
   return (
