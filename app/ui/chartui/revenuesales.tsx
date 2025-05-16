@@ -34,8 +34,8 @@ export default function RevenueSalesChart({ data }: { data: ChartData[] }) {
                 <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
               </linearGradient>
               <linearGradient id="colorSales" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#60a5fa" stopOpacity={0.6} />
-                <stop offset="95%" stopColor="#60a5fa" stopOpacity={0} />
+                <stop offset="100%" stopColor="#3A0519" stopOpacity={0.6} />
+                <stop offset="95%" stopColor="#3A0519" stopOpacity={0} />
               </linearGradient>
             </defs>
             <XAxis dataKey="name" />
@@ -54,7 +54,7 @@ export default function RevenueSalesChart({ data }: { data: ChartData[] }) {
             <Area
               type="monotone"
               dataKey="sales"
-              stroke="#60a5fa"
+              stroke="#CB0404"
               fillOpacity={1}
               fill="url(#colorSales)"
               name="Total Sales"
