@@ -11,6 +11,8 @@ import {
   Legend,
 } from 'recharts';
 
+import { alice } from '../fonts';
+
 interface ChartData {
   name: string;
   revenue: number;
@@ -21,7 +23,7 @@ export default function RevenueSalesChart({ data }: { data: ChartData[] }) {
   return (
     <div className="w-full flex justify-center">
       <div className="w-full h-96 p-4 bg-white rounded-lg shadow">
-        <h2 className="text-lg font-semibold mb-4">Total Revenue & Sales</h2>
+        <h2 className={`text-lg font-semibold mb-4 ${alice.className}`}>Total Revenue & Sales</h2>
         <div className="h-[calc(100%-56px)]">
         <ResponsiveContainer>
           <AreaChart

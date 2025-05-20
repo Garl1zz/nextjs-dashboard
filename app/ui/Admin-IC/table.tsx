@@ -23,7 +23,7 @@ export default async function Table() {
   
   return (
     <div className="overflow-x-auto">
-      <table className="min-w-full bg-white border border-gray-200">
+      <table className={`min-w-full bg-white border border-gray-200 ${alice.className}`}>
         <thead className="bg-gray-100">
           <tr className="text-left text-2xl">
             <th className="py-3 px-4 border-b">ID Product</th>
@@ -58,7 +58,7 @@ export default async function Table() {
                 <td className={`text-xl py-3 px-4 text-center ${alice.className}`}>
                   <Link href={`/adminpage/itemcatalogue/editproduct?${encodedProductName}`}>
                     <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-3 rounded-sm">
-                      EDIT
+                      Edit
                     </button>
                   </Link>
                 </td>

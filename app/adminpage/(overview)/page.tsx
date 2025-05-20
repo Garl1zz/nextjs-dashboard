@@ -3,6 +3,8 @@ import { FaMoneyBillWave, FaChartLine, FaCoins, FaBoxes } from "react-icons/fa";
 import { fetchTransactions } from "@/app/lib/datatransactions";
 import { TransactionChart } from "@/app/lib/datachart";
 import RevenueSalesChart from "@/app/ui/chartui/revenuesales";
+import Link from "next/link";
+import { Suspense } from "react";
 
 export default async function Dashboard() {
   const transaction = await fetchTransactions();
@@ -16,9 +18,11 @@ export default async function Dashboard() {
         <div className="relative p-4 rounded text-white h-40 flex flex-col justify-between, bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500">
           <div>
             <h3 className="text-lg font-semibold">Total Revenue</h3>
+            <Link href={'/adminpage/transactions'}>
             <button className="text-sm hover:underline">
               check here -&gt;{" "}
             </button>
+            </Link>
             <h2 className="text-3xl font-bold">6.130.000</h2>
           </div>
           <div className="absolute bottom-4 right-4 text-6xl opacity-90">
@@ -29,9 +33,11 @@ export default async function Dashboard() {
         <div className="relative p-4 rounded text-white h-40 flex flex-col justify-between, bg-gradient-to-r from-indigo-500 via-blue-600 to-blue-800">
           <div>
             <h3 className="text-lg font-semibold">Produk Terlaris</h3>
+            <Link href={'/adminpage/transactions'}>
             <button className="text-sm hover:underline">
               check here -&gt;
             </button>
+            </Link>
             <h2 className="text-3xl font-bold">25</h2>
           </div>
           <div className="absolute bottom-4 right-4 text-6xl opacity-90">
@@ -42,9 +48,11 @@ export default async function Dashboard() {
         <div className="relative p-4 rounded text-white h-40 flex flex-col justify-between, bg-gradient-to-r from-purple-500 via-fuchsia-600 to-pink-600">
           <div>
             <h3 className="text-lg font-semibold">Jumlah Produk</h3>
+            <Link href={'/adminpage/transactions'}>
             <button className="text-sm hover:underline">
               check here -&gt;
             </button>
+            </Link>
             <h2 className="text-3xl font-bold">92</h2>
           </div>
           <div className="absolute bottom-4 right-4 text-6xl opacity-90">
@@ -55,9 +63,11 @@ export default async function Dashboard() {
         <div className="relative p-4 rounded text-white h-40 flex flex-col justify-between, bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600">
           <div>
             <h3 className="text-lg font-semibold">Order per Month</h3>
+            <Link href={'/adminpage/transactions'}>
             <button className="text-sm hover:underline">
               check here -&gt;
             </button>
+            </Link>
             <h2 className="text-3xl font-bold">15 Items</h2>
           </div>
           <div className="absolute bottom-4 right-4 text-6xl opacity-85">

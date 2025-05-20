@@ -9,8 +9,8 @@ export default async function Page() {
 
   return (
     <div className="p-4">
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-3xl">Transactions</h1>
+      <div className={`flex justify-between items-center mb-4 ${alice.className}`}>
+      <h1 className="text-3xl font-bold mb-6">TRANSACTIONS</h1>
         <div className="flex gap-2">
           <Link href="/adminpage/transactions/addtransaction">
             <button className="text-xl rounded-sm px-4 py-2 bg-[#6A70CC] hover:bg-[#4e57d1] text-white ">
@@ -31,9 +31,9 @@ export default async function Page() {
 
       <div className="overflow-x-auto">
         <Suspense fallback={<div>Loading transactions...</div>}>
-          <table className="min-w-full bg-white border border-gray-300">
+          <table className={`min-w-full bg-white border border-gray-300 ${alice.className}`}>
             <thead className="bg-gray-100">
-              <tr className="text-left">
+              <tr className="text-left text-2xl">
                 <th className="py-3 px-4 border-b">ID transactions</th>
                 <th className="py-3 px-4 border-b">Name</th>
                 <th className="py-3 px-4 border-b">ID Product</th>
