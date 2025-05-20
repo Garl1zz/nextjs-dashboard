@@ -38,7 +38,7 @@ export default async function Dashboard() {
               check here -&gt;
             </button>
             </Link>
-            <h2 className="text-3xl font-bold">25</h2>
+            <h2 className="text-3xl font-bold">25 Items</h2>
           </div>
           <div className="absolute bottom-4 right-4 text-6xl opacity-90">
             <FaChartLine />
@@ -53,7 +53,7 @@ export default async function Dashboard() {
               check here -&gt;
             </button>
             </Link>
-            <h2 className="text-3xl font-bold">92</h2>
+            <h2 className="text-3xl font-bold">92 Items</h2>
           </div>
           <div className="absolute bottom-4 right-4 text-6xl opacity-90">
             <FaBoxes />

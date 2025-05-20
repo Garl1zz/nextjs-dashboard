@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import Search from "@/app/ui/Admin-IC/search";
 import Table from "@/app/ui/Admin-IC/table";
-import { RevenueChartSkeleton } from "@/app/ui/skeletons";
+import { ICSkeleton } from "@/app/ui/skeletons";
 import { alice } from "@/app/ui/fonts";
 
 export default async function Page() {
@@ -13,11 +13,11 @@ export default async function Page() {
         <div className="flex gap-2">
           <Link href="/adminpage/itemcatalogue/addproduct">
             <button className="text-xl rounded-sm px-4 py-2 bg-[#6A70CC] hover:bg-[#4e57d1] text-white">
-              Add
+              ADD
             </button>
           </Link>
           <button className="text-xl rounded-sm px-4 py-2 bg-[#ef5757] hover:bg-[#bd3b3b] text-white">
-            Remove
+            REMOVE
           </button>
         </div>
       </div>
@@ -29,7 +29,7 @@ export default async function Page() {
       </div>
 
       <div>
-        <Suspense fallback={<RevenueChartSkeleton />}>
+        <Suspense fallback={<ICSkeleton />}>
           <Table />
         </Suspense>
       </div>
