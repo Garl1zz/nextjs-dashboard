@@ -8,7 +8,6 @@ const links = [
   { name: 'Home', href: '/adminpage' },
   { name: 'Item Catalogue', href: '/adminpage/itemcatalogue' },
   { name: 'Transactions', href: '/adminpage/transactions' },
-  { name: 'Analitics', href: '/adminpage/analitics' },
 ];  
 
 export default function NavLinksAdmin() {
