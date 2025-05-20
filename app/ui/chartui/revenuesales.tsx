@@ -1,5 +1,7 @@
 'use client';
 
+import { Suspense,lazy } from 'react';
+import { Alice } from 'next/font/google';
 import {
   AreaChart,
   Area,
@@ -10,7 +12,6 @@ import {
   ResponsiveContainer,
   Legend,
 } from 'recharts';
-
 import { alice } from '../fonts';
 
 interface ChartData {
@@ -20,8 +21,11 @@ interface ChartData {
 }
 
 export default function RevenueSalesChart({ data }: { data: ChartData[] }) {
+  
   return (
+    
     <div className="w-full flex justify-center">
+      <Suspense fallback={<div>Loading</div>}>
       <div className="w-full h-96 p-4 bg-white rounded-lg shadow">
         <h2 className={`text-lg font-semibold mb-4 ${alice.className}`}>Total Revenue & Sales</h2>
         <div className="h-[calc(100%-56px)]">
@@ -64,7 +68,8 @@ export default function RevenueSalesChart({ data }: { data: ChartData[] }) {
           </AreaChart>
         </ResponsiveContainer>
       </div>
-      </div>
+      </div></Suspense>
+      
     </div>
   );
 }

@@ -1,3 +1,5 @@
+
+
 // Loading animation
 const shimmer =
   "before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent";
@@ -24,16 +26,14 @@ export function CardSkeleton() {
 export default function DashboardSkeleton() {
   return (
     <>
-      <div
-        className={`${shimmer} relative mb-8 h-8 w-44 overflow-hidden rounded-md bg-gray-200`}
-      />
+      <div className={`${shimmer} relative w-full overflow-hidden md:col-span-4`}/>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <CardSkeleton />
         <CardSkeleton />
         <CardSkeleton />
         <CardSkeleton />
       </div>
-      <div className="mt-6 flex gap-6 md:grid-cols-4 lg:grid-cols-8">
+      <div className="mt-20 ml-9 w-full flex gap-6 md:grid-cols-4 lg:grid-cols-8">
         <RevenueChartSkeleton />
       </div>
     </>
@@ -43,20 +43,20 @@ export default function DashboardSkeleton() {
 export function CardsSkeleton() {
   return (
     <>
-      <CardSkeleton />
-      <CardSkeleton />
-      <CardSkeleton />
-      <CardSkeleton />
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <CardSkeleton />
+        <CardSkeleton />
+        <CardSkeleton />
+        <CardSkeleton />
+      </div>
     </>
   );
 }
 
 export function RevenueChartSkeleton() {
   return (
-    <div
-      className={`${shimmer} relative w-full m-8 pt-4 overflow-hidden md:col-span-4`}
-    >
-      <div className="rounded-xl bg-gray-100 p-2">
+    <div className={`${shimmer} relative w-full overflow-hidden md:col-span-4`}>
+      <div className="rounded-xl bg-gray-100 p-2"> 
         <div className="flex w-full h-[400px] rounded-md bg-white ">
           <div className="mt-5 ml-4 h-5 w-44 rounded-md bg-gray-200" />
         </div>
