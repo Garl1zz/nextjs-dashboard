@@ -5,7 +5,17 @@ import { Suspense } from "react";
 import { TransactionSkeleton } from "@/app/ui/skeletons";
 import Table from "@/app/ui/Admin-TC/table";
 
-export default async function Page() {
+export default async function Page(props: {
+  searchParams? : Promise<{
+    query?: string;
+    page?:string;
+  }>;
+}) {
+
+  const searchParams = await props.searchParams;
+  const query = searchParams?.query || '';
+  const currentPage = Number(searchParams?.page) || 1;
+
   return (
     <div className="p-4">
       <div className={`flex justify-between items-center mb-4 ${alice.className}`}>
@@ -24,13 +34,13 @@ export default async function Page() {
 
       <div className={`mb-4 ${alice.className}`}>
         <Suspense fallback={<div>Loading search...</div>}>
-          <Search placeholder="Search Transactions..." />
+          <Search  placeholder="Search Transactions..." />
         </Suspense>
       </div>
 
       <div>
-        <Suspense fallback={<TransactionSkeleton />}>
-          <Table/>
+        <Suspense key={query + currentPage} fallback={<TransactionSkeleton />}>
+          <Table query={query} currentPage={currentPage}/>
         </Suspense>
       </div>
     </div>

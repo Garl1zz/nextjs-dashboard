@@ -2,6 +2,8 @@
 import { neon } from '@neondatabase/serverless';
 
 
+const ITEMS_PER_PAGE =6
+
 export async function TotalRevenue() {
     const sql = neon(process.env.DATABASE_URL!);
     const data = await sql`SELECT SUM(total_harga) as total from transactions`;
@@ -33,4 +35,37 @@ export async function Rata2Terjual() {
 
 `;
     return data;
+}
+
+export async function FilteredCatalogue(
+    query: string, 
+    currentPage: number) {
+  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+  const sql = neon(process.env.DATABASE_URL!);
+  const data = await sql`
+    SELECT * FROM item_catalogue 
+    WHERE name ILIKE ${`%${query}%`}
+    LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset};
+  `;
+  return data;
+}
+
+export async function FilteredTransactions(
+    query: string, 
+    currentPage: number) {
+  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+  const sql = neon(process.env.DATABASE_URL!);
+  const data = await sql`
+      SELECT 
+      id_transaksi as transaction_id, 
+      customer_name AS name, 
+      id_produk AS id_product, 
+      tanggal_transaksi AS date_bought, 
+      sales_amount AS sales, 
+      total_harga AS total_price 
+      FROM transactions 
+      WHERE customer_name ILIKE ${`%${query}%`} OR ${query} = ''
+      LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset};
+    `;
+  return data;
 }

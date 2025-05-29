@@ -1,26 +1,21 @@
-import { fetchProductsData } from "@/app/lib/datacatalogue";
+import { FilteredCatalogue } from "@/app/lib/data1";
 import { alice } from "@/app/ui/fonts";
 import Link from "next/link";
 
-export default async function Table() {
-  let productsData;
-  try {
-    productsData = await fetchProductsData();
-  } catch (error: any) {
-    console.error('Error in Table component:', {
-      message: error.message,
-      stack: error.stack,
-      code: error.code,
-      details: error.detail,
-    });
-    return (
-      <div className="text-red-500 text-center">
-        Failed to load products: {error.message || 'Please try again later.'}
-      </div>
-    );
+export default async function Table({
+  query,
+  currentPage,
+}: {
+  query: string;
+  currentPage: number;
+}) {
+  const searchCatalogue = await FilteredCatalogue(query, currentPage);
+
+  // If no data is returned, show a message
+  if (!searchCatalogue || searchCatalogue.length === 0) {
+    return <div className="text-center text-gray-500">No products found.</div>;
   }
 
-  
   return (
     <div className="overflow-x-auto">
       <table className={`min-w-full bg-white border border-gray-200 ${alice.className}`}>
@@ -35,22 +30,22 @@ export default async function Table() {
           </tr>
         </thead>
         <tbody>
-          {productsData.map((product, index) => {
-            const encodedProductName = encodeURIComponent(product.title);
+          {searchCatalogue.map((product, index) => {
+            const encodedProductName = encodeURIComponent(product.name);
 
             return (
               <tr key={index} className="border-t">
                 <td className={`text-xl py-3 px-4 text-center ${alice.className}`}>
-                  {product.id_product}
+                  {product.id_produk}
                 </td>
                 <td className={`text-xl py-3 px-4 ${alice.className}`}>
-                  {product.title}
+                  {product.name}
                 </td>
                 <td className={`text-xl py-3 px-4 text-center ${alice.className}`}>
                   {product.category}
                 </td>
                 <td className={`text-xl py-3 px-4 ${alice.className}`}>
-                  Rp {product.price}
+                  Rp {product.pricing}
                 </td>
                 <td className={`text-xl py-3 px-4 ${alice.className}`}>
                   {product.stock}

@@ -1,23 +1,20 @@
+import { FilteredTransactions } from "@/app/lib/data1";
 import { fetchTransactions } from "@/app/lib/datatransactions";
 import { alice } from "@/app/ui/fonts";
 import Link from "next/link";
 
-export default async function Table() {
-  let transactionData;
-  try {
-    transactionData = await fetchTransactions();
-  } catch (error: any) {
-    console.error("Error in Table component:", {
-      message: error.message,
-      stack: error.stack,
-      code: error.code,
-      details: error.detail,
-    });
-    return (
-      <div className="text-red-500 text-center">
-        Failed to load products: {error.message || "Please try again later."}
-      </div>
-    );
+export default async function Table({
+  query,
+  currentPage,
+}: {
+  query: string;
+  currentPage: number;
+}) {
+  const searchTransactions = await FilteredTransactions(query, currentPage);
+
+  // If no data is returned, show a message
+  if (!searchTransactions || searchTransactions.length === 0) {
+    return <div className="text-center text-gray-500">No products found.</div>;
   }
 
 
@@ -36,7 +33,7 @@ export default async function Table() {
           </tr>
         </thead>
         <tbody>
-        {transactionData.map((transaction, index) => {
+        {searchTransactions.map((transaction, index) => {
             const encodedProductName = encodeURIComponent(transaction.name);
 
             return (
@@ -62,7 +59,7 @@ export default async function Table() {
                 {transaction.total_price}
               </td>
               <td className={`py-3 px-4 text-center ${alice.className}`}>
-                <Link href="/adminpage/transactions/edittransaction">
+                <Link href={`/adminpage/transactions/edittransaction`}>
                   <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-6 rounded-sm">
                     EDIT
                   </button>

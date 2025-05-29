@@ -5,7 +5,17 @@ import Table from "@/app/ui/Admin-IC/table";
 import { ICSkeleton } from "@/app/ui/skeletons";
 import { alice } from "@/app/ui/fonts";
 
-export default async function Page() {
+export default async function Page(props: {
+  searchParams? : Promise<{
+    query?: string;
+    page?:string;
+  }>;
+}) {
+
+  const searchParams = await props.searchParams;
+  const query = searchParams?.query || '';
+  const currentPage = Number(searchParams?.page) || 1;
+
   return (
     <div className="p-4">
       <div className={`flex justify-between items-center ${alice.className}`}>
@@ -29,8 +39,8 @@ export default async function Page() {
       </div>
 
       <div>
-        <Suspense fallback={<ICSkeleton />}>
-          <Table />
+        <Suspense key={query + currentPage} fallback={<ICSkeleton />}>
+          <Table query={query} currentPage={currentPage} />
         </Suspense>
       </div>
     </div>
