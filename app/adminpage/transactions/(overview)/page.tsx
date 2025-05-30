@@ -4,6 +4,10 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { TransactionSkeleton } from "@/app/ui/skeletons";
 import Table from "@/app/ui/Admin-TC/table";
+import { fetchTransactionsPages } from "@/app/lib/data1";
+import Pagination from "@/app/ui/pagination";
+
+const ITEMS_PER_PAGE = 6;
 
 export default async function Page(props: {
   searchParams? : Promise<{
@@ -15,6 +19,7 @@ export default async function Page(props: {
   const searchParams = await props.searchParams;
   const query = searchParams?.query || '';
   const currentPage = Number(searchParams?.page) || 1;
+  const totalPages = await fetchTransactionsPages(query);
 
   return (
     <div className="p-4">
@@ -43,6 +48,10 @@ export default async function Page(props: {
           <Table query={query} currentPage={currentPage}/>
         </Suspense>
       </div>
+      <div className="mt-5 flex w-full justify-center">
+        <Pagination totalPages={totalPages}/>
+      </div>
     </div>
   );
 }
+

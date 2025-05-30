@@ -95,3 +95,4 @@ export type transactions = {
   amount : number;
   productid : string;
 }
+

@@ -12,7 +12,7 @@ export default async function Table({
 }) {
   const searchTransactions = await FilteredTransactions(query, currentPage);
 
-  // If no data is returned, show a message
+  
   if (!searchTransactions || searchTransactions.length === 0) {
     return <div className="text-center text-gray-500">No products found.</div>;
   }
