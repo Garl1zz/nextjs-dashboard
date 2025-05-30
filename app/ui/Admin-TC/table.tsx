@@ -1,5 +1,4 @@
 import { FilteredTransactions } from "@/app/lib/data1";
-import { fetchTransactions } from "@/app/lib/datatransactions";
 import { alice } from "@/app/ui/fonts";
 import Link from "next/link";
 
@@ -12,11 +11,9 @@ export default async function Table({
 }) {
   const searchTransactions = await FilteredTransactions(query, currentPage);
 
-  
   if (!searchTransactions || searchTransactions.length === 0) {
     return <div className="text-center text-gray-500">No products found.</div>;
   }
-
 
   return (
     <div className="overflow-x-auto">

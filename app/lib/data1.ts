@@ -59,7 +59,10 @@ export async function FilteredTransactions(
       sales_amount AS sales, 
       total_harga AS total_price 
       FROM transactions 
-      WHERE customer_name ILIKE ${`%${query}%`} OR ${query} = ''
+      WHERE 
+      customer_name ILIKE ${`%${query}%`} OR 
+      tanggal_transaksi ILIKE ${`%${query}%`} OR 
+      ${query} = ''
       LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset};
     `;
   return data;

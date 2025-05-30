@@ -1,136 +1,157 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { getProductById } from "@/app/lib/datacatalogue";
+import { addTransactions } from "@/app/lib/actionscreate";
+import Link from "next/link";
 import { alice } from "@/app/ui/fonts";
 
+export default function AddTransactionForm() {
+  const [customerName, setCustomerName] = useState("");
+  const [tanggalTransaksi, setTanggalTransaksi] = useState("");
+  const [totalHarga, setTotalHarga] = useState("");
+  const [salesAmount, setSalesAmount] = useState("");
+  const [idTransaksi, setIdTransaksi] = useState("");
+  const [idProduk, setIdProduk] = useState("");
 
-// Define the Product interface to match datacatalogue.ts
-interface Transaction {
-    name: string;
-    customer_number: number;
-    category: string;
-    price: number;
-    sales: number;
-  }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
+    if (
+      !customerName ||
+      !tanggalTransaksi ||
+      !totalHarga ||
+      !salesAmount ||
+      !idProduk
+    ) {
+      alert("Harap isi semua box.");
+      return;
+    }
 
+    const totalHargaValue = parseFloat(totalHarga);
+    const amountValue = parseInt(salesAmount);
 
-export default function EditItemClient({ initialProduct }: any) {
-  const router = useRouter();
-  const [product, setProduct] = useState<Transaction>({
-    name: initialProduct?.name || "",
-    category: initialProduct?.category || "",
-    customer_number: initialProduct?.number ?? 0,
-    price: initialProduct?.price ?? 0,
-    sales: initialProduct?.sales ?? 0,
-  });
-  
-  const originalProduct = initialProduct;
- 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setProduct((prev : any) => ({...prev,[name]: value,}));
-  };
+    if (isNaN(totalHargaValue) || isNaN(amountValue)) {
+      alert("Total harga dan jumlah harus berupa angka valid.");
+      return;
+    }
 
-  const handleEdit = async () => {
-    alert(`Item ${product.name} edited successfully!`);
+    const result = await addTransactions({
+      customerName,
+      tanggalTransaksi,
+      totalHarga: totalHargaValue,
+      salesAmount: amountValue,
+      id_transaksi: idTransaksi || undefined,
+      idProduk,
+    });
+
+    if (result.success) {
+      alert("Transaksi berhasil ditambahkan!");
+      handleCancel();
+    } else {
+      alert("Gagal menambahkan transaksi: " + result.error);
+    }
   };
 
   const handleCancel = () => {
-    alert("Cancelled");
-         router.push("/adminpage/transactions");
+    setCustomerName("");
+    setTanggalTransaksi("");
+    setTotalHarga("");
+    setSalesAmount("");
+    setIdTransaksi("");
+    setIdProduk("");
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-gray-200 p-8 rounded shadow-md w-full max-w-2xl">
-        <h1 className="text-center text-2xl font-bold mb-6 border-b pb-2 text-black">
-          ADD TRANSACTIONS
-        </h1>
-
-        
-        <div className="space-y-4">
-          <Field label="Name">
-            <input
-              name="name"
-              value={product.name ?? ""}
-              onChange={handleChange}
-              className={`input w-full p-3 border border-gray-400 rounded ${alice.className}`}
-            />
-          </Field>
-          <Field label="Number">
-            <input
-              type="number"
-              name="customer_number"
-              value={product.customer_number ?? ""}
-              onChange={handleChange}
-              className={`input w-full p-3 border border-gray-400 rounded ${alice.className}`}
-            />
-          </Field>
-          <Field label="Category">
-            <input
-              name="category"
-              value={product.category ?? ""}
-              onChange={handleChange}
-              step="0.01"
-              min="0"
-              className={`input w-full p-3 border border-gray-400 rounded ${alice.className}`}
-            />
-          </Field>
-          <Field label="Pricing">
-            <input
-              type="number"
-              name="price"
-              value={product.price ?? ""}
-              onChange={handleChange}
-              min="0"
-              className={`input w-full p-3 border border-gray-400 rounded ${alice.className}`}
-            />
-          </Field>
-          <Field label="Amount">
-            <input
-              type="number"
-              name="sales"
-              value={product.sales ?? ""}
-              onChange={handleChange}
-              min="0"
-              className={`input w-full p-3 border border-gray-400 rounded ${alice.className}`}
-            />
-          </Field>
+    <div className={`${alice.className} bg-gray-100 min-h-screen p-10`}>
+      <h1 className="text-3xl font-black mb-6">ADD TRANSACTIONS</h1>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="flex flex-col">
+          <label className="text-lg font-medium">ID Transaksi</label>
+          <input
+            className="border px-4 py-2"
+            type="text"
+            value={idTransaksi}
+            onChange={(e) => setIdTransaksi(e.target.value)}
+            placeholder="opsional"
+          />
         </div>
-        <div className="flex justify-end mt-6 space-x-4">
-          <button
-            onClick={handleCancel}
-            className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 font-bold"
-          >
-            CANCEL
-          </button>
 
-          <button
-            onClick={handleEdit}
-            className="bg-indigo-400 text-white px-4 py-2 rounded hover:bg-indigo-500 font-bold"
-          >
-            ADD
-          </button>
+        <div className="flex flex-col">
+          <label className="text-lg font-medium">Nama Pelanggan</label>
+          <input
+            className="border px-4 py-2"
+            type="text"
+            value={customerName}
+            onChange={(e) => setCustomerName(e.target.value)}
+            required
+          />
         </div>
-      </div>
+
+        <div className="flex flex-col">
+          <label className="text-lg font-medium">ID Produk</label>
+          <input
+            className="border px-4 py-2"
+            type="text"
+            value={idProduk}
+            onChange={(e) => setIdProduk(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label className="text-lg font-medium">Tanggal Transaksi</label>
+          <input
+            className="border px-4 py-2"
+            type="date"
+            value={tanggalTransaksi}
+            onChange={(e) => setTanggalTransaksi(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label className="text-lg font-medium">Jumlah</label>
+          <input
+            className="border px-4 py-2"
+            type="number"
+            value={salesAmount}
+            onChange={(e) => setSalesAmount(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label className="text-lg font-medium">Total Harga</label>
+          <input
+            className="border px-4 py-2"
+            type="number"
+            value={totalHarga}
+            onChange={(e) => setTotalHarga(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="flex gap-4 mt-6">
+          <Link href={"/adminpage/transactions"}>
+            <button
+              type="button"
+              onClick={handleCancel}
+              className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded"
+            >
+              CANCEL
+            </button>
+          </Link>
+
+          <Link href={"/adminpage/transactions"}>
+            <button
+              type="submit"
+              className="bg-indigo-400 hover:bg-indigo-500 text-white font-bold py-2 px-6 rounded"
+            >
+              ADD
+            </button>
+          </Link>
+        </div>
+      </form>
     </div>
   );
 }
-
-const Field = ({
-  label,
-  children,
-}: {
-  label: string;
-  children: React.ReactNode;
-}) => (
-  <div className="flex items-center mb-2">
-    <div className="w-40 text-right pr-4 text-sm font-semibold text-gray-700">
-      {label}
-    </div>
-    <div className="flex-1">{children}</div>
-  </div>
-);

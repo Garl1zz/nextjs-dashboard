@@ -46,3 +46,24 @@ export async function addProduct(data: {
         return { success: false, error: "Database error" };
     }
 }
+
+export async function addTransactions(data: {
+    id_transaksi?: string;
+    customerName: string;
+    tanggalTransaksi: string;
+    totalHarga: number;
+    salesAmount: number;
+    idProduk: string;
+}) {
+    try {
+        const result = await sql`
+        INSERT INTO transactions (id_transaksi, customer_name, tanggal_transaksi, sales_amount, total_harga, id_produk)
+        VALUES (${data.id_transaksi || null}, ${data.customerName}, ${data.tanggalTransaksi}, ${data.salesAmount}, ${data.totalHarga}, ${data.idProduk})
+        RETURNING *;
+      `;      
+        return { success: true, data: result[0] };
+    } catch (error) {
+        console.error("Failed to add transactions", error);
+        return { success: false, error: "Database error" };
+    }
+}
