@@ -22,7 +22,6 @@ export function TransactionChart(transactions: ProductTransaction[]): MonthlyDat
       current.sales += Number(tx.sales);      
     });
   
-    // Return in calendar order (Sep to Aug as per your image)
     const monthOrder = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   
     return monthOrder

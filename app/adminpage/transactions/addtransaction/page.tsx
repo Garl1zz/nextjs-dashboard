@@ -91,7 +91,7 @@ export default function AddTransactionForm() {
           <label className="text-lg font-medium">ID Produk</label>
           <input
             className="border px-4 py-2"
-            type="text"
+            type="number"
             value={idProduk}
             onChange={(e) => setIdProduk(e.target.value)}
             required
