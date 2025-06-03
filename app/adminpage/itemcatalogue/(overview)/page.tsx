@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, } from "react";
 import Link from "next/link";
 import Search from "@/app/ui/Admin-IC/search";
 import Table from "@/app/ui/Admin-IC/table";
@@ -29,9 +29,6 @@ export default async function Page(props: {
               ADD
             </button>
           </Link>
-          <button className="text-xl rounded-sm px-4 py-2 bg-[#ef5757] hover:bg-[#bd3b3b] text-white">
-            REMOVE
-          </button>
         </div>
       </div>
 

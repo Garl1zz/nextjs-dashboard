@@ -1,15 +1,22 @@
-import { FilteredCatalogue } from "@/app/lib/data1";
+
+
+import { deleteDataCatalogue, FilteredCatalogue } from "@/app/lib/data1";
 import { alice } from "@/app/ui/fonts";
 import Link from "next/link";
+import { TrashIcon } from "@heroicons/react/24/outline";
+import  DeleteButtonById  from "@/app/ui/Admin-IC/button"
 
 export default async function Table({
   query,
   currentPage,
+  
 }: {
   query: string;
   currentPage: number;
+  
 }) {
   const searchCatalogue = await FilteredCatalogue(query, currentPage);
+
 
   if (!searchCatalogue || searchCatalogue.length === 0) {
     return <div className="text-center text-gray-500">No products found.</div>;
@@ -50,11 +57,15 @@ export default async function Table({
                   {product.stock}
                 </td>
                 <td className={`text-xl py-3 px-4 text-center ${alice.className}`}>
+                  <div className="flex justify-center space-x-2">
+                  <DeleteButtonById id_produk={product.id_produk} />
                   <Link href={`/adminpage/itemcatalogue/editproduct/${product.id_produk}`}>
                     <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-3 rounded-sm">
                       Edit
                     </button>
                   </Link>
+                  </div>
+                  
                 </td>
               </tr>
             );

@@ -1,5 +1,6 @@
 "use server"
 import { neon } from '@neondatabase/serverless';
+import { revalidatePath } from 'next/cache';
 
 const sql = neon(process.env.DATABASE_URL!);
 const ITEMS_PER_PAGE = 6
@@ -86,5 +87,15 @@ export async function fetchTransactionsPages(query: string) {
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch total number of transactions.');
+  }
+}
+
+export async function deleteDataCatalogue(id_produk: string){
+  try{
+    const data = await sql`DELETE FROM item_catalogue WHERE id_produk = ${id_produk}`;
+    revalidatePath("adminpage/itemcatalogue");
+    return data;
+  } catch (error){
+    console.error("Delete Error:", error)
   }
 }
