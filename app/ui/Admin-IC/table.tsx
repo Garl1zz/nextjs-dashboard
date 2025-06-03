@@ -11,7 +11,6 @@ export default async function Table({
 }) {
   const searchCatalogue = await FilteredCatalogue(query, currentPage);
 
-  // If no data is returned, show a message
   if (!searchCatalogue || searchCatalogue.length === 0) {
     return <div className="text-center text-gray-500">No products found.</div>;
   }
@@ -51,7 +50,7 @@ export default async function Table({
                   {product.stock}
                 </td>
                 <td className={`text-xl py-3 px-4 text-center ${alice.className}`}>
-                  <Link href={`/adminpage/itemcatalogue/editproduct?${encodedProductName}`}>
+                  <Link href={`/adminpage/itemcatalogue/editproduct/${product.id_produk}`}>
                     <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-3 rounded-sm">
                       Edit
                     </button>

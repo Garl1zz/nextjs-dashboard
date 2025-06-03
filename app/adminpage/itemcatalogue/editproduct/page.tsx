@@ -2,14 +2,15 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { getProductById } from "@/app/lib/datacatalogue";
 import { alice } from "@/app/ui/fonts";
 
 interface Product {
+  id_produk: string;
   title: string;
   category: string;
   price: number;
   stock: number;
+  img_src: string;
 }
 
 export default function EditItemClient({ initialProduct }: any) {
@@ -17,8 +18,6 @@ export default function EditItemClient({ initialProduct }: any) {
   const [product, setProduct] = useState<Product>(
     initialProduct || { title: "", category: "", price: 0, stock: 0 }
   );
-
-  const originalProduct = initialProduct;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -30,17 +29,26 @@ export default function EditItemClient({ initialProduct }: any) {
     });
   };
 
-  const handleClearOnClick = (field: keyof Product) => {
-    if (field !== "category") {
-      setProduct((prev: Product) => ({
-        ...prev,
-        [field]: field === "title" ? "" : 0,
-      }));
-    }
-  };
-
   const handleEdit = async () => {
-    alert(`Item ${product.title} edited successfully!`);
+    const response = await fetch(`/api/products/${product.id_produk}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id_produk: product.id_produk,
+        title: product.title,
+        category: product.category,
+        price: product.price,
+        stock: product.stock,
+        img_src: product.img_src,
+      }),
+    });
+
+    if (response.ok) {
+      alert(`Item ${product.title} edited successfully!`);
+      router.push("/adminpage/itemcatalogue");
+    } else {
+      alert("Failed to edit item.");
+    }
   };
 
   const handleCancel = () => {
@@ -59,7 +67,7 @@ export default function EditItemClient({ initialProduct }: any) {
           <Field label="Product Name">
             <input
               name="title"
-              value={`Stage Juggling balls`}
+              value={product.title}
               onChange={handleChange}
               className={`input w-full p-3 border border-gray-400 rounded ${alice.className}`}
             />
@@ -67,7 +75,7 @@ export default function EditItemClient({ initialProduct }: any) {
           <Field label="Category">
             <input
               name="category"
-              value={`Balls`}
+              value={product.category}
               readOnly
               className={`input w-full p-3 bg-gray-300 cursor-not-allowed border border-gray-400 rounded ${alice.className}`}
             />
@@ -76,7 +84,7 @@ export default function EditItemClient({ initialProduct }: any) {
             <input
               type="number"
               name="price"
-              value={50000}
+              value={product.price}
               onChange={handleChange}
               step="0.01"
               min="0"
@@ -87,7 +95,7 @@ export default function EditItemClient({ initialProduct }: any) {
             <input
               type="number"
               name="stock"
-              value={46}
+              value={product.stock}
               onChange={handleChange}
               min="0"
               className={`input w-full p-3 border border-gray-400 rounded ${alice.className}`}

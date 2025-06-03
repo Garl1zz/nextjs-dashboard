@@ -159,15 +159,16 @@
 "use client";
 
 import { useState } from "react";
-import { addProduct } from "@/app/lib/actionscreate"; // Pastikan path ini benar
+import { addProduct } from "@/app/lib/actionscreate";
 import Link from "next/link";
+import { alice } from "@/app/ui/fonts";
 
 export default function AddItemForm() {
   const [productName, setProductName] = useState("");
   const [category, setCategory] = useState("");
   const [pricing, setPricing] = useState("");
   const [stock, setStock] = useState("");
-  const [idProduk, setIdProduk] = useState(""); // Tambahkan state untuk id_produk
+  const [idProduk, setIdProduk] = useState("");
   const [image, setImage] = useState<File | null>(null);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -179,7 +180,6 @@ export default function AddItemForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validasi input
     if (!productName || !category || !pricing || !stock) {
       alert("Please fill in all required fields.");
       return;
@@ -188,24 +188,22 @@ export default function AddItemForm() {
     const pricingValue = parseFloat(pricing);
     const stockValue = parseInt(stock);
 
-    // Validasi tipe data
     if (isNaN(pricingValue) || isNaN(stockValue)) {
       alert("Pricing and Stock must be valid numbers.");
       return;
     }
 
-    // Kirim data ke fungsi addProduct
     const result = await addProduct({
       productName,
       category,
       pricing: pricingValue,
       stock: stockValue,
-      id_produk: idProduk || undefined, // Sertakan id_produk, jika kosong kirim undefined
+      id_produk: idProduk || undefined, 
     });
 
     if (result.success) {
       alert("Product added successfully!");
-      handleCancel(); // Reset form
+      handleCancel();
     } else {
       alert("Failed to add product: " + result.error);
     }
@@ -216,12 +214,12 @@ export default function AddItemForm() {
     setCategory("");
     setPricing("");
     setStock("");
-    setIdProduk(""); // Reset id_produk
+    setIdProduk("");
     setImage(null);
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen p-10">
+    <div className={` ${alice.className} bg-gray-100 min-h-screen p-10`}>
       <h1 className="text-3xl font-black mb-6">ADD ITEMS</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -269,7 +267,6 @@ export default function AddItemForm() {
             type="text"
             value={idProduk}
             onChange={(e) => setIdProduk(e.target.value)}
-            placeholder="Optional"
           />
         </div>
 

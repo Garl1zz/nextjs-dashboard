@@ -142,14 +142,12 @@ export default function AddTransactionForm() {
             </button>
           </Link>
 
-          <Link href={"/adminpage/transactions"}>
-            <button
-              type="submit"
-              className="bg-indigo-400 hover:bg-indigo-500 text-white font-bold py-2 px-6 rounded"
-            >
-              ADD
-            </button>
-          </Link>
+          <button
+            type="submit"
+            className="bg-indigo-400 hover:bg-indigo-500 text-white font-bold py-2 px-6 rounded"
+          >
+            ADD
+          </button>
         </div>
       </form>
     </div>
