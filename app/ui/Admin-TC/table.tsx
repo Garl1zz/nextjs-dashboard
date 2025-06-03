@@ -2,6 +2,7 @@ import {  deleteDataCatalogue, FilteredTransactions } from "@/app/lib/data1";
 import { alice } from "@/app/ui/fonts";
 import Link from "next/link";
 import { TrashIcon } from "@heroicons/react/24/outline";
+import DeleteButtonById from "../Admin-IC/DeleteButtonTransaction";
 
 export default async function Table({
   query,
@@ -58,11 +59,7 @@ export default async function Table({
               </td>
               <td className={`py-3 px-4 text-center ${alice.className}`}>
                 <div className="flex justify-center space-x-2">
-                  <button className="bg-red-500 hover:bg-gray-600 text-white py-1 px-3 rounded-sm">
-                    <TrashIcon className="w-5 h-5">
-                    </TrashIcon>
-                    </button>
-
+                    <DeleteButtonById id_transaksi={transaction.transaction_id}/>
                     <Link href={`/adminpage/transactions/edittransaction`}>
                   <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-6 rounded-sm">
                     EDIT

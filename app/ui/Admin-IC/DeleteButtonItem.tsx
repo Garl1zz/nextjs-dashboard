@@ -10,14 +10,14 @@ interface DeleteButtonByIdProps {
 }
 
 export default function DeleteButtonById({ id_produk }: DeleteButtonByIdProps) {
-  const router = useRouter(); // For client-side navigation
-  const [isPending, startTransition] = useTransition(); // For handling pending state
+  const router = useRouter(); 
+  const [isPending, startTransition] = useTransition(); 
 
   const handleDelete = () => {
     startTransition(async () => {
       try {
         await deleteDataCatalogue(id_produk);
-        router.refresh(); // Refresh the page to reflect changes
+        router.refresh(); 
       } catch (error) {
         console.error("Failed to delete product:", error);
         alert("Failed to delete product. Please try again.");
@@ -37,3 +37,4 @@ export default function DeleteButtonById({ id_produk }: DeleteButtonByIdProps) {
     </button>
   );
 }
+

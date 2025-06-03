@@ -99,3 +99,13 @@ export async function deleteDataCatalogue(id_produk: string){
     console.error("Delete Error:", error)
   }
 }
+
+export async function deleteDataTransactions(id_transaksi: string){
+  try{
+    const data = await sql`DELETE FROM transactions WHERE id_transaksi = ${id_transaksi}`;
+    revalidatePath("adminpage/transactions");
+    return data;
+  } catch (error){
+    console.error("Delete Error:", error)
+  }
+}
