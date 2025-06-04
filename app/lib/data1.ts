@@ -6,7 +6,8 @@ const sql = neon(process.env.DATABASE_URL!);
 const ITEMS_PER_PAGE = 6
 
 export async function TotalRevenue() {
-    const data = await sql`SELECT SUM(total_harga) as total from transactions`;
+    const data = await sql`
+    SELECT SUM(total_harga) as total from transactions`;
     return data;
 }
 
@@ -47,26 +48,35 @@ export async function FilteredCatalogue(
   return data;
 }
 
-export async function FilteredTransactions(
-    query: string, 
-    currentPage: number) {
+export async function FilteredTransactions(query: string, currentPage: number) {
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
-  const data = await sql`
+  try {
+    const data = await sql`
       SELECT 
-      id_transaksi as transaction_id, 
-      customer_name AS name, 
-      id_produk AS id_product, 
-      tanggal_transaksi AS date_bought, 
-      sales_amount AS sales, 
-      total_harga AS total_price 
-      FROM transactions 
+        t.id_transaksi AS transaction_id, 
+        t.customer_name AS name, 
+        t.id_produk AS id_product, 
+        TO_CHAR(t.tanggal_transaksi, 'YYYY-MM-DD') AS date_bought, 
+        t.sales_amount AS sales, 
+        t.total_harga AS total_price,
+        i.name AS product_name
+      FROM transactions t
+      JOIN item_catalogue i ON t.id_produk = i.id_produk
       WHERE 
-      customer_name ILIKE ${`%${query}%`} OR 
-      tanggal_transaksi ILIKE ${`%${query}%`} OR 
-      ${query} = ''
+        t.customer_name ILIKE ${`%${query}%`} 
+        OR TO_CHAR(t.tanggal_transaksi, 'YYYY-MM-DD') ILIKE ${`%${query}%`}
+        OR i.name ILIKE ${`%${query}%`}
+        OR t.id_produk ILIKE ${`%${query}%`}
+        OR CAST(t.total_harga AS TEXT) ILIKE ${`%${query}%`}
+        OR CAST(t.sales_amount AS TEXT) ILIKE ${`%${query}%`}
+        ORDER BY tanggal_transaksi desc
       LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset};
     `;
-  return data;
+    return data;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch filtered transactions.');
+  }
 }
 
 export async function fetchTransactionsPages(query: string) {
