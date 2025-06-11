@@ -14,9 +14,9 @@ export default async function ProductsPage() {
             key={item.title}
             className="bg-white text-black rounded-xl p-4 text-center shadow-lg border-gray-200 border-2"
           >
-            <Link href={`/homepage/products/detailproduct?id=${item.id_product}`}>
+            <Link href={`/homepage/products/detailproduct?id=${item.id_produk}`}>
               <Image
-                src={item.img_src}
+                src={item.img_url}
                 alt={item.title}
                 width={250}
                 height={200}

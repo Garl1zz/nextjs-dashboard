@@ -57,11 +57,11 @@ export default function Page() {
         ))}
       </main>
       <section className="bg-[#9b1928] py-16 text-center text-white">
-        <h2 className={`text-2xl font-bold mb-10 ${rye.className}`}>
+        {/* <h2 className={`text-2xl font-bold mb-10 ${rye.className}`}>
           About Us
-        </h2>
+        </h2> */}
 
-        <div className="flex flex-wrap justify-center gap-8 px-4">
+        {/* <div className="flex flex-wrap justify-center gap-8 px-4">
           {team.map((member) => (
             <div
               key={member.name}
@@ -80,13 +80,13 @@ export default function Page() {
               <p className={`mb-8 ${rye.className}`}>{member.role}</p>
             </div>
           ))}
-        </div>
+        </div> */}
         <div className={`mt-10 ${alice.className}`}>
-          <Link href={"/homepage/team"}>
-            <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded transition border-black border-2">
+          {/* <Link href={"/homepage/team"}> */}
+            {/* <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded transition border-black border-2">
               Learn More About Us
             </button>
-          </Link>
+          </Link> */}
         </div>
       </section>
       <Footer />

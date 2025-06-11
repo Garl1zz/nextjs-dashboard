@@ -13,7 +13,7 @@ export default function page() {
         <Header/>
       <h2 className={`flex justify-center text-[32px] mt-6 text-white ${alice.className}`}>STEP RIGHT UP</h2>
       <h3 className={`flex justify-center text-[24px] text-white ${alice.className}`}>AND</h3>
-      <h4 className={`flex justify-center text-[64px] text-white underline ${alice.className}`}>LET THE SHOW BEGIN</h4>
+      <h4 className={`flex justify-center text-[56px] text-white underline ${alice.className}`}>LET THE SHOW BEGIN</h4>
       <p className={`inline-block text-center text-[20px] mx-30 text-white ${alice.className}`}>
         We specialize in high-quality circus-themed items and props, perfect for enthusiasts, performers, hobbyists, 
         and collectors alike. Whether you're a professional entertainer, a passionate hobbyist, or simply love the whimsical 
