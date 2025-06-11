@@ -42,7 +42,13 @@ export async function FilteredCatalogue(
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
   const data = await sql`
     SELECT * FROM item_catalogue 
-    WHERE name ILIKE ${`%${query}%`}
+    WHERE 
+    name ILIKE ${`%${query}%`} OR
+    category ILIKE ${`%${query}%`} OR
+    pricing ::text ILIKE ${`%${query}%`} OR
+    stock::text ILIKE ${`%${query}%`} OR
+    id_produk :: text ILIKE ${`%${query}%`} OR
+    img_url ILIKE ${`%${query}%`}
     LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset};
   `;
   return data;
@@ -90,6 +96,27 @@ export async function fetchTransactionsPages(query: string) {
       transactions.total_harga::text ILIKE ${`%${query}%`} OR
       transactions.tanggal_transaksi::text ILIKE ${`%${query}%`} OR
       transactions.sales_amount :: text ILIKE ${`%${query}%`}
+  `;
+
+    const totalPages = Math.ceil(Number(data[0].count) / ITEMS_PER_PAGE);
+    return totalPages > 0 ? totalPages : 1; 
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch total number of transactions.');
+  }
+}
+
+export async function fetchDataCataloguePages(query: string) {
+  try {
+    const data = await sql`SELECT COUNT (*)
+    FROM item_catalogue 
+    WHERE
+      name ILIKE ${`%${query}%`} OR
+      category ILIKE ${`%${query}%`} OR
+      pricing ::text ILIKE ${`%${query}%`} OR
+      stock::text ILIKE ${`%${query}%`} OR
+      id_produk :: text ILIKE ${`%${query}%`} OR
+      img_url ILIKE ${`%${query}%`}
   `;
 
     const totalPages = Math.ceil(Number(data[0].count) / ITEMS_PER_PAGE);

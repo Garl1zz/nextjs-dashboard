@@ -4,6 +4,7 @@ import Search from '@/app/ui/forum-user/Search';
 import { alice } from "@/app/ui/fonts";
 import Pagination from "@/app/ui/pagination";
 import { fetchProductsData } from '@/app/lib/datacatalogue';
+import { fetchDataCataloguePages } from '@/app/lib/data1';
 
 export default async function ProductsPage(props: {
   searchParams?: Promise<{
@@ -12,18 +13,10 @@ export default async function ProductsPage(props: {
   }>;
 }) {
 
-  const searchParams = await props.searchParams;
-  const query = searchParams?.query || '';
-  const currentPage = Number(searchParams?.page) || 1;
-  const itemsPerPage = 6;
-
-  const allItems = await fetchProductsData();
-  const totalPages = Math.ceil(allItems.length / itemsPerPage);
-
-  const paginatedItems = allItems.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+ const searchParams = await props.searchParams;
+   const query = searchParams?.query || '';
+   const currentPage = Number(searchParams?.page) || 1;
+   const totalPages = await fetchDataCataloguePages(query);
 
 
   return (
@@ -35,8 +28,8 @@ export default async function ProductsPage(props: {
       </div>
 
       <div className="w-full">
-        <Suspense fallback={<div className="text-center py-10">Loading products...</div>}>
-          <Tablehome />
+        <Suspense key={query} fallback={<div className="text-center py-10">Loading products...</div>}>
+          <Tablehome query={query} currentPage={currentPage}/>
         </Suspense>
       </div>
 
