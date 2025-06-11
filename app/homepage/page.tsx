@@ -35,11 +35,17 @@ const team = [
   },
 ];
 
+const banner = [
+  { image: "/banner siweb.png" },
+];
+
 export default function Page() {
   return (
     <div className="w-full">
       <Header />
       <main className="flex flex-wrap justify-center gap-6 py-10 w-full bg-[#9b1a28]">
+
+
         {products.map((product) => (
           <div
             key={product.name}
@@ -52,9 +58,27 @@ export default function Page() {
               height={200}
               className="mb-2"
             />
+
             <p className={`${rye.className}`}>{product.name}</p>
           </div>
         ))}
+        <div className="w-full text-center my-10">
+          <h1 className={`text-[65px] text-white ${alice.className}`}>OUR PRODUCTS</h1>
+          <div className="w-50 h-1 bg-white mx-auto mt-4 rounded-full"></div>
+        </div>
+
+
+        <div className="mt-2 text-center w-full">
+          <Image
+            src="/banner siweb.png"
+            alt="Banner SIWEB"
+            width={1200}
+            height={450}
+            className="mx-auto rounded-xl shadow-lg"
+          />
+
+        </div>
+
       </main>
       <section className="bg-[#9b1928] py-16 text-center text-white">
         {/* <h2 className={`text-2xl font-bold mb-10 ${rye.className}`}>
@@ -83,7 +107,7 @@ export default function Page() {
         </div> */}
         <div className={`mt-10 ${alice.className}`}>
           {/* <Link href={"/homepage/team"}> */}
-            {/* <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded transition border-black border-2">
+          {/* <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded transition border-black border-2">
               Learn More About Us
             </button>
           </Link> */}

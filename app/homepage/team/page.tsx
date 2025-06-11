@@ -39,11 +39,13 @@ const team = [
   },
 ];
 
-export default function Page() {
+export default function Page({ showHeader = true , showFooter = true }) {
   return (
+    // 
     <div className="flex flex-col">
+      {showHeader && <Header />}
       <header>
-        <Header />
+        
         <h2 className={`flex justify-center text-[64px] text-white mt-20`}>
           Team and People
         </h2>
@@ -77,7 +79,8 @@ export default function Page() {
           ))}
         </div>
       </section>
-      <Footer />
+      {showFooter && <Footer />}
+      {/* <Footer /> */}
     </div>
   );
 }

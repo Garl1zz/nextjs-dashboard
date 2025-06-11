@@ -7,8 +7,8 @@ import clsx from 'clsx';
 const linksCustomer = [
   { name: 'Home', href: '/homepage' },
   {name: 'Products', href: '/homepage/products'},
-  { name: 'About Us', href: '/homepage/team' },
-  { name: 'Store Profile', href: '/homepage/store' },
+  // { name: 'About Us', href: '/homepage/team' },
+  { name: 'About Us', href: '/homepage/store' },
   { name: 'Contact', href: '/homepage/contact'},
   { name: 'Testimonies', href: '/homepage/testimonies' },
   { name: 'Profile', href: '/homepage/profile' },
