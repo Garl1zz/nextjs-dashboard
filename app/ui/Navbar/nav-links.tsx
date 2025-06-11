@@ -11,6 +11,7 @@ const linksCustomer = [
   { name: 'Store Profile', href: '/homepage/store' },
   { name: 'Contact', href: '/homepage/contact'},
   { name: 'Testimonies', href: '/homepage/testimonies' },
+  { name: 'Profile', href: '/homepage/profile' },
 ];  
 
 export default function NavLinks() {

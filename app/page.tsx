@@ -25,11 +25,23 @@ export default function Page() {
       );
       localStorage.setItem("token", "admin-token"); // Contoh token
       router.push("/adminpage");
-    } else if (username === "user123" && password === "12345") {
+
+
+        } else if (username === "user123" && password === "12345") {
+      // Simpan informasi pelanggan ke localStorage
+      localStorage.setItem(
+        "pelangganInfo",
+        JSON.stringify({ name: "Pelanggan Setia", email: "pelanggan@email.com" })
+      );
+      localStorage.setItem("token", "pelanggan-token"); // Contoh token
       router.push("/homepage");
+
+    
     } else {
       alert("Username atau password salah!");
     }
+
+
   };
 
   return (
