@@ -1,3 +1,4 @@
+// /app/page.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -17,6 +18,12 @@ export default function Page() {
     e.preventDefault();
 
     if (username === "admin123" && password === "12345") {
+      // Simpan informasi admin ke localStorage
+      localStorage.setItem(
+        "adminInfo",
+        JSON.stringify({ name: "Admin WonderSeekers", email: "admin@wonderseekers.com" })
+      );
+      localStorage.setItem("token", "admin-token"); // Contoh token
       router.push("/adminpage");
     } else if (username === "user123" && password === "12345") {
       router.push("/homepage");
@@ -34,8 +41,8 @@ export default function Page() {
             alt="logo"
             width={500}
             height={500}
-            className="flex flex-col w-full min-w-[400px] max-w-[590px] ">
-          </Image>
+            className="flex flex-col w-full min-w-[400px] max-w-[590px] "
+          ></Image>
         </div>
         <div className="w-full md:w-1/2 p-8 flex flex-col items-center justify-center">
           <div className="w-full md:w-1/2 py-4 flex flex-col justify-center">
