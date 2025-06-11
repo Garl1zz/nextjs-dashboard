@@ -18,22 +18,22 @@ export default function Page() {
     e.preventDefault();
 
     if (username === "admin123" && password === "12345") {
-      // Simpan informasi admin ke localStorage
+      
       localStorage.setItem(
         "adminInfo",
-        JSON.stringify({ name: "Admin WonderSeekers", email: "admin@wonderseekers.com" })
+        JSON.stringify({ name: "Admin", email: "admin001@wonderseekers.com", phonenumber: "0812-2847-2340" })
       );
-      localStorage.setItem("token", "admin-token"); // Contoh token
+      localStorage.setItem("token", "admin-token");
       router.push("/adminpage");
 
 
         } else if (username === "user123" && password === "12345") {
-      // Simpan informasi pelanggan ke localStorage
+      
       localStorage.setItem(
         "pelangganInfo",
-        JSON.stringify({ name: "Pelanggan Setia", email: "pelanggan@email.com" })
+        JSON.stringify({ name: "Aprillian Josua Marcelino", email: "AJM120@email.com", phonenumber: "0821-8379-3478" })
       );
-      localStorage.setItem("token", "pelanggan-token"); // Contoh token
+      localStorage.setItem("token", "pelanggan-token"); 
       router.push("/homepage");
 
     
