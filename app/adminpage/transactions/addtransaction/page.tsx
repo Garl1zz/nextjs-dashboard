@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { addTransactions } from "@/app/lib/actionscreate";
+import { addTransactions } from "@/app/lib/data1";
 import Link from "next/link";
 import { alice } from "@/app/ui/fonts";
 
@@ -124,10 +124,19 @@ export default function AddTransactionForm() {
     });
 
     if (result.success) {
-      alert("Transaksi berhasil ditambahkan!");
+      alert(
+        `✓ Transaksi berhasil ditambahkan!\n` +
+        `📦 Produk: ${selectedProduct?.name}\n` +
+        `📉 Jumlah terjual: ${salesAmount}\n` +
+        `📊 Sisa stok: ${result.remainingStock}`
+      );
       handleCancel();
+      // Refresh products to show updated stock
+      const productsRes = await fetch('/api/products');
+      const productsData = await productsRes.json();
+      setProducts(productsData);
     } else {
-      alert("Gagal menambahkan transaksi: " + result.error);
+      alert("❌ Gagal menambahkan transaksi: " + result.error);
     }
   };
 

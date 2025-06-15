@@ -1,12 +1,19 @@
 "use server"
+import { stackServerApp } from '@/stack';
 import { neon } from '@neondatabase/serverless';
 import { revalidatePath } from 'next/cache';
 import { NextResponse } from 'next/server';
 
+
 const sql = neon(process.env.DATABASE_URL!);
 const ITEMS_PER_PAGE = 6
 
+
+
 export async function TotalRevenue() {
+    const user = await stackServerApp.getUser();
+    const authToken = (await user?.getAuthJson())?.accessToken; 
+    
     const data = await sql`
     SELECT SUM(total_harga) as total from transactions`;
     return data;
@@ -140,12 +147,245 @@ export async function deleteDataCatalogue(id_produk: string){
 
 export async function deleteDataTransactions(id_transaksi: string){
   try{
-    const data = await sql`DELETE FROM transactions WHERE id_transaksi = ${id_transaksi}`;
+    // Get transaction details before deleting (to restore stock)
+    const transaction = await sql`
+      SELECT sales_amount, id_produk 
+      FROM transactions 
+      WHERE id_transaksi = ${id_transaksi}
+    `;
+    
+    if (transaction.length > 0) {
+      // Delete the transaction
+      await sql`DELETE FROM transactions WHERE id_transaksi = ${id_transaksi}`;
+      
+      // Restore the stock
+      await sql`
+        UPDATE item_catalogue 
+        SET stock = stock + ${transaction[0].sales_amount}
+        WHERE id_produk = ${transaction[0].id_produk}
+      `;
+    }
+    
     revalidatePath("adminpage/transactions");
-    return data;
+    return { success: true };
   } catch (error){
     console.error("Delete Error:", error)
+    return { success: false, error: error };
   }
 }
 
+export async function addTransactions(data: {
+  customerName: string;
+  tanggalTransaksi: string;
+  totalHarga: number;
+  salesAmount: number;
+  id_transaksi?: string;
+  idProduk: string;
+}) {
+  try {
+    
+    const stockCheck = await sql`
+      SELECT stock, name 
+      FROM item_catalogue 
+      WHERE id_produk = ${parseInt(data.idProduk)}
+    `;
+    
+    if (stockCheck.length === 0) {
+      return {
+        success: false,
+        error: 'Produk tidak ditemukan'
+      };
+    }
+    
+    if (stockCheck[0].stock < data.salesAmount) {
+      return {
+        success: false,
+        error: `Stok tidak mencukupi! Stok tersedia: ${stockCheck[0].stock}`
+      };
+    }
+    
 
+    if (data.id_transaksi) {
+      await sql`
+        INSERT INTO transactions (
+          id_transaksi,
+          customer_name,
+          tanggal_transaksi,
+          total_harga,
+          sales_amount,
+          id_produk
+        ) VALUES (
+          ${data.id_transaksi},
+          ${data.customerName},
+          ${data.tanggalTransaksi},
+          ${data.totalHarga},
+          ${data.salesAmount},
+          ${parseInt(data.idProduk)}
+        )
+      `;
+    } else {
+      await sql`
+        INSERT INTO transactions (
+          customer_name,
+          tanggal_transaksi,
+          total_harga,
+          sales_amount,
+          id_produk
+        ) VALUES (
+          ${data.customerName},
+          ${data.tanggalTransaksi},
+          ${data.totalHarga},
+          ${data.salesAmount},
+          ${parseInt(data.idProduk)}
+        )
+      `;
+    }
+    
+  
+    // update stock - kurangi sales amount
+    await sql`
+      UPDATE item_catalogue 
+      SET stock = stock - ${data.salesAmount}
+      WHERE id_produk = ${parseInt(data.idProduk)}
+    `;
+    
+    const newStock = await sql`
+      SELECT stock 
+      FROM item_catalogue 
+      WHERE id_produk = ${parseInt(data.idProduk)}
+    `;
+    
+   
+    revalidatePath('/adminpage/transactions');
+    revalidatePath('/adminpage/item-catalogue');
+    
+    return {
+      success: true,
+      message: 'Transaksi berhasil ditambahkan!',
+      remainingStock: newStock[0].stock
+    };
+    
+  } catch (error) {
+    console.error('Error in addTransactions:', error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Gagal menambahkan transaksi'
+    };
+  }
+}
+
+// Manual stock update
+export async function UpdateStocks(
+  id_produk: string,
+  newStock: number
+) {
+  try {
+    
+    const result = await sql`
+      UPDATE item_catalogue 
+      SET stock = ${newStock}
+      WHERE id_produk = ${id_produk}
+      RETURNING stock, name
+    `;
+    
+    if (result.length === 0) {
+      return {
+        success: false,
+        error: 'Produk tidak ditemukan'
+      };
+    }
+    
+    revalidatePath('/adminpage/item-catalogue');
+    
+    return {
+      success: true,
+      message: `Stok ${result[0].name} berhasil diupdate menjadi ${result[0].stock}`,
+      newStock: result[0].stock
+    };
+    
+  } catch (error) {
+    console.error('Error updating stock:', error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Gagal update stok'
+    };
+  }
+}
+
+//  ADJUST STOCK (add and subtract)
+export async function AdjustStock(
+  id_produk: string,
+  adjustment: number,
+  type: 'add' | 'subtract'
+) {
+  try {
+    
+    const currentStock = await sql`
+      SELECT stock, name 
+      FROM item_catalogue 
+      WHERE id_produk = ${id_produk}
+    `;
+    
+    if (currentStock.length === 0) {
+      return {
+        success: false,
+        error: 'Produk tidak ditemukan'
+      };
+    }
+   
+    const newStock = type === 'add' 
+      ? currentStock[0].stock + adjustment
+      : currentStock[0].stock - adjustment;
+    
+    if (newStock < 0) {
+      return {
+        success: false,
+        error: 'Stok tidak boleh negatif'
+      };
+    }
+    
+
+    await sql`
+      UPDATE item_catalogue 
+      SET stock = ${newStock}
+      WHERE id_produk = ${id_produk}
+    `;
+    
+    revalidatePath('/adminpage/item-catalogue');
+    
+    return {
+      success: true,
+      message: `Stok ${currentStock[0].name} berhasil ${type === 'add' ? 'ditambah' : 'dikurangi'} ${adjustment}. Stok sekarang: ${newStock}`,
+      previousStock: currentStock[0].stock,
+      newStock: newStock
+    };
+    
+  } catch (error) {
+    console.error('Error adjusting stock:', error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : 'Gagal adjust stok'
+    };
+  }
+}
+
+export async function GetLowStockProducts(threshold: number = 10) {
+  try {
+    const products = await sql`
+      SELECT 
+        id_produk,
+        name,
+        category,
+        stock,
+        pricing
+      FROM item_catalogue
+      WHERE stock <= ${threshold}
+      ORDER BY stock ASC, name ASC
+    `;
+    
+    return products;
+  } catch (error) {
+    console.error('Error getting low stock products:', error);
+    return [];
+  }
+}

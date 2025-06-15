@@ -7,7 +7,11 @@ import LogoutButton from '@/app/adminpage/profile/LogoutButton';
 
 export default function AdminProfilePage() {
   const router = useRouter();
-  const [adminInfo, setAdminInfo] = useState<{ name: string; email: string; phonenumber: string; } | null>(null);
+  const [adminInfo, setAdminInfo] = useState<{ 
+    name: string; 
+    email: string; 
+    phonenumber: string; 
+  } | null>(null);
 
   useEffect(() => {
     const storedInfo = localStorage.getItem('adminInfo');
@@ -22,33 +26,97 @@ export default function AdminProfilePage() {
     return <div className="text-center mt-10 text-gray-600">Loading profile...</div>;
   }
 
+  // Split the name into first and last name
+  const nameParts = adminInfo.name.split(' ');
+  const firstName = nameParts[0] || '';
+  const lastName = nameParts.slice(1).join(' ') || '';
+
   return (
-    <main className={`min-h-screen rounded-3xl bg-[#9b1928] flex items-center justify-center px-4 ${alice.className}`}>
-      <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-10 flex flex-col items-center">
-        <div className="w-32 h-32 rounded-full border-4 border-[#981827] overflow-hidden mb-6 shadow-lg">
-          <img
-            src="/profile/arif.png"
-            alt="Profile picture of admin"
-            className="w-full h-full object-contain mt-0.5"
-            // onError={(e) => {
-            //   (e.target as HTMLImageElement).src = "https://placehold.co/256x256/png?text=No+Image";
-            // }}
-          />
+    <main className={`min-h-screen bg-gray-50 py-8 px-4 ${alice.className}`}>
+      <div className="max-w-4xl mx-auto">
+        
+        <h1 className="text-3xl font-bold mb-6">PROFILE</h1>
+
+        <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-200">
+                <img
+                  src="/profile/arif.png"
+                  alt="Profile picture"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h2 className="text-xl font-semibold text-[#d32f2f]">{adminInfo.name.toUpperCase()}</h2>
+                <p className="text-gray-600">Admin</p>
+                <p className="text-gray-600">{adminInfo.email}</p>
+              </div>
+            </div>
+            <LogoutButton />
+          </div>
         </div>
-        <h1 className="text-4xl font-extrabold text-[#981827] mb-4">{adminInfo.name}</h1>
-        <div className='text-left'>
+
+        {/* Admin Profile Section */}
+        <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-xl font-bold text-[#d32f2f]">ADMIN PROFILE</h3>
+            <button className="bg-orange-400 hover:bg-orange-500 text-white px-4 py-1 rounded-md font-semibold flex items-center space-x-1 transition-colors">
+              <span>EDIT</span>
+            </button>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <p className="text-gray-600 text-sm mb-1">First name</p>
+              <p className="font-semibold">{firstName}</p>
+            </div>
+            <div>
+              <p className="text-gray-600 text-sm mb-1">Last name</p>
+              <p className="font-semibold">{lastName || 'Ramadinata'}</p>
+            </div>
+            <div>
+              <p className="text-gray-600 text-sm mb-1">Date of birth</p>
+              <p className="font-semibold">12-10-2005</p>
+            </div>
+            <div>
+              <p className="text-gray-600 text-sm mb-1">Email Address</p>
+              <p className="font-semibold">{adminInfo.email}</p>
+            </div>
+            <div>
+              <p className="text-gray-600 text-sm mb-1">Phone Number</p>
+              <p className="font-semibold">{adminInfo.phonenumber}</p>
+            </div>
+            <div>
+              <p className="text-gray-600 text-sm mb-1">User Role</p>
+              <p className="font-semibold">Admin</p>
+            </div>
+          </div>
         </div>
-        <div>
-        <p className="text-lg text-gray-700 mb-2 text-left break-words">Email: {adminInfo.email}</p>
-        <p className="text-lg text-gray-700 mb-2 text-left break-words">
-          Nomor Telepon: {adminInfo.phonenumber}
-        </p>
-        <p className="text-lg text-gray-700 mb-8 text-left break-words">
-          Role: Admin
-        </p>
-        </div>
-        <div className="w-full flex justify-center">
-          <LogoutButton />
+
+        {/* Address Section */}
+        <div className="bg-white rounded-xl shadow-sm p-6">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-xl font-bold text-[#d32f2f]">ADDRESS</h3>
+            <button className="bg-orange-400 hover:bg-orange-500 text-white px-4 py-1 rounded-md font-semibold flex items-center space-x-1 transition-colors">
+              <span>EDIT</span>
+            </button>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div>
+              <p className="text-gray-600 text-sm mb-1">Country</p>
+              <p className="font-semibold">Indonesia</p>
+            </div>
+            <div>
+              <p className="text-gray-600 text-sm mb-1">City</p>
+              <p className="font-semibold">Lampung</p>
+            </div>
+            <div>
+              <p className="text-gray-600 text-sm mb-1">Postal Code</p>
+              <p className="font-semibold">098989</p>
+            </div>
+          </div>
         </div>
       </div>
     </main>
