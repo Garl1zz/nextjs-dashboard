@@ -72,8 +72,8 @@ export function ICSkeleton() {
         <div className="flex w-full rounded-md bg-white">
           <div className="mt-3 ml-2 h-6 w-32 rounded-md bg-gray-200" />
           <div className="mt-3 ml-24 h-6 w-16 rounded-md bg-gray-200" />
-          <div className="mt-3 ml-72 h-6 w-28 rounded-md bg-gray-200" />
-          <div className="mt-3 ml-24 h-6 w-20 rounded-md bg-gray-200" />
+          <div className="mt-3 ml-64 h-6 w-28 rounded-md bg-gray-200" />
+          <div className="mt-3 ml-12 h-6 w-20 rounded-md bg-gray-200" />
           <div className="mt-3 ml-36 h-6 w-24 rounded-md bg-gray-200" />
         </div>
         <div className="w-full bg-white ">
@@ -82,12 +82,13 @@ export function ICSkeleton() {
               key={i}
               className="flex items-center justify-between py-4"
             >
-              <div className="ml-24 mt-3 h-4 w-6 bg-gray-200 rounded" />
-              <div className="ml-4 mt-3 h-4 w-56 bg-gray-200 rounded" />
-              <div className="ml-20 mt-3 h-4 w-20 bg-gray-200 rounded" />
-              <div className="mt-3 mr-18 h-4 w-32 bg-gray-200 rounded" />
-              <div className="mr-24 mt-3 h-4 w-8 bg-gray-200 rounded" />
-              <div className="mr-8 h-8 w-14 bg-gray-200 rounded-sm" />
+              <div className="ml-4 mt-3 h-4 w-6 bg-gray-200 rounded" />
+              <div className="ml-32 mt-3 h-4 w-56 bg-gray-200 rounded" />
+              <div className="ml-8 mt-3 h-4 w-20 bg-gray-200 rounded" />
+              <div className="mt-3 ml-18 h-4 w-32 bg-gray-200 rounded" />
+              <div className="ml-8 mt-3 h-4 w-8 bg-gray-200 rounded" />
+              <div className="ml-24 h-8 w-12 bg-gray-200 rounded-sm" />
+              <div className="mr-6 h-8 w-20 bg-gray-200 rounded-sm" />
             </div>
           ))}
         </div>
@@ -103,24 +104,25 @@ export function TransactionSkeleton() {
         <div className="flex w-full rounded-md bg-white">
           <div className="mt-3 ml-4 h-6 w-40 rounded-md bg-gray-200" />
           <div className="mt-3 ml-20 h-6 w-16 rounded-md bg-gray-200" />
-          <div className="mt-3 ml-56 h-6 w-28 rounded-md bg-gray-200" />
+          <div className="mt-3 ml-52 h-6 w-28 rounded-md bg-gray-200" />
           <div className="mt-3 ml-16 h-6 w-12 rounded-md bg-gray-200" />
           <div className="mt-3 ml-32 h-6 w-24 rounded-md bg-gray-200" />
           <div className="mt-3 ml-20 h-6 w-16 rounded-md bg-gray-200" />
         </div>
         <div className="w-full rounded-md bg-white ">
-          {[...Array(10)].map((placeholder, i) => (
+          {[...Array(6)].map((placeholder, i) => (
             <div
               key={i}
               className="flex items-center justify-between py-3.5"
             >
               <div className="ml-4 mt-2 h-4 w-12 bg-gray-200 rounded" />
-              <div className="ml-36 mt-3 h-4 w-52 bg-gray-200 rounded" />
-              <div className="ml-16 mt-2 h-4 w-4 bg-gray-200 rounded" />
-              <div className="ml-36 mt-2 h-4 w-28 bg-gray-200 rounded" />
-              <div className="ml-28 mt-2 mr-18 h-4 w-4 bg-gray-200 rounded" />
-              <div className="mr-12 ml-16 mt-2 h-4 w-24 bg-gray-200 rounded" />
-              <div className="mr-8 h-8 w-20 bg-gray-200 rounded-sm" />
+              <div className="ml-48 mt-3 h-4 w-40 bg-gray-200 rounded" />
+              <div className="ml-36 mt-2 h-4 w-4 bg-gray-200 rounded" />
+              <div className="ml-16 mt-2 h-4 w-28 bg-gray-200 rounded" />
+              <div className="ml-36 mt-2 mr-18 h-4 w-4 bg-gray-200 rounded" />
+              <div className="ml-16 mt-2 h-4 w-24 bg-gray-200 rounded" />
+              <div className="ml-24 h-8 w-12 bg-gray-200 rounded-sm" />
+              <div className="mr-6 h-8 w-20 bg-gray-200 rounded-sm" />
             </div>
           ))}
         </div>

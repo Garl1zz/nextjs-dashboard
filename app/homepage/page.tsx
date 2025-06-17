@@ -8,43 +8,21 @@ import Footer from "../ui/footer";
 const products = [
   { name: "Juggling balls", image: "/juggling-balls.png" },
   { name: "Shiny Top Hats", image: "/top-hats.png" },
-  { name: "Circus Lv 10 Cannon", image: "/cannon.png" },
-  { name: "The Holy Unicycle", image: "/unicycle.png" },
-];
-
-const team = [
-  {
-    name: "Steven Christantio",
-    role: "CEO",
-    image: "/profile/steven.png",
-  },
-  {
-    name: "Aprillian Josua Marcelino",
-    role: "CCO",
-    image: "/profile/josua.png",
-  },
-  {
-    name: "Ivan Haryanto",
-    role: "COO",
-    image: "/profile/ivan.png",
-  },
-  {
-    name: "Arif Ramadinata",
-    role: "CIO",
-    image: "/profile/arif.png",
-  },
-];
-
-const banner = [
-  { image: "/banner siweb.png" },
+  { name: "Circus Cannon", image: "/cannon.png" },
+  { name: "Good Unicycle", image: "/unicycle.png" },
 ];
 
 export default function Page() {
   return (
-    <div className="w-full">
+    <div className="w-full bg-white">
       <Header />
-      <main className="flex flex-wrap justify-center gap-6 py-10 w-full bg-[#9b1a28]">
-
+      <main className="flex flex-wrap justify-center gap-6 py-10 w-full bg-white ">
+        <div className="w-full text-center my-10">
+          <h1 className={`text-[65px] text-black ${alice.className}`}>
+            OUR PRODUCTS
+          </h1>
+          <div className="w-50 h-1 bg-white mx-auto mt-4 rounded-full"></div>
+        </div>
 
         {products.map((product) => (
           <div
@@ -58,34 +36,43 @@ export default function Page() {
               height={200}
               className="mb-2"
             />
-
             <p className={`${rye.className}`}>{product.name}</p>
           </div>
         ))}
+
         <div className="w-full text-center my-10">
-          <h1 className={`text-[65px] text-white ${alice.className}`}>OUR PRODUCTS</h1>
-          <div className="w-50 h-1 bg-white mx-auto mt-4 rounded-full"></div>
+          <Link href={"/homepage/products"}>
+          <h1 className={`text-[32px] text-blue-400 underline ${alice.className}`}>
+            View More
+          </h1>
+          </Link>
+          <div className="w-50 h-1 bg-white mx-auto rounded-full"></div>
         </div>
 
-
-        <div className="mt-2 text-center w-full">
-          <Image
-            src="/banner siweb.png"
-            alt="Banner SIWEB"
-            width={1200}
-            height={450}
-            className="mx-auto rounded-xl shadow-lg"
-          />
-
+        <div className="w-full text-center my-10">
+          <h1 className={`text-[40px] text-white ${alice.className} bg-red-600`}>
+            Ready to Discover the Magic?
+          </h1>
         </div>
-
+          
+        <section>
+          <div className="mt-2 text-center w-full">
+            <Image
+              src="/banner siweb.png"
+              alt="Banner SIWEB"
+              width={1200}
+              height={450}
+              className="mx-auto rounded-xl shadow-lg border-gray-300 border-2"
+            />
+          </div>
+        </section>
       </main>
-      <section className="bg-[#9b1928] py-16 text-center text-white">
-        {/* <h2 className={`text-2xl font-bold mb-10 ${rye.className}`}>
+      {/* <section className="bg-white py-16 text-center text-white"> */}
+      {/* <h2 className={`text-2xl font-bold mb-10 ${rye.className}`}>
           About Us
         </h2> */}
 
-        {/* <div className="flex flex-wrap justify-center gap-8 px-4">
+      {/* <div className="flex flex-wrap justify-center gap-8 px-4">
           {team.map((member) => (
             <div
               key={member.name}
@@ -105,14 +92,14 @@ export default function Page() {
             </div>
           ))}
         </div> */}
-        <div className={`mt-10 ${alice.className}`}>
-          {/* <Link href={"/homepage/team"}> */}
-          {/* <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded transition border-black border-2">
+      {/* <div className={`mt-10 ${alice.className}`}> */}
+      {/* <Link href={"/homepage/team"}> */}
+      {/* <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded transition border-black border-2">
               Learn More About Us
             </button>
           </Link> */}
-        </div>
-      </section>
+      {/* </div> */}
+      {/* // </section> */}
       <Footer />
     </div>
   );

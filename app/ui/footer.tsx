@@ -5,7 +5,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <main className="bg-[#18243b] border-t border-red-800 shadow-inner mt-12">
+    <main className="bg-[#18243b] border-t border-white shadow-inner mt-12">
       <div className="min-h-[200px] flex items-center justify-center">
       <div className="max-w-7xl mx-auto py-10 px-4 grid grid-cols-1 md:grid-cols-3 gap-14 text-white">
         <div className={`text-white ${alice.className}`}>

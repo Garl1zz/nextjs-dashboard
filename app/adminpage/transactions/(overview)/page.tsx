@@ -10,21 +10,22 @@ import Pagination from "@/app/ui/pagination";
 const ITEMS_PER_PAGE = 6;
 
 export default async function Page(props: {
-  searchParams? : Promise<{
+  searchParams?: Promise<{
     query?: string;
-    page?:string;
+    page?: string;
   }>;
 }) {
-
   const searchParams = await props.searchParams;
-  const query = searchParams?.query || '';
+  const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
   const totalPages = await fetchTransactionsPages(query);
 
   return (
-    <div className="p-4">
-      <div className={`flex justify-between items-center mb-4 ${alice.className}`}>
-      <h1 className="text-3xl font-bold mb-6">TRANSACTIONS</h1>
+    <main className="p-4">
+      <div
+        className={`flex justify-between items-center mb-4 ${alice.className}`}
+      >
+        <h1 className="text-3xl font-bold mb-6">TRANSACTIONS</h1>
         <div className="flex gap-2">
           <Link href="/adminpage/transactions/addtransaction">
             <button className="text-xl rounded-sm px-4 py-2 bg-[#6A70CC] hover:bg-[#4e57d1] text-white ">
@@ -36,18 +37,23 @@ export default async function Page(props: {
 
       <div className={`mb-4 ${alice.className}`}>
         <Suspense fallback={<div>Loading search...</div>}>
-          <Search  placeholder="Search Transactions..." />
+          <Search placeholder="Search Transactions..." />
         </Suspense>
       </div>
 
-      <div>
-        <Suspense key={query + currentPage} fallback={<TransactionSkeleton />}>
-          <Table query={query} currentPage={currentPage}/>
-        </Suspense>
-      </div>
-      <div className="mt-5 flex w-full justify-center">
-        <Pagination totalPages={totalPages}/>
-      </div>
-    </div>
+      <section>
+        <div>
+          <Suspense
+            key={query + currentPage}
+            fallback={<TransactionSkeleton />}
+          >
+            <Table query={query} currentPage={currentPage} />
+          </Suspense>
+        </div>
+        <div className="mt-5 flex w-full justify-center">
+          <Pagination totalPages={totalPages} />
+        </div>
+      </section>
+    </main>
   );
 }

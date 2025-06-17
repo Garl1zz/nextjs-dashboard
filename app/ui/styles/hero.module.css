@@ -25,8 +25,8 @@
 }
 
 .showcaseHome {
-  background: #fff url("/vecteezy_colored-circus-background.jpg") no-repeat center / cover;
-  height: 700px;
+  background: #fff url("/background-home.png") no-repeat right;
+  height: 649px;
   width: 100%;
   max-width: 1708px;
   color: #fff;
@@ -34,7 +34,9 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  border-bottom: 2px solid #fff;
+  background-size: 30% auto; 
+  background-position: right center; 
+  border-bottom: 60px solid #981827;
 }
 
 .showcaseHome * {
@@ -42,12 +44,13 @@
 }
 
 .showcaseHome h1 {
-  font-size: 50px;
+  font-size: 55px;
   margin-bottom: 0;
+  font-weight: bold;
 }
 
 .showcaseHome p {
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 0;
 }
 
