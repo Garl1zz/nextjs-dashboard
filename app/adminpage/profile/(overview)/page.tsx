@@ -1,40 +1,23 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+
 import { alice } from '@/app/ui/fonts';
 import LogoutButton from '@/app/adminpage/profile/LogoutButton';
+import { useUser, useStackApp, UserButton } from "@stackframe/stack";
 
 export default function AdminProfilePage() {
-  const router = useRouter();
-  const [adminInfo, setAdminInfo] = useState<{ 
-    name: string; 
-    email: string; 
-    phonenumber: string; 
-  } | null>(null);
+  const user = useUser();
+  const app = useStackApp();
 
-  useEffect(() => {
-    const storedInfo = localStorage.getItem('adminInfo');
-    if (storedInfo) {
-      setAdminInfo(JSON.parse(storedInfo));
-    } else {
-      router.push('/');
-    }
-  }, [router]);
 
-  if (!adminInfo) {
-    return <div className="text-center mt-10 text-gray-600">Loading profile...</div>;
-  }
-
-  // Split the name into first and last name
-  const nameParts = adminInfo.name.split(' ');
+  const nameParts = user?.displayName?.split(' ') || [];
   const firstName = nameParts[0] || '';
   const lastName = nameParts.slice(1).join(' ') || '';
 
   return (
     <main className={`min-h-screen bg-gray-50 py-8 px-4 ${alice.className}`}>
-      <div className="max-w-4xl mx-auto">
-        
+      <div className="max-w-4xl mx-auto"> 
         <h1 className="text-3xl font-bold mb-6">PROFILE</h1>
 
         <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
@@ -48,9 +31,9 @@ export default function AdminProfilePage() {
                 />
               </div>
               <div>
-                <h2 className="text-xl font-semibold text-[#d32f2f]">{adminInfo.name.toUpperCase()}</h2>
+                <h2 className="text-xl font-semibold text-[#d32f2f]">{user?.displayName?.toUpperCase()}</h2>
                 <p className="text-gray-600">Admin</p>
-                <p className="text-gray-600">{adminInfo.email}</p>
+                <p className="text-gray-600">{user?.primaryEmail}</p>
               </div>
             </div>
             <LogoutButton />
@@ -69,7 +52,7 @@ export default function AdminProfilePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <p className="text-gray-600 text-sm mb-1">First name</p>
-              <p className="font-semibold">{firstName}</p>
+              <p className="font-semibold">{firstName ?? "unnamed user"}</p>
             </div>
             <div>
               <p className="text-gray-600 text-sm mb-1">Last name</p>
@@ -81,11 +64,11 @@ export default function AdminProfilePage() {
             </div>
             <div>
               <p className="text-gray-600 text-sm mb-1">Email Address</p>
-              <p className="font-semibold">{adminInfo.email}</p>
+              <p className="font-semibold">{user?.primaryEmail}</p>
             </div>
             <div>
               <p className="text-gray-600 text-sm mb-1">Phone Number</p>
-              <p className="font-semibold">{adminInfo.phonenumber}</p>
+              <p className="font-semibold">097868678767</p>
             </div>
             <div>
               <p className="text-gray-600 text-sm mb-1">User Role</p>

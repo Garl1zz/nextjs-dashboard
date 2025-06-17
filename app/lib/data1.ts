@@ -7,12 +7,12 @@ import { NextResponse } from 'next/server';
 
 const sql = neon(process.env.DATABASE_URL!);
 const ITEMS_PER_PAGE = 6
+ 
 
 
 
 export async function TotalRevenue() {
-    const user = await stackServerApp.getUser();
-    const authToken = (await user?.getAuthJson())?.accessToken; 
+    
     
     const data = await sql`
     SELECT SUM(total_harga) as total from transactions`;
@@ -116,6 +116,7 @@ export async function fetchTransactionsPages(query: string) {
 
 export async function fetchDataCataloguePages(query: string) {
   try {
+    
     const data = await sql`SELECT COUNT (*)
     FROM item_catalogue 
     WHERE

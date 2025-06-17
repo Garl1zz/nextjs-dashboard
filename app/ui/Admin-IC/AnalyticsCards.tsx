@@ -1,3 +1,4 @@
+import { stackServerApp } from "@/stack";
 import { FaMoneyBillWave, FaChartLine, FaCoins, FaBoxes } from "react-icons/fa";
 import { alice } from '../fonts';
 import { ProdukTerjual, ProdukTerlaris, Rata2Terjual, TotalRevenue } from "@/app/lib/data1";
@@ -15,6 +16,8 @@ export default async function Cards (){
 
   const rata2terjual = await Rata2Terjual();
   const avgsold = rata2terjual[0]?.rata_rata_terjual || 0;
+
+  
     return (
         
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
