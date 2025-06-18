@@ -26,7 +26,7 @@
 
 .showcaseHome {
   background: #fff url("/background-home.png") no-repeat right;
-  height: 649px;
+  height: 650px;
   width: 100%;
   max-width: auto;
   color: #fff;
@@ -35,7 +35,7 @@
   justify-content: center;
   text-align: center;
   background-size: 30% auto; 
-  background-position: right center; 
+  background-position: center right 20%; 
   border-bottom: 60px solid #981827;
 }
 
