@@ -204,7 +204,7 @@ export default function AdminProfilePage() {
               <button
                 onClick={triggerFileUpload}
                 disabled={isUpdating}
-                className="absolute -bottom-2 left-12 w-8 h-8 bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 text-white rounded-full flex items-center justify-center shadow-lg transition-colors"
+                className="absolute -bottom-2 left-9 w-8 h-8 bg-blue-500 hover:bg-blue-600 disabled:bg-gray-300 text-white rounded-full flex items-center justify-center shadow-lg transition-colors"
               >
                 <FaCamera size={12} />
               </button>
