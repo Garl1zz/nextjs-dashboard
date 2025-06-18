@@ -20,7 +20,7 @@ export default async function Page() {
       <Header />
       <main className="flex flex-wrap justify-center gap-6 py-10 w-full bg-white ">
         <div className="w-full text-center my-10">
-          <h1 className={`text-[65px] text-black ${alice.className}`}>
+          <h1 className={`text-[60px] text-black ${alice.className}`}>
             OUR PRODUCTS
           </h1>
           <div className="w-50 h-1 bg-white mx-auto mt-4 rounded-full"></div>
@@ -52,7 +52,7 @@ export default async function Page() {
         </div>
 
         <div className="w-full text-center my-10">
-          <h1 className={`text-[40px] text-white ${alice.className} bg-red-600`}>
+          <h1 className={`text-[44px] text-white ${alice.className} bg-[#981827] h-24 place-content-center `}>
             Ready to Discover the Magic?
           </h1>
         </div>
