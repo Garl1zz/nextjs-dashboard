@@ -25,7 +25,6 @@ export default function AddTransactionForm() {
   const [idTransaksi, setIdTransaksi] = useState("");
   const [idProduk, setIdProduk] = useState("");
   
-  // New states for dropdowns
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -35,7 +34,7 @@ export default function AddTransactionForm() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch unique customers (you'll need to create this API endpoint)
+        // Fetch unique customers 
         const customersRes = await fetch('/api/customers');
         const customersData = await customersRes.json();
         setCustomers(customersData);
@@ -58,11 +57,12 @@ export default function AddTransactionForm() {
   const handleProductChange = (productId: string) => {
     setIdProduk(productId);
     
+    // Auto-calculate total price based on quantity
     if (productId) {
       const product = products.find(p => p.id.toString() === productId);
       if (product) {
         setSelectedProduct(product);
-        // Auto-calculate total price based on quantity
+        
         if (salesAmount) {
           const total = product.price * parseInt(salesAmount);
           setTotalHarga(total.toString());
@@ -125,10 +125,10 @@ export default function AddTransactionForm() {
 
     if (result.success) {
       alert(
-        `✓ Transaksi berhasil ditambahkan!\n` +
-        `📦 Produk: ${selectedProduct?.name}\n` +
-        `📉 Jumlah terjual: ${salesAmount}\n` +
-        `📊 Sisa stok: ${result.remainingStock}`
+        ` Transaksi berhasil ditambahkan!\n` +
+        ` Produk: ${selectedProduct?.name}\n` +
+        ` Jumlah terjual: ${salesAmount}\n` +
+        ` Sisa stok: ${result.remainingStock}`
       );
       handleCancel();
       // Refresh products to show updated stock
@@ -136,7 +136,7 @@ export default function AddTransactionForm() {
       const productsData = await productsRes.json();
       setProducts(productsData);
     } else {
-      alert("❌ Gagal menambahkan transaksi: " + result.error);
+      alert("Gagal menambahkan transaksi: " + result.error);
     }
   };
 
@@ -176,19 +176,19 @@ export default function AddTransactionForm() {
 
         <div className="flex flex-col">
           <label className="text-lg font-medium">Nama Pelanggan</label>
-          <select
+          <input
             className="border px-4 py-2"
             value={customerName}
             onChange={(e) => setCustomerName(e.target.value)}
-            required
+            required  
           >
-            <option value="">Pilih Pelanggan</option>
+            {/* <option value="">Pilih Pelanggan</option>
             {customers.map((customer, index) => (
               <option key={index} value={customer.name}>
                 {customer.name}
               </option>
-            ))}
-          </select>
+            ))} */}
+          </input>
         </div>
 
         <div className="flex flex-col">
