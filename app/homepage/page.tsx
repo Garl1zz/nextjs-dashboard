@@ -4,6 +4,7 @@ import Image from "next/image";
 import { alice, rye } from "../ui/fonts";
 import Link from "next/link";
 import Footer from "../ui/footer";
+import { stackServerApp } from "@/stack";
 
 const products = [
   { name: "Juggling balls", image: "/juggling-balls.png" },
@@ -12,7 +13,8 @@ const products = [
   { name: "Good Unicycle", image: "/unicycle.png" },
 ];
 
-export default function Page() {
+export default async function Page() {
+  const user = await stackServerApp.getUser({ or: 'redirect' });
   return (
     <div className="w-full bg-white">
       <Header />
