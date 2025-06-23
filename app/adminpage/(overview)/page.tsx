@@ -4,14 +4,17 @@ import { Suspense } from "react";
 import { CardsSkeleton, RevenueChartSkeleton } from "@/app/ui/skeletons";
 import Fetchdatachart from "@/app/ui/chartui/fetchrevenuechartui";
 import { stackServerApp } from "@/stack";
+import { GetCredentials } from "@/app/lib/data1";
 
 export default async function Dashboard() {
 
   const user = await stackServerApp.getUser({ or: 'redirect' });
   const admin = await stackServerApp.getTeam('09b45a29-e6b8-49ea-969b-28162e013b89');
   const hasAdminAccess = await user.getPermission(admin!, 'team_admin')
+  const adminCred = await GetCredentials()
 
-  if (!hasAdminAccess) {
+
+  if (!hasAdminAccess || adminCred) {
     return (
       <main className={`${alice.className} min-h-screen bg-white p-8`}>
           <div className="text-center">
